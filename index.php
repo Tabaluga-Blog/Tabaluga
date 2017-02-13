@@ -10,7 +10,6 @@
                 flex-direction: column;
                 justify-content: center;
                 min-height: 100vh;
-                padding: 0;
                 margin:0;
             }
             h1 {
