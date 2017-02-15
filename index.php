@@ -4,22 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home</title>
-        <style media="screen">
-            body {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                min-height: 100vh;
-                margin:0;
-            }
-            h1 {
-                display: block;
-                font-family: "Arial";
-                text-align: center;
-            }
-        </style>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/header.css">
+        <link rel="stylesheet" href="styles/sidebar.css">
     </head>
     <body>
-        <h1>Let's make something awesome!</h1>
+        <?php require_once "header.php" ?>
     </body>
 </html>

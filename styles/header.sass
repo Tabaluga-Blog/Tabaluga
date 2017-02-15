@@ -1,0 +1,65 @@
+@import "_colors.sass"
+
+header
+    position: fixed
+    height: 80px
+    width: 100vw
+    border-bottom: 1px solid $border
+    
+    .left
+        width: 30vw
+        display: inline-flex
+        flex-direction: row
+        align-items: center
+        justify-content: flex-start
+        margin: 0
+        padding: 0
+        .logo
+            height: 60px
+            width: 60px
+            margin: 10px
+        .title
+            text-transform: uppercase
+            font-size: 48px
+            letter-spacing: 8px
+            color: $titleColor
+            
+            
+    .right
+        float: right
+        height: 80px
+        width: 50vw
+        
+        ul
+            height: 100%
+            list-style: none
+            display: flex
+            justify-content: flex-end
+            align-items: center
+            padding-right: 15px
+            
+            .searchbar
+                resize: none
+                height: 30px
+                width: 225px
+                line-height: 30px
+                font-size: 20px
+                color: #4A4A4A
+                outline: none
+                padding: 0 5px
+                background: none
+                
+            
+            li
+                display: block
+                width: 125px
+                height: 50%
+                border: 2px solid $border
+                border-radius: 10px
+                text-align: center
+                line-height: 40px
+                margin: 0 10px
+                background: #FFF
+                
+                &:hover
+                    background: $itemHover

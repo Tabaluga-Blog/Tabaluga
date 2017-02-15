@@ -1,0 +1,52 @@
+@import "_colors.sass"
+
+.sidebar
+    display: inline-block
+    position: fixed
+    top: 80px
+    width: 200px
+    height: 700px
+    border-right: 2px solid $border
+    
+    ul
+        font-size: 22px
+        color: $fontColor
+        list-style: none
+        
+        .dropDown
+            h3
+                display: block
+                width: 100%
+                height: 40px
+                line-height: 40px
+                margin-left: 10px
+                
+                span
+                    font-size: 20px
+                    
+            .container
+                display: none
+                
+                a, a:visited
+                    display: block
+                    border-bottom: 1px solid $border
+                    overflow: hidden
+                    text-decoration: none
+                    color: #6F6F6F
+                    height: 35px
+                    line-height: 35px
+                    transition: all 0s
+                    
+                    &:first-of-type
+                        border-top: 1px solid $border
+                        
+                    &:hover
+                        background: #C9C9C9
+                        color: black
+                        
+                    li
+                        margin-left: 15px
+                        
+                        
+            &:hover .container
+                display: block
