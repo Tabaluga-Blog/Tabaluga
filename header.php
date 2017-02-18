@@ -3,7 +3,7 @@
         <img class="logo" src="images/Logo.gif">
         <h1 class="title" href="magic.php">Cyblog</h1>
     </div>
-    
+
     <div class="right">
         <ul>
             <textarea class="searchbar" maxlength="40" placeholder="Search"></textarea>
