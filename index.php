@@ -17,11 +17,7 @@
           <!-- fix the positioning to work :) -->
 
           <div class="login" style="padding: 300px;">
-              <header class="header">
-                  <span class="text"> LOGIN </span>
-                  <span class="loader"></span>
-              </header>
-
+              
               <p class="login">
                   <a href="login.php">
                       Login
@@ -33,6 +29,7 @@
                   </a>
               </p>
 
+<!-- still have no such page -->
               <div class="">
                   <a href="nologin.html">
                       Continue without login
