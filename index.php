@@ -11,35 +11,5 @@
     </head>
     <body>
         <?php require_once "header.php" ?>
-
-
-
-          <!-- fix the positioning to work :) -->
-
-          <div class="login" style="padding: 300px;">
-              
-              <p class="login">
-                  <a href="login.php">
-                      Login
-                  </a>
-              </p>
-              <p class="register">
-                  <a href="register.php">
-                      Register
-                  </a>
-              </p>
-
-<!-- still have no such page -->
-              <div class="">
-                  <a href="nologin.html">
-                      Continue without login
-                  </a>
-              </div>
-
-          </div>
-
-
-
-
     </body>
 </html>

@@ -7,7 +7,9 @@
                 <a href="#"><li>Make post</li></a>
                 <a href="#"><li>Favorite posts</li></a>
                 <a href="#"><li>Drafts</li></a>
-                <a href="#"><li>Options</li></a>
+                <a href="#"><li>Edit Profile</li></a>
+                <a href="#"><li>Edit Mail</li></a>
+                <a href="#"><li>Edit Privacy</li></a>
             </div>
         </div>
     </ul>
@@ -29,17 +31,6 @@
             <div class="container">
                 <a href="#"><li>Subscribtions</li></a>
                 <a href="#"><li>My subscribers</li></a>
-            </div>
-        </div>
-    </ul>
-    
-    <ul>
-        <div class="dropDown">
-            <h3>Options <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
-            <div class="container">
-                <a href="#"><li>Edit Profile</li></a>
-                <a href="#"><li>Edit Mail</li></a>
-                <a href="#"><li>Edit Privacy</li></a>
             </div>
         </div>
     </ul>

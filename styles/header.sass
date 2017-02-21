@@ -1,13 +1,18 @@
 @import "_colors.sass"
+@import "_functions.sass"
 
 header
     position: fixed
+    left: 0
+    top: 0
     height: 80px
     width: 100vw
     border-bottom: 1px solid $border
+    background: rgb(171, 236, 33)
     
     .left
         width: 30vw
+        height: 100%
         display: inline-flex
         flex-direction: row
         align-items: center
@@ -17,12 +22,20 @@ header
         .logo
             height: 60px
             width: 60px
-            margin: 10px
+            @include centerBlock(auto, 10px)
+                
+            @media screen and (max-width: 700px)
+                width: 40px
+                height: 40px
+            
         .title
             text-transform: uppercase
-            font-size: 48px
+            font-size: 4.5vw
             letter-spacing: 8px
             color: $titleColor
+            
+            @media screen and (max-width: 700px)
+                font-size: 3.5vw
             
             
     .right
@@ -47,11 +60,19 @@ header
                 color: #4A4A4A
                 outline: none
                 padding: 0 5px
-                background: none
+                background: white
+                z-index: 10
                 
+                @media screen and (max-width: 700px)
+                    min-width: 25px
+                    overflow: hidden
+                    
+                    &:focus
+                        min-width: 100px
             
-            li
+            a, a:visited
                 display: block
+                min-width: 60px
                 width: 125px
                 height: 50%
                 border: 2px solid $border
@@ -60,6 +81,8 @@ header
                 line-height: 40px
                 margin: 0 10px
                 background: #FFF
+                text-decoration: none
+                color: black
                 
                 &:hover
                     background: $itemHover
