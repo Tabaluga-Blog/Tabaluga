@@ -1,53 +1,59 @@
 <?php
-
-include('connect.php');
+use Models\User;
+use DB\Database;
+require_once("Models/User.php");
+require_once("DB/DBConnect.php");
+require_once("DB/Database.php");
 
 $message = "";
 
 if(isset($_POST['submit']))
 {
-    if($_POST['name']=='' || $_POST['email']=='' || $_POST['password']==''|| $_POST['confirm_password']=='')
+    $email = $_POST['email'];
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+    $confirmPassword = $_POST['confirm_password'];
+
+    if($email == '' ||
+        $name == '' ||
+        $password == ''||
+        $confirmPassword == '')
     {
         $message = "please fill the empty field.";
-
+    }
+    else if ( $password != $confirmPassword) {
+        $message = "Password does not match.";
     }
     else
     {
-
-        $sql = 'SELECT * FROM users where email = "'.  $_POST['email'] . '"';
-
-        $result = $mysqli->query($sql);
-
-        if ($result->num_rows > 0) {
-            $message = "Email already used";
-
+        //create user
+        try{
+            $user = new User($email, $name, $password);
         }
-        else if ( $_POST['password'] != $_POST['confirm_password']) {
-            $message = "Password does not match.";
+        catch (Exception $e){
+            $message = $e->getMessage();
+        }
+
+        //check if user exists
+        $result = Database::getUser($user);
+        if ($result) {
+           $message = "Email already used";
         }
         else {
 
-            $stmt = $mysqli->prepare("INSERT INTO users (email, name, password, city) VALUES (?, ?, ?, ?) ");
+            //register user
+            $result = Database::addUser($user);
 
-            $stmt->bind_param("ssss", $_POST['email'], $_POST['name'], md5($_POST['password']), $_POST['city']);
-
-           $stmt->execute();
-
-
-
-            if($stmt->affected_rows == 1)
+            if($result)
             {
-
-                $_SESSION['user_id'] = $mysqli->insert_id;
-                $_SESSION['name'] = $_POST['name'];
+                $_SESSION['user_id'] = $user->getId();
+                $_SESSION['name'] = $user->getName();
                 header('Location: home_page.php');
             }
             else {
                 $message = "Insert post failed.";
             }
-
         }
-
     }
 }
 
@@ -79,8 +85,6 @@ if(isset($_POST['submit']))
         <label for='confirm_password' >Confirm Password:</label>
         <input type='password' name='confirm_password' id='confirm_password' maxlength="50" />
 
-        <label for='city' > City: </label>
-        <input type='text' name='city' id='city' maxlength="50" <?php if (isset($_POST['city'])) {echo 'value =' . "'" . $_POST['city'] . "'";} ?> />
 
         <input class="button" type='submit' name='submit' value='Submit' />
 
