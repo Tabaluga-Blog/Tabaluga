@@ -13,11 +13,8 @@
         <?php require_once "header.php" ?>
 
 
-
-          <!-- fix the positioning to work :) -->
-
           <div class="login" style="padding: 300px;">
-              
+
               <p class="login">
                   <a href="login.php">
                       Login
