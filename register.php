@@ -46,9 +46,7 @@ if(isset($_POST['submit']))
 
             if($result)
             {
-                $_SESSION['user_id'] = $user->getId();
-                $_SESSION['name'] = $user->getName();
-                header('Location: home_page.php');
+                header('Location: login.php');
             }
             else {
                 $message = "Insert post failed.";

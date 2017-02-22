@@ -26,12 +26,6 @@
                   </a>
               </p>
 
-<!-- still have no such page -->
-              <div class="">
-                  <a href="nologin.html">
-                      Continue without login
-                  </a>
-              </div>
 
           </div>
 
