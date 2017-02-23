@@ -11,7 +11,7 @@
                 <div class="dropDown">
                     <h3>Profile <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
                     <div class="container">
-                        <a href="#"><li>My profile</li></a>
+                        <a href="profile.php"><li>My profile</li></a>
                         <a href="#"><li>Make post</li></a>
                         <a href="#"><li>Favorite posts</li></a>
                         <a href="#"><li>Drafts</li></a>
