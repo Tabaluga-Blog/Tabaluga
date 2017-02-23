@@ -28,6 +28,8 @@ if(isset($_POST['submit']))
     }
     else
     {
+        $user = null;
+
         //create user
         try{
             $user = new User($email, $name, $password);
@@ -36,26 +38,31 @@ if(isset($_POST['submit']))
             $message = $e->getMessage();
         }
 
-        //check if user exists
-        $result = Database::getEmail($user);
-        if ($result) {
-           $message = "Email already used";
-        }
-        else {
-
-            //register user
-            $result = Database::addUser($user);
-
-            if($result)
-            {
-                header('Location: Login.php');
+        if ($user){
+            //check if user exists
+            $result = Database::getEmail($user);
+            if ($result) {
+                $message = "Email already used";
             }
             else {
-                $message = "Insert post failed.";
+
+                //register user
+                $result = Database::addUser($user);
+
+                if($result)
+                {
+                    header('Location: login.php');
+                }
+                else {
+                    $message = "Insert post failed.";
+                }
             }
         }
+
+
     }
 }
+
 
 ?>
 
@@ -68,7 +75,7 @@ if(isset($_POST['submit']))
     <title>Register</title>
 </head>
 <body>
-<form id='register' action='Register.php' method='post'>
+<form id='register' action='register.php' method='post'>
     <fieldset >
 
         <legend><h1>Register</h1></legend>
