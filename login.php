@@ -1,10 +1,18 @@
 <?php
 
-include('connect.php');
+use Models\User;
+use DB\Database;
+require_once("Models/User.php");
+require_once("DB/DBConnect.php");
+require_once("DB/Database.php");
+
 
 $message = "";
 
+
+
 if (isset($_SESSION['user_id'])) {
+
     header('Location: home_page.php');
     exit;
 }
