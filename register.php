@@ -5,6 +5,8 @@ require_once("Models/User.php");
 require_once("DB/DBConnect.php");
 require_once("DB/Database.php");
 
+include_once 'isLogged.php';
+
 $message = "";
 
 if(isset($_POST['submit']))

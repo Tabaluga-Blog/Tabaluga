@@ -6,15 +6,9 @@ require_once("Models/User.php");
 require_once("DB/DBConnect.php");
 require_once("DB/Database.php");
 
-session_start();
+include_once 'isLogged.php';
+
 $message = "";
-
-
-if (isset($_SESSION['user'])) {
-
-    header('Location: Home.php');
-    exit;
-}
 
 if (isset($_POST['email'], $_POST['password'])) {
     $email = $_POST['email'];
@@ -66,10 +60,6 @@ if (isset($_POST['email'], $_POST['password'])) {
 
 
 </div>
-
-
-
-
 
 </body>
 </html>

@@ -11,5 +11,10 @@
     </head>
     <body>
         <?php require_once "Header.php" ?>
+
+        <ul style="padding: 300px;">
+            <li><a href="login.php">Log in</a></li>
+            <li><a href="register.php">Register</a></li>
+        </ul>
     </body>
 </html>
