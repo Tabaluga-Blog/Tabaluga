@@ -10,6 +10,6 @@
         <link rel="stylesheet" href="styles/sidebar.css">
     </head>
     <body>
-        <?php require_once "header.php" ?>
+        <?php require_once "Header.php" ?>
     </body>
 </html>

@@ -13,4 +13,4 @@
     </div>
 </header>
 
-<?php require 'sidebar.php'; ?>
+<?php require 'Sidebar.php'; ?>

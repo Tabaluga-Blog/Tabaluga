@@ -46,7 +46,7 @@ if(isset($_POST['submit']))
 
             if($result)
             {
-                header('Location: login.php');
+                header('Location: Login.php');
             }
             else {
                 $message = "Insert post failed.";
@@ -66,7 +66,7 @@ if(isset($_POST['submit']))
     <title>Register</title>
 </head>
 <body>
-<form id='register' action='register.php' method='post'>
+<form id='register' action='Register.php' method='post'>
     <fieldset >
 
         <legend><h1>Register</h1></legend>

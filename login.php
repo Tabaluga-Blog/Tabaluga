@@ -12,7 +12,7 @@ $message = "";
 
 if (isset($_SESSION['user'])) {
 
-    header('Location: home_page.php');
+    header('Location: Home.php');
     exit;
 }
 
@@ -30,7 +30,7 @@ if (isset($_POST['email'], $_POST['password'])) {
         //$_SESSION['user_id'] = $userInfo['id'];
         //$_SESSION['name'] = $userInfo['name'];
 
-        header('Location: home_page.php'); exit;
+        header('Location: Home.php'); exit;
     } else {
         $message = "Incorrect email or password";
     }
@@ -54,7 +54,7 @@ if (isset($_POST['email'], $_POST['password'])) {
         <span class="loader"></span>
     </header>
 
-    <form class="form" action="login.php" method="POST">
+    <form class="form" action="Login.php" method="POST">
         <input class="input" type="email" placeholder="Email" name="email">
         <input class="input" type="password" placeholder="Password" name="password">
         <button class="btn" type="submit">Go</button>
