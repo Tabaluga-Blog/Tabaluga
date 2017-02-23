@@ -35,7 +35,7 @@ if(isset($_POST['submit']))
         }
 
         //check if user exists
-        $result = Database::getUser($user);
+        $result = Database::getEmail($user);
         if ($result) {
            $message = "Email already used";
         }
@@ -94,11 +94,3 @@ if(isset($_POST['submit']))
 </form>
 </body>
 </html>
-
-
-
-
-<?php
-
-
-?>

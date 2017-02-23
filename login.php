@@ -6,12 +6,11 @@ require_once("Models/User.php");
 require_once("DB/DBConnect.php");
 require_once("DB/Database.php");
 
-
+session_start();
 $message = "";
 
 
-
-if (isset($_SESSION['user_id'])) {
+if (isset($_SESSION['user'])) {
 
     header('Location: home_page.php');
     exit;
@@ -21,17 +20,17 @@ if (isset($_POST['email'], $_POST['password'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    $userInfo = Database::getUser($email, $password);
 
-    $sql = 'SELECT * FROM users where email = "' . $email . '" and password = "' . md5($password) . '"';
+    if ($userInfo) {
 
-    $result = $mysqli->query($sql);
+        $user = new User($email, $userInfo['name'], $password);
+        $_SESSION['user'] = $user;
 
-    $user = $result->fetch_assoc();
+        //$_SESSION['user_id'] = $userInfo['id'];
+        //$_SESSION['name'] = $userInfo['name'];
 
-    if ($user) {
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['name'] = $user['name'];
-        header('Location: home_page.php');
+        header('Location: home_page.php'); exit;
     } else {
         $message = "Incorrect email or password";
     }
