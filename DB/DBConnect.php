@@ -2,7 +2,6 @@
 
 namespace DB;
 
-use Models\User;
 
 //implementing Singleton
 class DBConnect
@@ -38,7 +37,7 @@ class DBConnect
         return self::$instance;
     }
 
-    public function getUser($email)
+    public function getEmail($email)
     {
         $sql = 'SELECT * FROM users where email = "'.  $email . '"';
 
@@ -64,5 +63,16 @@ class DBConnect
         }
 
         return false;
+    }
+
+    public function getUser($email, $password)
+    {
+        $sql = 'SELECT * FROM users where email = "' . $email . '" and password = "' . md5($password) . '"';
+
+        $result = $this->mysqli->query($sql);
+
+        $userInfo = $result->fetch_assoc();
+
+        return $userInfo;
     }
 }
