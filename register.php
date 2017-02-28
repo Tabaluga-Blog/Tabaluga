@@ -12,9 +12,9 @@ $message = "";
 if(isset($_POST['submit']))
 {
     $email = $_POST['email'];
-    $name = $_POST['name'];
+    $name = $_POST['fullName'];
     $password = $_POST['password'];
-    $confirmPassword = $_POST['confirm_password'];
+    $confirmPassword = $_POST['confirmPassword'];
 
     if($email == '' ||
         $name == '' ||
@@ -130,7 +130,7 @@ if(isset($_POST['submit']))
                 <div class="control-group">
                     <!-- Button -->
                     <div class="controls">
-                        <button class="btn btn-success">Register</button>
+                        <button class="btn btn-success"> <input type="submit" id="submit" name="submit" placeholder="" value="Register"></button>
                     </div>
                 </div>
             </fieldset>
