@@ -1,11 +1,8 @@
-
+<?php
+if (isset($_SESSION['user'])) {
+    ?>
 
 <aside class="sidebar">
-
-    <?php
-        if (isset($_SESSION['user'])) {
-
-        ?>
 
             <ul>
                 <div class="dropDown">
@@ -42,8 +39,9 @@
                     </div>
                 </div>
             </ul>
-    <?php
-        }
-    ?>
 
 </aside>
+
+<?php
+}
+?>
