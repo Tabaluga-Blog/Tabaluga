@@ -36,30 +36,51 @@ if (isset($_POST['email'], $_POST['password'])) {
 <html >
 <head>
     <meta charset="UTF-8">
-    <title></title>
-
+    <title>Login</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+<?php require_once "Header.php" ?>
+<ul style="padding: 300px;">
+    <center>
+        <form class="form-horizontal" action='login.php' method="POST">
+            <fieldset>
+                <div id="legend">
+                    <legend class="">Login</legend>
+                <div class="control-group">
+                    <!-- E-mail -->
+                    <label class="control-label" for="email">E-mail</label>
+                    <div class="controls">
+                        <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+                    </div>
+                </div>
 
-<div class="login">
-    <header class="header">
-        <span class="text"> LOGIN </span>
-        <span class="loader"></span>
-    </header>
-
-    <form class="form" action="Login.php" method="POST">
-        <input class="input" type="email" placeholder="Email" name="email">
-        <input class="input" type="password" placeholder="Password" name="password">
-        <button class="btn" type="submit">Go</button>
-
-        <div class="error">
-            <?php echo $message; ?>
-        </div>
-    </form>
-
-
-</div>
+                <div class="control-group">
+                    <!-- Password-->
+                    <label class="control-label" for="password">Password</label>
+                    <div class="controls">
+                        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+                    </div>
+                </div>
+                    <br>
+                <div class="control-group">
+                    <!-- Button -->
+                    <div class="controls">
+                        <button class="btn btn-success">Login</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </center>
+</ul>
 
 </body>
 </html>
