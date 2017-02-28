@@ -73,33 +73,69 @@ if(isset($_POST['submit']))
     <meta charset="utf-8">
 
     <title>Register</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<form id='register' action='register.php' method='post'>
-    <fieldset >
+    <?php require_once "Header.php" ?>
+    <ul style="padding: 300px;">
+        <center>
+        <form class="form-horizontal" action='register.php' method="POST">
+            <fieldset>
+                <div id="legend">
+                    <legend class="">Register</legend>
+                </div>
+                <div class="control-group">
+                    <!-- Full Name -->
+                    <label class="control-label"  for="fullName">Full Name</label>
+                    <div class="controls">
+                        <input type="text" id="fullName" name="fullName" placeholder="" class="input-xlarge">
+                        <p class="help-block">Full name should be at least 2 characters</p>
+                    </div>
+                </div>
 
-        <legend><h1>Register</h1></legend>
+                <div class="control-group">
+                    <!-- E-mail -->
+                    <label class="control-label" for="email">E-mail</label>
+                    <div class="controls">
+                        <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+                        <p class="help-block">Please provide your E-mail</p>
+                    </div>
+                </div>
 
-        <label for='name'> Your Full Name: </label>
-        <input type='text' name='name' id='name' maxlength="50" <?php if (isset($_POST['name'])) {echo 'value =' . "'" . $_POST['name'] . "'";} ?>/>
+                <div class="control-group">
+                    <!-- Password-->
+                    <label class="control-label" for="password">Password</label>
+                    <div class="controls">
+                        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+                        <p class="help-block">Password should be at least 5 characters</p>
+                    </div>
+                </div>
 
-        <label for='email' >Email Address: </label>
-        <input type='email' name='email' id='email' maxlength="50" <?php if (isset($_POST['email'])) {echo 'value =' . "'" . $_POST['email'] . "'";} ?> />
+                <div class="control-group">
+                    <!-- Password -->
+                    <label class="control-label"  for="confirmPassword">Password (Confirm)</label>
+                    <div class="controls">
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="" class="input-xlarge">
+                        <p class="help-block">Please confirm password</p>
+                    </div>
+                </div>
 
-        <label for='password' >Password:</label>
-        <input type='password' name='password' id='password' maxlength="50" />
-
-        <label for='confirm_password' >Confirm Password:</label>
-        <input type='password' name='confirm_password' id='confirm_password' maxlength="50" />
-
-
-        <input class="button" type='submit' name='submit' value='Submit' />
-
-        <div>
-            <?php echo $message; ?>
-        </div>
-
-    </fieldset>
-</form>
+                <div class="control-group">
+                    <!-- Button -->
+                    <div class="controls">
+                        <button class="btn btn-success">Register</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        </center>
+    </ul>
 </body>
 </html>
