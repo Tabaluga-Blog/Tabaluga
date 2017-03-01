@@ -34,19 +34,24 @@
             .container
                 opacity: 0
                 visibility: hidden
+                width: 300px
                 transform: translateY(-2em)
                 position: absolute
-                transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s
+                left: 200px
+                top: 0px
+                transition: all 0s
                 
-                a, a:visited
+                a, a:visited, a:link, a:active
                     display: block
                     border-bottom: 1px solid $border
                     overflow: hidden
                     text-decoration: none
                     color: #6F6F6F
                     height: 35px
+                    width: 100%
                     line-height: 35px
                     transition: all 0s
+                    transition-delay: 0s
                     
                     &:first-of-type
                         border-top: 1px solid $border
@@ -63,5 +68,7 @@
                 visibility: visible
                 opacity: 1
                 transform: translateY(0%)
-                position: relative
-                transition-delay: 0s, 0s, 0.3s
+                position: absolute
+                background: black
+                color: white
+                left: 200px
