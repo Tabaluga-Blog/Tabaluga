@@ -3,7 +3,6 @@ if (isset($_SESSION['user'])) {
     ?>
 
 <aside class="sidebar">
-
             <ul>
                 <div class="dropDown">
                     <h3>Profile <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>

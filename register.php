@@ -102,7 +102,7 @@ if(isset($_POST['submit']))
             <input class="form-control" type="password" name="confirmPassword">
         </div>
 
-        <button class="btn btn-success" type="submit" name="submit">Submit</button>
+        <button class="btn btn-success" type="submit" name="submit"><span>Submit</span></button>
     </form>
 </body>
 </html>

@@ -1,8 +1,9 @@
 <?php
 
+Use Models\User;
+require_once ("Models/User.php");
 
 include_once 'notLogged.php';
-
 
 ?>
 

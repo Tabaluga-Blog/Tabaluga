@@ -1,3 +1,18 @@
+<?php
+
+Use Models\User;
+require_once ("Models/User.php");
+if (!session_start()) {
+    session_start();
+}
+
+if (isset($_SESSION['user'])) {
+    header("Location: Home.php");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +25,7 @@
         <link rel="stylesheet" href="styles/sidebar.css">
     </head>
     <body>
-        <?php require_once "Header.php" ?>
+        <?php require_once "header.php" ?>
 
     </body>
 </html>
