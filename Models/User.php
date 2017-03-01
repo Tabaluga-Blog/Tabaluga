@@ -12,7 +12,6 @@ class User
     private $password;
     private $registerDate;
 
-
     public function __construct($email, $name, $password)
     {
         $this->email = $email;

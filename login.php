@@ -58,7 +58,7 @@ if (isset($_POST['email'], $_POST['password'])) {
         <label for="password">Password:</label>
         <input class="input form-control" type="password" name="password">
     </div>
-    <button type="submit" class="btn btn-default">Log In</button>
+    <button type="submit" class="btn btn-success">Log In</button>
 </form>
 
 </body>
