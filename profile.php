@@ -19,19 +19,10 @@ include_once 'header.php';
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/sidebar.css">
 </head>
-
 <body>
 <?php require_once "Header.php" ?>
-
 <div style="padding: 300px;">
-
-    
-
 </div>
-
-
-
-
-
+<?php require_once "footer.php" ?>
 </body>
 </html>

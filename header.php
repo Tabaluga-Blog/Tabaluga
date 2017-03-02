@@ -17,7 +17,7 @@
     
     <div class="left">
         <img class="logo" src="images/Logo.png">
-        <h1 class="title" href="magic.php">Tabaluga</h1>
+        <a href="index.php"><h1 class="title">Tabaluga</h1></a>
     </div>
 
     <div class="right">
