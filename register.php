@@ -60,26 +60,11 @@ if(isset($_POST['submit']))
         }
     }
 }
+
+require_once "Header.php" 
+
 ?>
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-
-    <title>Register</title>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/sidebar.css">
-</head>
-<body>
-    <?php require_once "Header.php" ?>
-    <form action='register.php' method="POST">
+    <form class="large" action='register.php' method="POST">
         <p style="color:red"> <?php echo $message . "<br>" ?> </p>
         
         <div class="form-group">
@@ -99,7 +84,7 @@ if(isset($_POST['submit']))
 
         <div class="form-group">
             <label for="confirmPassword">Confirm Password:</label>
-            <input class="form-control" type="password" name="confirmPassword">
+            <input class="form-control" type="password" name="confirmPassword" placeholder="Confirm password">
         </div>
 
         <button class="btn btn-success" type="submit" name="submit"><span>Submit</span></button>

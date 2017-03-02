@@ -8,7 +8,7 @@ if (isset($_SESSION['user'])) {
                     <h3>Profile <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
                     <div class="container">
                         <a href="profile.php"><li>My profile</li></a>
-                        <a href="#"><li>Make post</li></a>
+                        <a href="post.php"><li>Make post</li></a>
                         <a href="#"><li>Favorite posts</li></a>
                         <a href="#"><li>Drafts</li></a>
                         <a href="#"><li>Edit Profile</li></a>

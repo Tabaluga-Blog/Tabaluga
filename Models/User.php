@@ -1,7 +1,6 @@
 <?php
 namespace Models;
 
-
 use Exception;
 
 class User
@@ -83,10 +82,8 @@ class User
     }
 
 
-
-
     public function editProfile(){}
 
 
-
+    
 }
