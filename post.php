@@ -6,7 +6,8 @@ require_once("DB/DBConnect.php");
 require_once("DB/Database.php");
 require 'notLogged.php';
 
-require_once 'header.php'; 
+require_once 'header.php';
+// require_once 'views/post.view.php';
 ?>
         
         <form class="xlarge" action="post.php" method="post">
