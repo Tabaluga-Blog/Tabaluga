@@ -54,14 +54,15 @@ class DBConnect
     {
         $stmt = $this->mysqli->prepare("INSERT INTO users (email, name, password) VALUES (?, ?, ?)");
 
-        $stmt->bind_param("sss", $email, $name, md5($password));
+        $pwd = md5($password);
+
+        $stmt->bind_param("sss", $email, $name, $pwd);
 
         $stmt->execute();
 
         if ($stmt->affected_rows == 1){
             return true;
         }
-
         return false;
     }
 

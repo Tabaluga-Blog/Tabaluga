@@ -26,6 +26,17 @@ if (isset($_SESSION['user'])) {
     </head>
     <body>
         <?php require_once "header.php" ?>
-
+        <center>
+            <div class="jumbotron">
+                <h1 class="display-3">Hello To Tabaluga Blog!</h1>
+                <p class="lead">This is a simple Blog. Here you can share your interests and see other people posts</p>
+                <hr class="my-4">
+                <p>If you are bored or you're free, share us the things you love ;)</p>
+                <p class="lead">
+                    <a class="btn btn-success btn-lg" href="register.php" role="button">Register</a>
+                </p>
+            </div>
+        </center>
+        <?php require_once "footer.php" ?>
     </body>
 </html>

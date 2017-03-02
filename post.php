@@ -1,12 +1,14 @@
 <?php 
 use Models\User;
 use DB\Database;
+
 require_once("Models/User.php");
 require_once("DB/DBConnect.php");
 require_once("DB/Database.php");
-require 'notLogged.php';
 
-require_once 'header.php'; 
+require 'notLogged.php';
+require_once 'header.php';
+// require_once 'views/post.view.php';
 ?>
         
         <form class="xlarge" action="post.php" method="post">
@@ -22,6 +24,7 @@ require_once 'header.php';
                         } ?>
                     </h2>    
                 </div>
+                
                 <input required type="text" name="title" class="form-control noRound" placeholder="Top 10 coolest cats!">
                 
                 <!-- Content -->
@@ -48,24 +51,24 @@ require_once 'header.php';
             </div>
         </form>
         
-    </body>
-</html>
-
+        
 
 <?php 
 
+require 'footer.php';
 
 if (isset($_POST['submit'])) {
     $user = $_SESSION['user'];
     $title = $_POST['title'];
     $content = $_POST['content'];
     $category = intval($_POST['category']);
+    
+    echo var_dump($_SESSION['user']->getId());
+    
     $result = Database::makePost($user, $title, $content, (int)$category);
     
-    echo $result;
-    
     if ($result) {
-        header("location: index.php");
+        header("location: Home.php");
     } else {
         die("Something went wrong! :(");
     }
