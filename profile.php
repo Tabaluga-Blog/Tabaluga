@@ -23,14 +23,6 @@ include_once 'header.php';
 <body>
 <?php require_once "Header.php" ?>
 
-<div style="padding: 300px;">
-
-    
-
-</div>
-
-
-
 
 
 </body>

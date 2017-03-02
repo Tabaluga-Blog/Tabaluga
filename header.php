@@ -2,7 +2,7 @@
 <html >
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Tabaluga</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,7 +17,7 @@
     
     <div class="left">
         <img class="logo" src="images/Logo.png">
-        <h1 class="title" href="magic.php">Tabaluga</h1>
+        <a href="index.php"><h1 class="title">Tabaluga</h1></a>
     </div>
 
     <div class="right">

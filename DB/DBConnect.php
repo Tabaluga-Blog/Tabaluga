@@ -1,7 +1,7 @@
 <?php
 
 namespace DB;
-
+use Models\User as User;
 
 //implementing Singleton
 class DBConnect
@@ -74,5 +74,21 @@ class DBConnect
         $userInfo = $result->fetch_assoc();
 
         return $userInfo;
+    }
+    
+    public function makePost(User $user, string $title, string $content, int $category)
+    {
+        $query = $this->mysqli->prepare('INSERT INTO posts (user_id, title, content, category_id) VALUES (?, ?, ?, ?)');
+        
+        $userId = intval($user->getId());
+        $query->bind_param("issi", $userId, $title, $content, $category);
+        
+        
+        $query->execute();
+        
+        if ($query->execute()) {
+            return true;
+        }
+        return $query->error;
     }
 }

@@ -7,7 +7,12 @@
     transition-delay:all 0s
     
 body
+    display: block
     padding-top: 100px
+    min-height: 600px
+    
+    @media screen and (max-width: 800px)
+        padding-left: 20px
     
 form
     @include centerBlock(0, auto)
@@ -15,16 +20,14 @@ form
     flex-direction: column
     padding: 0px 25px
 
-.custom-select
-    font-size: 20px
-
 .searchbar
     overflow-y: hidden
     display: block
     height: 30px
 
-a
+a, a:hover
     font-size: 17px
+    text-decoration: none
 
 label
     text-align: center
@@ -36,11 +39,22 @@ label
 button span
     font-size: 20px
     
-.textarea
+.noResize
     resize: none
     
+.noRound
+    border-radius: 0
     
 //Helper Classes
+.bigText
+    font-size: 28px
+    
+.mediumText
+    font-size: 18px
+    
+.smallText
+    font-size: 10px
+
 .small
     max-width: 300px
 
@@ -60,6 +74,12 @@ button span
     display: flex
     flex-direction: row
     justify-content: space-around 
+
+.quarterMissing
+    @include centerBlock(0, auto)
+    min-width: 75%
+    
+    
 //When screen is smaller than 800px all of the forms become full scale
 .small,
 .medium,

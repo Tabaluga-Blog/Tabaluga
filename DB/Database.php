@@ -2,7 +2,7 @@
 
 namespace DB;
 
-use Models\User;
+use Models\User as User;
 require_once "DBConnect.php";
 
 class Database
@@ -23,5 +23,11 @@ class Database
     {
         $db = DBConnect::getInstance();
         return $db->getUser($email, $password);
+    }
+    
+    public static function makePost(User $user, string $title, string $content, int $category)
+    {
+        $db = DBConnect::getInstance();
+        return $db->makePost($user, $title, $content, (int)$category);
     }
 }

@@ -11,9 +11,6 @@ if (isset($_SESSION['user'])) {
                         <a href="post.php"><li>Make post</li></a>
                         <a href="#"><li>Favorite posts</li></a>
                         <a href="#"><li>Drafts</li></a>
-                        <a href="#"><li>Edit Profile</li></a>
-                        <a href="#"><li>Edit Mail</li></a>
-                        <a href="#"><li>Edit Privacy</li></a>
                     </div>
                 </div>
             </ul>
@@ -38,7 +35,18 @@ if (isset($_SESSION['user'])) {
                     </div>
                 </div>
             </ul>
-
+            
+            <ul>
+                <div class="dropDown">
+                    <h3>Options <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
+                    <div class="container">
+                        <a href="#"><li>Edit Profile</li></a>
+                        <a href="#"><li>Edit Mail</li></a>
+                        <a href="#"><li>Edit Privacy</li></a>
+                    </div>
+                </div>
+            </ul>
+            
 </aside>
 
 <?php
