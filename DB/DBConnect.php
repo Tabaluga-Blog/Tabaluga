@@ -52,7 +52,8 @@ class DBConnect
 
     public function addUser($email, $name, $password)
     {
-        $stmt = $this->mysqli->prepare("INSERT INTO users (email, name, password) VALUES (?, ?, ?)");
+        $stmt = $this->mysqli->prepare("INSERT INTO users (email, name, password)
+                                        VALUES (?, ?, ?)");
 
         $pwd = md5($password);
 
@@ -79,7 +80,8 @@ class DBConnect
     
     public function makePost(User $user, string $title, string $content, int $category)
     {
-        $query = $this->mysqli->prepare('INSERT INTO posts (user_id, title, content, category_id) VALUES (?, ?, ?, ?)');
+        $query = $this->mysqli->prepare('INSERT INTO posts (user_id, title, content, category_id) 
+                                          VALUES (?, ?, ?, ?)');
         
         $userId = intval($user->getId());
         $query->bind_param("issi", $userId, $title, $content, $category);
@@ -91,5 +93,11 @@ class DBConnect
             return true;
         }
         return $query->error;
+    }
+
+    public function editProfile($name, $password)
+    {
+
+        //TODO: Add Functionality..
     }
 }
