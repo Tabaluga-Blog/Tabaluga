@@ -30,4 +30,10 @@ class Database
         $db = DBConnect::getInstance();
         return $db->makePost($user, $title, $content, (int)$category);
     }
+
+    public static function editProfile($name, $password)
+    {
+        $db = DBConnect::getInstance();
+        return $db->editProfile($name, $password);
+    }
 }

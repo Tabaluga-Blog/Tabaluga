@@ -35,15 +35,10 @@ if (isset($_SESSION['user'])) {
                     </div>
                 </div>
             </ul>
-            
+
             <ul>
                 <div class="dropDown">
-                    <h3>Options <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
-                    <div class="container">
-                        <a href="#"><li>Edit Profile</li></a>
-                        <a href="#"><li>Edit Mail</li></a>
-                        <a href="#"><li>Edit Privacy</li></a>
-                    </div>
+                    <a href="editProfile.php"><h3>Edit Profile</h3></a>
                 </div>
             </ul>
             

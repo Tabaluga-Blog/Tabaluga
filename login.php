@@ -18,7 +18,7 @@ if (isset($_POST['email'], $_POST['password'])) {
 
     if ($userInfo) {
 
-        $user = new User($email, $userInfo['name'], $password);
+        $user = new User($userInfo['id'], $email, $userInfo['name'], $password);
         $_SESSION['user'] = $user;
 
         $_SESSION['user_id'] = $userInfo['id'];

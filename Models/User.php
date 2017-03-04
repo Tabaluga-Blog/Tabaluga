@@ -11,11 +11,12 @@ class User
     private $password;
     private $registerDate;
 
-    public function __construct($email, $name, $password)
+    public function __construct($id, $email, $name, $password)
     {
-        $this->email = $email;
-        $this->name = $name;
-        $this->password = $password;
+        $this->setId($id);
+        $this->setEmail($email);
+        $this->setName($name);
+        $this->setPassword($password);
         $this->setRegisterDate(date("Y-m-d H:i:s"));
     }
 
