@@ -80,24 +80,29 @@ class DBConnect
     
     public function makePost(User $user, string $title, string $content, int $category)
     {
-        $query = $this->mysqli->prepare('INSERT INTO posts (user_id, title, content, category_id) 
-                                          VALUES (?, ?, ?, ?)');
+        $stmt = $this->mysqli->prepare('INSERT INTO posts (user_id, title, content, category_id)  VALUES (?, ?, ?, ?)');
         
         $userId = intval($user->getId());
-        $query->bind_param("issi", $userId, $title, $content, $category);
         
+        $stmt->bind_param("issi", $userId, $title, $content, $category);
         
-        $query->execute();
-        
-        if ($query->execute()) {
+        if ($stmt->execute()) {
             return true;
         }
-        return $query->error;
+        return false;
     }
 
     public function editProfile($name, $password)
     {
-
         //TODO: Add Functionality..
+    }
+    
+    public function getPosts()
+    {
+        $sql = 'SELECT DISTINCT * FROM posts LIMIT 20';
+        
+        $posts = $this->mysqli->query($sql);
+        
+        return $posts;
     }
 }

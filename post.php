@@ -9,6 +9,24 @@ require_once("DB/Database.php");
 require 'notLogged.php';
 require_once 'header.php';
 // require_once 'views/post.view.php';
+
+
+if (isset($_POST['submit'])) {
+    ob_start();
+    $user = $_SESSION['user'];
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+    $category = $_POST['category'];
+    
+    $result = Database::makePost($user, $title, $content, (int)$category);
+    
+    if ($result) {
+        header("location: Home.php");
+    } else {
+        
+    }
+}   
+
 ?>
         
         <form class="xlarge" action="post.php" method="post">
@@ -50,26 +68,6 @@ require_once 'header.php';
                 <input class="quarterMissing bigText btn btn-success" type="submit" name="submit" value="Make post">
             </div>
         </form>
-        
-        
-
 <?php 
 
 require 'footer.php';
-
-if (isset($_POST['submit'])) {
-    $user = $_SESSION['user'];
-    $title = $_POST['title'];
-    $content = $_POST['content'];
-    $category = intval($_POST['category']);
-    
-    echo var_dump($_SESSION['user']->getId());
-    
-    $result = Database::makePost($user, $title, $content, (int)$category);
-    
-    if ($result) {
-        header("location: Home.php");
-    } else {
-        die("Something went wrong! :(");
-    }
-}
