@@ -99,7 +99,7 @@ class DBConnect
     
     public function getPosts()
     {
-        $sql = 'SELECT DISTINCT * FROM posts LIMIT 20';
+        $sql = 'SELECT DISTINCT * FROM posts ';
         
         $posts = $this->mysqli->query($sql);
         

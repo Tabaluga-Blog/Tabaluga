@@ -12,10 +12,10 @@ require_once 'header.php';
 
 
 if (isset($_POST['submit'])) {
-    ob_start();
     $user = $_SESSION['user'];
     $title = $_POST['title'];
-    $content = $_POST['content'];
+    $content = trim($_POST['content']);
+    $content = str_replace("\n", "<br>", $content);
     $category = $_POST['category'];
     
     $result = Database::makePost($user, $title, $content, (int)$category);

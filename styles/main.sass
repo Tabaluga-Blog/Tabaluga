@@ -8,13 +8,10 @@
     
 body
     display: block
-    padding: 80px 10px 0px 150px
-    padding-top: 100px
-    min-height: 600px
-    
+    padding: 100px 10px 0px 160px
     
     @media screen and (max-width: 800px)
-        padding-left: 20px
+        padding-left: 35px
     
 form
     @include centerBlock(0, auto)
@@ -42,10 +39,21 @@ button span
     font-size: 20px
     
 .mainFooter
+    display: block
     position: relative
     bottom: 0px
-    background: lightgray
-    padding-top: 25px
+    border-top: 1px solid green
+
+.post-conatiner
+    display: flex
+    justify-content: space-around
+    flex-wrap: wrap
+    
+.post 
+    min-width: 48%
+    
+    @media screen and (max-width: 800px)
+        min-width: 100%
 
 //Helper Classes
 .noResize
