@@ -14,14 +14,34 @@ require_once "header.php" ?>
 
 <!-- ===================================================== -->
 
-<?php while($post = $posts->fetch_assoc()) { ?>
-    <pre>
-        <?php echo var_dump($post); ?>
-    </pre>
-<?php } ?>
+<h1 class="text-center">
+    New
+</h1>
 
+<div class="post-conatiner">
+    <?php while($post = $posts->fetch_assoc()) { ?>
+        <div class="panel post panel-default">
+            <div class="panel-heading">
+                <h4>
+                    <?= $post['title'] ?>
+                </h4>
+            </div>
+            <div class="panel-body">
+                <p class="mediumText">
+                    <?= $post['content']; ?>
+                </p>
+            </div>
+            <div class="panel-footer">
+                <h5 class="">
+                    <?= $post['date']; ?>
+                    <a href="#" class="pull-right">
+                        <?= 'Jack' ?>
+                    </a>
+                </h5>
+            </div>
+        </div>
+    <?php } ?>
+</div>
 
 
 <?php require_once "footer.php" ?>
-</body>
-</html>

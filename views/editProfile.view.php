@@ -21,17 +21,13 @@
 
         <div class="form-group">
             <label for="changeFullName">Change Full Name:</label>
-            <input required class="form-control" type="text" name="changeFullName" placeholder="John Smith">
-        </div>
+            <input autocomplete="off" required class="form-control" type="text" name="changeFullName" placeholder="John Smith">
 
-        <div class="password">
             <label for="newPassword">New Password:</label>
-            <input required class="form-control" type="password" name="newPassword" placeholder="More than 6 symbols">
-        </div>
+            <input autocomplete="off" required class="form-control" type="password" name="newPassword" placeholder="More than 6 symbols">
 
-        <div class="form-group">
             <label for="confirmNewPassword">Confirm New Password:</label>
-            <input required class="form-control" type="password" name="confirmNewPassword" placeholder="Confirm password">
+            <input autocomplete="off" required class="form-control" type="password" name="confirmNewPassword" placeholder="Confirm password">
         </div>
 
         <button class="btn btn-success" type="submit" name="submit"><span>Edit</span></button>
