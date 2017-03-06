@@ -77,15 +77,15 @@ class DBConnect
 
         return $userInfo;
     }
-    
+
     public function makePost(User $user, string $title, string $content, int $category)
     {
         $stmt = $this->mysqli->prepare('INSERT INTO posts (user_id, title, content, category_id)  VALUES (?, ?, ?, ?)');
-        
+
         $userId = intval($user->getId());
-        
+
         $stmt->bind_param("issi", $userId, $title, $content, $category);
-        
+
         if ($stmt->execute()) {
             return true;
         }
@@ -96,13 +96,22 @@ class DBConnect
     {
         //TODO: Add Functionality..
     }
-    
+
     public function getPosts()
     {
         $sql = 'SELECT DISTINCT * FROM posts ';
-        
+
         $posts = $this->mysqli->query($sql);
-        
+
         return $posts;
     }
+
+    public function getCategories()
+   {
+       $sql = 'SELECT * FROM categories ';
+
+       $categories = $this->mysqli->query($sql);
+
+       return $categories;
+   }
 }

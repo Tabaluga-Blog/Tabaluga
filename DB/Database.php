@@ -24,7 +24,7 @@ class Database
         $db = DBConnect::getInstance();
         return $db->getUser($email, $password);
     }
-    
+
     public static function makePost(User $user, string $title, string $content, int $category)
     {
         $db = DBConnect::getInstance();
@@ -36,10 +36,16 @@ class Database
         $db = DBConnect::getInstance();
         return $db->editProfile($name, $password);
     }
-    
+
     public static function getPosts()
     {
         $db = DBConnect::getInstance();
         return $db->getPosts();
+    }
+
+    public static function getCategories()
+    {
+        $db = DBConnect::getInstance();
+        return $db->getCategories();
     }
 }
