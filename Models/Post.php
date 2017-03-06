@@ -10,7 +10,7 @@ class Post
     private $user;
     private $category;
 
-    public function makePost($title, $content, $user, $category)
+    public function __construct ($title, $content, $user, $category)
     {
         $this->setTitle($title);
         $this->setContent($content);
@@ -42,7 +42,7 @@ class Post
     {
         if (strlen($content) < 10)
         {
-            throw new Exception("Title must be at least 10 characters long.");
+            throw new Exception("Content must be at least 10 characters long.");
         }
 
         $this->content = $content;

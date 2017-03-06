@@ -107,11 +107,11 @@ class DBConnect
     }
 
     public function getCategories()
-   {
-       $sql = 'SELECT * FROM categories ';
+    {
+        $sql = 'SELECT * FROM categories ';
 
-       $categories = $this->mysqli->query($sql);
+        $categories = $this->mysqli->query($sql);
 
-       return $categories;
-   }
+        return $categories;
+    }
 }

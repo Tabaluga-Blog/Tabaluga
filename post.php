@@ -1,8 +1,11 @@
 <?php
 use Models\User;
+use Models\Post;
 use DB\Database;
 
+
 require_once("Models/User.php");
+require_once("Models/Post.php");
 require_once("DB/DBConnect.php");
 require_once("DB/Database.php");
 
@@ -11,6 +14,8 @@ require_once 'header.php';
 // require_once 'views/post.view.php';
 
 
+$message = "";
+
 if (isset($_POST['submit'])) {
     $user = $_SESSION['user'];
     $title = $_POST['title'];
@@ -18,13 +23,25 @@ if (isset($_POST['submit'])) {
     $content = str_replace("\n", "<br>", $content);
     $category = $_POST['category'];
 
-    $result = Database::makePost($user, $title, $content, (int)$category);
+    $post = "";
 
-    if ($result) {
-        header("location: Home.php");
-    } else {
-
+    try{
+        $post = new Post($title, $content, $user, $category);
     }
+    catch (Exception $e){
+        $message = $e->getMessage();
+    }
+
+    //check if post is created -> if not redirect to post form again
+    if ($post != "")
+    {
+        $result = Database::makePost($post);
+
+        if ($result) {
+            header("location: Home.php");
+        }
+    }
+
 }
 
 ?>
@@ -33,13 +50,11 @@ if (isset($_POST['submit'])) {
             <div class="panel panel-default">
                 <!-- Title -->
                 <div class="panel-heading">
+
                     <h2 class="panel-title">
                         Post title:
-                        <?php if (  isset($_POST['submit']) &&
-                                    ($_POST['title'] == '' ||
-                                    strlen($_POST['title']) < 10)) {
-                            echo '<span class="error">Title is empty or below 10 symbols<span>';
-                        } ?>
+                        <span class="error"><?php echo $message; ?><span>
+
                     </h2>
                 </div>
 
@@ -53,15 +68,17 @@ if (isset($_POST['submit'])) {
 
                 <div class="panel-body">
                     <select required class="custom-select fill bigText" name="category">
-                        <option disabled selected>Categories:</option>
+                    <option disabled selected>Categories:</option>
+
                         <?php
-                           $category = Database::getCategories();
+                            $category = Database::getCategories();
 
-                           foreach ($category as $cat){
-                               ?> <option value="<?php echo $cat['id']?>"> <?php echo $cat['name']?></option> <?php
-                           }
+                            foreach ($category as $cat){
+                                ?> <option value="<?php echo $cat['id']?>"> <?php echo $cat['name']?></option> <?php
+                            }
 
-                       ?>
+                        ?>
+
                     </select>
                 </div>
 
