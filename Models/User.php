@@ -1,6 +1,6 @@
 <?php
 namespace Models;
-
+use DB\Database;
 use Exception;
 
 class User
