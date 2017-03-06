@@ -5,6 +5,12 @@ if (isset($_SESSION['user'])) {
 <aside class="sidebar">
     <ul>
         <div class="dropDown">
+            <a href="index.php"><h3>Home</h3></a>
+        </div>
+    </ul>
+    
+    <ul>
+        <div class="dropDown">
             <h3>Profile <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
             <div class="container">
                 <a href="profile.php"><li>My profile</li></a>
@@ -17,7 +23,7 @@ if (isset($_SESSION['user'])) {
 
     <ul>
         <div class="dropDown">
-            <h3>Message <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
+            <h3>Mailbox <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
             <div class="container">
                 <a href="#"><li>Inbox</li></a>
                 <a href="#"><li>Outbox</li></a>
@@ -30,8 +36,8 @@ if (isset($_SESSION['user'])) {
         <div class="dropDown">
             <h3>Follows <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
             <div class="container">
-                <a href="#"><li>Subscribtions</li></a>
-                <a href="#"><li>My subscribers</li></a>
+                <a href="#"><li>My follows</li></a>
+                <a href="#"><li>My followers</li></a>
             </div>
         </div>
     </ul>

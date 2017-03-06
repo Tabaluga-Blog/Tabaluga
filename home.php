@@ -15,17 +15,22 @@ require_once "header.php" ?>
 <!-- ===================================================== -->
 
 <h1 class="text-center">
-    New
+    Newest posts
 </h1>
 
 <div class="post-conatiner">
+    <!-- $post should be changed to an object of type Post -->
     <?php while($post = $posts->fetch_assoc()) { ?>
         <div class="panel post panel-default">
-            <div class="panel-heading">
+            <a href="#" class="panel-heading fill">
                 <h4>
                     <?= $post['title'] ?>
+                    <span class="pull-right">
+                        <!-- Change to the category of the post -->
+                        <?=  "Gaming" ?>
+                    </span>
                 </h4>
-            </div>
+            </a>
             <div class="panel-body">
                 <p class="mediumText">
                     <?= $post['content']; ?>
@@ -35,6 +40,7 @@ require_once "header.php" ?>
                 <h5 class="">
                     <?= $post['date']; ?>
                     <a href="#" class="pull-right">
+                        <!-- Change to the actual creator of the post -->
                         <?= 'Jack' ?>
                     </a>
                 </h5>

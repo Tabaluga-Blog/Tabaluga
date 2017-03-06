@@ -99,7 +99,7 @@ class DBConnect
     
     public function getPosts()
     {
-        $sql = 'SELECT DISTINCT * FROM posts ';
+        $sql = 'SELECT DISTINCT * FROM posts ORDER BY `date` DESC';
         
         $posts = $this->mysqli->query($sql);
         

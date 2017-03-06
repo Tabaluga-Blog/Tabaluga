@@ -1,3 +1,7 @@
+<style media="screen">
+    body {padding: 100px 10px 0px 10px; min-height: auto}
+</style>
+
 <form class="medium" action="login.php" method="post">
     <div class="panel panel-default">
         <div class="panel-body">

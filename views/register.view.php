@@ -1,3 +1,7 @@
+<style media="screen">
+    body {padding: 100px 10px 0px 10px; min-height: auto}
+</style>
+
 <form class="large" action='register.php' method="POST">
     <p style="color:red"> <?php echo $message . "<br>" ?> </p>
 

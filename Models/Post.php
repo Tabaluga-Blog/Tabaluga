@@ -6,10 +6,7 @@ class Post
     private $title;
     private $content;
 
-    public function makePost()
-    {
-
-    }
+    public function makePost(){}
 
     public function editPost(){}
 

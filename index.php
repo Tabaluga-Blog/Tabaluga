@@ -2,9 +2,6 @@
 
 Use Models\User;
 require_once ("Models/User.php");
-if (!session_start()) {
-    session_start();
-}
 
 if (isset($_SESSION['user'])) {
     header("Location: Home.php");
@@ -26,6 +23,10 @@ if (isset($_SESSION['user'])) {
     </head>
     <body>
         <?php require_once "header.php" ?>
+        
+        <style media="screen">
+            body {padding: 100px 10px 0px 10px; min-height: auto}
+        </style>
         <center>
             <div class="jumbotron">
                 <h1 class="display-3">Hello To Tabaluga Blog!</h1>

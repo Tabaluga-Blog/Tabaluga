@@ -15,15 +15,13 @@ if (isset($_POST['submit'])) {
     $user = $_SESSION['user'];
     $title = $_POST['title'];
     $content = trim($_POST['content']);
-    $content = str_replace("\n", "<br>", $content);
+    $content = trim(str_replace("\n", "<br>", $content));
     $category = $_POST['category'];
     
     $result = Database::makePost($user, $title, $content, (int)$category);
     
     if ($result) {
         header("location: Home.php");
-    } else {
-        
     }
 }   
 

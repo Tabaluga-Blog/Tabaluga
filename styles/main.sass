@@ -49,13 +49,42 @@ button span
     display: flex
     justify-content: space-around
     flex-wrap: wrap
+    align-items: center
     
+.panel-heading
+    
+
 .post 
     min-width: 48%
     
     @media screen and (max-width: 800px)
         min-width: 100%
-
+    
+    a
+        display: block
+    
+    .panel-heading
+        background-color: $hoverColor
+        
+    .panel-heading,
+    .panel-body p,
+    .panel-footer
+        transition: all 0.5s
+    
+    &:hover
+        border-left: 1px solid darkgreen
+        border-top: 1px solid darkgreen
+        border-right: 1px solid darkgreen
+        .panel-heading
+            background-color: $mainColor
+        
+        .panel-body
+            p
+                font-size: 23px
+        
+        .panel-footer
+            background-color: $hoverColor
+    
 //Helper Classes
 .noResize
     resize: none
