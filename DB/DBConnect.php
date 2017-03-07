@@ -95,24 +95,9 @@ class DBConnect
 
     public function editProfile($name, $password, $userId)
     {
-
-        //$conn = new \PDO("$this->mysqli:$this->db_hostname;$this->db_database", $this->db_username,$this->db_password);
-        //$conn->setAttribute(PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-
-//        $sql = "UPDATE users SET name = '$name', password = '$password' WHERE id = $userId";
-//        $stmt = $conn->prepare($sql);
-
-        $sql = ('UPDATE users SET name = \'$name\', password = \'$password\' WHERE id = $userId');
-        //$stmt = $this->mysqli->prepare('UPDATE users SET name = \'$name\', password = \'$password\' WHERE id = $userId');
-        //$stmt->bind_param("ssi", $name, $password, $userId);
-        $result = $this->mysqli->query($sql);
-        return $result;
-
-
-//        if ($stmt->execute()) {
-//            return true;
-//        }
-//        return false;
+         $sql = ("UPDATE users SET name = '$name', password = '$password' WHERE id = '$userId'");
+         $result = $this->mysqli->query($sql);
+         return $result;
     }
 
     public function getPosts()
