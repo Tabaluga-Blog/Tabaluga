@@ -11,10 +11,15 @@ if (isset($_SESSION['user'])) {
     
     <ul>
         <div class="dropDown">
-            <h3>Profile <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
+            <a href="post.php"><h3>Make Post</h3></a>
+        </div>
+    </ul>
+    
+    <ul>
+        <div class="dropDown">
+            <h3>Dashboard <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
             <div class="container">
-                <a href="profile.php"><li>My profile</li></a>
-                <a href="post.php"><li>Make post</li></a>
+                <a href="profile.php"><li>My posts</li></a>
                 <a href="#"><li>Favorite posts</li></a>
                 <a href="#"><li>Drafts</li></a>
             </div>

@@ -1,28 +1,13 @@
 <?php
 
-Use Models\User;
-require_once ("Models/User.php");
 
+require 'isLogged.php';
 if (isset($_SESSION['user'])) {
     header("Location: Home.php");
     exit;
 }
-
-?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <link rel="stylesheet" href="styles/main.css">
-        <link rel="stylesheet" href="styles/header.css">
-        <link rel="stylesheet" href="styles/sidebar.css">
-    </head>
-    <body>
-        <?php require_once "header.php" ?>
+ 
+require_once "header.php" ?>
         
         <style media="screen">
             body {padding: 100px 10px 0px 10px; min-height: auto}

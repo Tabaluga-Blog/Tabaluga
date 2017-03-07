@@ -21,25 +21,26 @@ require_once "header.php" ?>
     <!-- $post should be changed to an object of type Post -->
     <?php 
     
-    foreach(Post::getAllPosts() as $post) { ?>
+    foreach(Post::getAllPosts() as $POST) { ?>
         <div class="panel post panel-default">
             <a href="#" class="panel-heading fill">
                 <h4>
-                    <?= $post->getTitle() ?>
+                    <?= $POST->getTitle() ?>
+                    
                     <span class="pull-right">
                         <!-- Change to the category of the post -->
-                        <?=  ucfirst($post->getCategoryName()) ?>
+                        <?=  ucfirst($POST->getCategoryName()) ?>
                     </span>
                 </h4>
             </a>
             <div class="panel-body">
                 <p class="mediumText">
-                    <?= $post->getContent() ?>
+                    <?= $POST->getContent() ?>
                 </p>
             </div>
             <div class="panel-footer">
-                <a href="#">
-                    <?= $post->getUser() ?>
+                <a href="#" class="user">
+                    <?= $POST->getUser() ?>
                 </a>
             </div>
         </div>
