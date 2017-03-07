@@ -3,6 +3,9 @@ namespace Models;
 use DB\Database;
 use Exception;
 
+/**
+ * @property  getName
+ */
 class User
 {
     private $id;
@@ -32,11 +35,6 @@ class User
 
     public function setEmail($email)
     {
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL))
-        {
-            throw new Exception("Invalid email address.");
-        }
-
         $this->email = $email;
     }
 
@@ -75,10 +73,4 @@ class User
     {
         $this->registerDate = $registerDate;
     }
-
-
-    public function editProfile(){}
-
-
-
 }

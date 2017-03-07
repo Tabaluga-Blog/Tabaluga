@@ -2,6 +2,7 @@
 
 namespace DB;
 use Models\User as User;
+use PDO;
 
 //implementing Singleton
 class DBConnect
@@ -92,9 +93,12 @@ class DBConnect
         return false;
     }
 
-    public function editProfile($name, $password)
+    public function editProfile($name, $password, $userId)
     {
-        //TODO: Add Functionality..
+         $pwd = md5($password);
+         $sql = ("UPDATE users SET name = '$name', password = '$pwd' WHERE id = '$userId'");
+         $result = $this->mysqli->query($sql);
+         return $result;
     }
 
     public function getPosts()

@@ -9,22 +9,19 @@ require_once("DB/Database.php");
 
 require_once 'notLogged.php';
 
+$message = "";
 if (isset($_POST['submit'])) {
     $changeFullName = $_POST['changeFullName'];
     $newPassword = $_POST['newPassword'];
     $confirmNewPassword = $_POST['confirmNewPassword'];
-    
+
     if ($newPassword != $confirmNewPassword) {
-        $message = "Password does not match.";
+        $message = "Passwords does not match!";
+    } else {
+        $result = Database::editProfile($changeFullName, $newPassword, $_SESSION['user']->getId());
     }
-    //TODO: Add Functionality..
 }
 
 include_once 'header.php';
 require_once 'views/editProfile.view.php';
 require_once "footer.php";
-
-
-
-?>
-

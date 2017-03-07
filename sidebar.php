@@ -5,7 +5,7 @@ if (isset($_SESSION['user'])) {
 <aside class="sidebar">
     <ul>
         <div class="dropDown">
-            <a href="index.php"><h3>Home</h3></a>
+            <a href="home.php"><h3>Home</h3></a>
         </div>
     </ul>
     

@@ -17,7 +17,6 @@ class Comment
         $this->setPost($post);
     }
 
-
     public function getId()
     {
         return $this->id;
@@ -60,6 +59,4 @@ class Comment
     {
         $this->user = $user;
     }
-
-
 }
