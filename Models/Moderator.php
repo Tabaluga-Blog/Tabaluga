@@ -1,6 +1,6 @@
 <?php
 namespace Models;
-class Moderator extends NormalUser
+class Moderator extends User
 {
 
 }

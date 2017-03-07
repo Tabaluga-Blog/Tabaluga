@@ -73,10 +73,4 @@ class User
     {
         $this->registerDate = $registerDate;
     }
-
-
-    public function editProfile()
-    {
-
-    }
 }

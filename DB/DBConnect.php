@@ -95,7 +95,8 @@ class DBConnect
 
     public function editProfile($name, $password, $userId)
     {
-         $sql = ("UPDATE users SET name = '$name', password = '$password' WHERE id = '$userId'");
+         $pwd = md5($password);
+         $sql = ("UPDATE users SET name = '$name', password = '$pwd' WHERE id = '$userId'");
          $result = $this->mysqli->query($sql);
          return $result;
     }
