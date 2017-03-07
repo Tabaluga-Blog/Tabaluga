@@ -1,6 +1,6 @@
 <?php
 namespace Models;
-
+use DB\Database;
 use Exception;
 
 class User
@@ -11,9 +11,8 @@ class User
     private $password;
     private $registerDate;
 
-    public function __construct($id, $email, $name, $password)
+    public function __construct($email, $name, $password)
     {
-        $this->setId($id);
         $this->setEmail($email);
         $this->setName($name);
         $this->setPassword($password);
@@ -22,14 +21,9 @@ class User
 
 
     public function getId()
-    {
-        return $this->id;
-    }
-
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
+   {
+       return Database::getUser($this->getEmail(), $this->getPassword())['id'];
+   }
 
     public function getEmail()
     {
@@ -86,5 +80,5 @@ class User
     public function editProfile(){}
 
 
-    
+
 }

@@ -1,8 +1,11 @@
-<?php 
+<?php
 use Models\User;
+use Models\Post;
 use DB\Database;
 
+
 require_once("Models/User.php");
+require_once("Models/Post.php");
 require_once("DB/DBConnect.php");
 require_once("DB/Database.php");
 
@@ -11,61 +14,77 @@ require_once 'header.php';
 // require_once 'views/post.view.php';
 
 
+$message = "";
+
 if (isset($_POST['submit'])) {
     $user = $_SESSION['user'];
     $title = $_POST['title'];
     $content = trim($_POST['content']);
     $content = trim(str_replace("\n", "<br>", $content));
     $category = $_POST['category'];
-    
-    $result = Database::makePost($user, $title, $content, (int)$category);
-    
-    if ($result) {
-        header("location: Home.php");
+
+    $post = "";
+
+    try{
+        $post = new Post($title, $content, $user, $category);
     }
-}   
+    catch (Exception $e){
+        $message = $e->getMessage();
+    }
+
+    //check if post is created -> if not redirect to post form again
+    if ($post != "")
+    {
+        $result = Database::makePost($post);
+
+        if ($result) {
+            header("location: Home.php");
+        }
+    }
+
+}
 
 ?>
-        
+
         <form class="xlarge" action="post.php" method="post">
             <div class="panel panel-default">
                 <!-- Title -->
                 <div class="panel-heading">
+
                     <h2 class="panel-title">
                         Post title:
-                        <?php if (  isset($_POST['submit']) &&
-                                    ($_POST['title'] == '' ||
-                                    strlen($_POST['title']) < 10)) {
-                            echo '<span class="error">Title is empty or below 10 symbols<span>';
-                        } ?>
-                    </h2>    
+                        <span class="error"><?php echo $message; ?><span>
+
+                    </h2>
                 </div>
-                
+
                 <input required type="text" name="title" class="form-control noRound" placeholder="Top 10 coolest cats!">
-                
+
                 <!-- Content -->
                 <div class="panel-heading">
-                    <h3 class="panel-title">Content:</h3> 
+                    <h3 class="panel-title">Content:</h3>
                 </div>
                 <textarea required type="text" name="content" class="form-control noResize noRound" rows="12" placeholder="1. Jimmy &#10;2. Roger &#10;3. Etc. . ."></textarea>
-                
+
                 <div class="panel-body">
                     <select required class="custom-select fill bigText" name="category">
-                        <option disabled selected>Categories:</option>
-                        <option value="2">Software</option>
-                        <option value="3">Hardware</option>
-                        <option value="4">Game Development</option>
-                        <option value="5">Android</option>
-                        <option value="6">iOS</option>
-                        <option value="7">Gaming</option>
-                        <option value="8">Robotics</option>
-                        <option value="1">Other</option>
+                    <option disabled selected>Categories:</option>
+
+                        <?php
+                            $category = Database::getCategories();
+
+                            foreach ($category as $cat){
+                                ?> <option value="<?php echo $cat['id']?>"> <?php echo $cat['name']?></option> <?php
+                            }
+
+                        ?>
+
                     </select>
                 </div>
-                
+
                 <input class="quarterMissing bigText btn btn-success" type="submit" name="submit" value="Make post">
             </div>
         </form>
-<?php 
+<?php
 
 require 'footer.php';

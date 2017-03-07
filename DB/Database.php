@@ -3,6 +3,7 @@
 namespace DB;
 
 use Models\User as User;
+use Models\Post as Post;
 // require_once "DBConnect.php";
 
 class Database
@@ -24,11 +25,11 @@ class Database
         $db = DBConnect::getInstance();
         return $db->getUser($email, $password);
     }
-    
-    public static function makePost(User $user, string $title, string $content, int $category)
+
+    public static function makePost(Post $post)
     {
         $db = DBConnect::getInstance();
-        return $db->makePost($user, $title, $content, $category);
+        return $db->makePost($post->getUser(), $post->getTitle(), $post->getContent(), $post->getCategory());
     }
 
     public static function editProfile($name, $password)
@@ -36,10 +37,16 @@ class Database
         $db = DBConnect::getInstance();
         return $db->editProfile($name, $password);
     }
-    
+
     public static function getPosts()
     {
         $db = DBConnect::getInstance();
         return $db->getPosts();
+    }
+
+    public static function getCategories()
+    {
+        $db = DBConnect::getInstance();
+        return $db->getCategories();
     }
 }
