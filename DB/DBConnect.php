@@ -108,10 +108,30 @@ class DBConnect
 
     public function getCategories()
     {
-        $sql = 'SELECT * FROM categories ';
+        $sql = 'SELECT * FROM categories';
 
         $categories = $this->mysqli->query($sql);
 
         return $categories;
+    }
+    
+    public function getUserByID($id)
+    {
+        $sql = "SELECT name FROM users WHERE id={$id} LIMIT 1";
+        
+        $query = $this->mysqli->query($sql);
+        $name = $query->fetch_assoc()['name'];
+        
+        return $name;
+    }
+    
+    public function getCategoryName($cat_id)
+    {
+        $sql = "SELECT name from categories where id={$cat_id} LIMIT 1";
+        $query = $this->mysqli->query($sql);
+        
+        $name = $query->fetch_assoc()['name'];
+        
+        return $name;
     }
 }

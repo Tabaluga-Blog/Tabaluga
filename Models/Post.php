@@ -3,6 +3,8 @@ namespace Models;
 
 use Exception;
 
+use DB\Database;
+
 class Post
 {
     private $title;
@@ -10,7 +12,7 @@ class Post
     private $user;
     private $category;
 
-    public function __construct ($title, $content, $user, $category)
+    public function __construct($title, $content, $user, $category)
     {
         $this->setTitle($title);
         $this->setContent($content);
@@ -47,6 +49,16 @@ class Post
 
         $this->content = $content;
     }
+    
+    public function getDate()
+    {
+        return $this->date;
+    }
+    
+    public function setDate()
+    {
+        $this->date = date("Y-m-d H:i:s");
+    }
 
     public function getUser()
     {
@@ -62,6 +74,11 @@ class Post
     {
         return $this->category;
     }
+    
+    public function getCategoryName()
+    {
+        return Database::getCategoryName($this->category);
+    }
 
     public function setCategory($category)
     {
@@ -71,4 +88,28 @@ class Post
     public function editPost(){}
 
     public function deletePost(){}
+        
+    //---------------------------------------------
+    //---------------------------------------------
+    //---------------------------------------------
+    
+    public static function getAllPosts()
+    {
+        /**
+        *@var Post[]
+        */
+        $posts = [];
+        
+        $query = Database::getPosts();
+        
+        while ($post = $query->fetch_assoc()) {
+            
+            $username = Database::getUserByID($post['user_id']);
+            
+            $posts[] = new Post($post['title'], $post['content'], $username, $post['category_id']);
+        }
+        
+        return $posts;
+    }
+    
 }

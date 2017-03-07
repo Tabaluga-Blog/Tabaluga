@@ -25,6 +25,12 @@ class Database
         $db = DBConnect::getInstance();
         return $db->getUser($email, $password);
     }
+    
+    public static function getUserByID($id)
+    {
+        $db = DBConnect::getInstance();
+        return $db->getUserByID($id);
+    }
 
     public static function makePost(Post $post)
     {
@@ -48,5 +54,11 @@ class Database
     {
         $db = DBConnect::getInstance();
         return $db->getCategories();
+    }
+    
+    public static function getCategoryName($cat_id)
+    {
+        $db = DBConnect::getInstance();
+        return $db->getCategoryName($cat_id);
     }
 }

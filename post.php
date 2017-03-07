@@ -1,5 +1,4 @@
 <?php
-use Models\User;
 use Models\Post;
 use DB\Database;
 
@@ -69,16 +68,14 @@ if (isset($_POST['submit'])) {
                 <div class="panel-body">
                     <select required class="custom-select fill bigText" name="category">
                     <option disabled selected>Categories:</option>
-
                         <?php
                             $category = Database::getCategories();
 
                             foreach ($category as $cat){
-                                ?> <option value="<?php echo $cat['id']?>"> <?php echo $cat['name']?></option> <?php
+                                ?> <option value="<?php echo $cat['id']?>"> <?php echo ucfirst($cat['name'])?></option> <?php
                             }
 
                         ?>
-
                     </select>
                 </div>
 
