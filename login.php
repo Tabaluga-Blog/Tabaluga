@@ -18,11 +18,17 @@ if (isset($_POST['email'], $_POST['password'])) {
 
     if ($userInfo) {
 
-        $user = new User($userInfo['id'], $email, $userInfo['name'], $password);
-        $_SESSION['user'] = $user;
+        try
+        {
+            $user = new User($email, $userInfo['name'], $password);
+            $_SESSION['user'] = $user;
 
-        $_SESSION['user_id'] = $userInfo['id'];
-        // $_SESSION['name'] = $userInfo['name'];
+        }
+        catch(Exception $e)
+        {
+            $message = $e->getMessage();
+        }
+
 
         header('Location: Home.php'); exit;
     } else {
