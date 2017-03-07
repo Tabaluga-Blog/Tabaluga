@@ -38,10 +38,10 @@ class Database
         return $db->makePost($post->getUser(), $post->getTitle(), $post->getContent(), $post->getCategory());
     }
 
-    public static function editProfile($name, $password)
+    public static function editProfile($name, $password, $userId)
     {
         $db = DBConnect::getInstance();
-        return $db->editProfile($name, $password);
+        return $db->editProfile($name, $password, $userId);
     }
 
     public static function getPosts()
