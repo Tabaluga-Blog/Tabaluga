@@ -131,7 +131,7 @@ class Post
         
         if($query = Database::getPosts()) {
         while ($post = $query->fetch_assoc()) {
-            $username = Database::getUserByID($post['user_id']);
+            $username = Database::getUserNameByID($post['user_id']);
             
             $posts[] = Post::NewWithId($post['title'], $post['content'], $username, $post['category_id'], $post['date'], $post['id']);
             }
@@ -141,7 +141,7 @@ class Post
     
     
     /**
-    * Get a post from the databas by its ID
+    * Get a post from the database by its ID
     *
     * @param int $id
     *
@@ -151,7 +151,7 @@ class Post
     {
         $post = Database::getPostById($id);
         
-        $username = Database::getUserByID($post['user_id']);
+        $username = Database::getUserNameByID($post['user_id']);
         $postObj = Post::NewWithId($post['title'], $post['content'], $username, $post['category_id'], $post['date'], $post['id']);
         
         return $postObj;

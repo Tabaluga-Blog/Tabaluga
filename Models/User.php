@@ -21,8 +21,7 @@ class User
         $this->setPassword($password);
         $this->setRegisterDate(date("Y-m-d H:i:s"));
     }
-
-
+    
     public function getId()
    {
        return Database::getUser($this->getEmail(), $this->getPassword())['id'];

@@ -64,7 +64,6 @@ if(isset($_POST['submit']))
 require_once "Header.php" ;
 require_once 'views/register.view.php';
 ?>
-<br>
 <?php require_once "footer.php" ?>
 </body>
 </html>

@@ -10,22 +10,20 @@ require_once("DB/Database.php");
 
 require 'notLogged.php';
 require_once 'header.php';
-
-
-
+    
 $message = "";
 
 if (isset($_POST['submit'])) {
     $user = $_SESSION['user'];
-    $title = $_POST['title'];
-    $content = trim(strip_tags($_POST['content']));
+    $title = strip_tags($_POST['title']);
+    $content = strip_tags($_POST['content'], '<b><i><li><ul><ol><pre>');
     $content = trim(str_replace("\n", "<br>", $content));
     $category = $_POST['category'];
 
     $post = "";
 
     try{
-        $post = new Post($title, $content, $user, $category);
+        $post = new Post($title, $content, $user, $category, date("Y-m-d H:i:s"));
     }
     catch (Exception $e){
         $message = $e->getMessage();

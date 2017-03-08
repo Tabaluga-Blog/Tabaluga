@@ -1,5 +1,4 @@
 <?php
-use Models\User;
 use DB\Database;
 
 require_once("Models/User.php");
@@ -10,12 +9,18 @@ require_once 'notLogged.php';
 
 $message = "";
 if (isset($_POST['delete'])) {
-   $email = $_POST['email'];
-   $password = $_POST['password'];
-
-    if (Database::deleteProfile($email, $password, $_SESSION['user']->getId())) {
-        session_destroy();
-        header('Location: index.php');
+    $email = $_POST['email'];
+    $password = md5($_POST['password']);
+    
+    if ($email == $_SESSION['user']->getEmail() &&
+        $password == md5($_SESSION['user']->getPassword())
+    ) { 
+        if (Database::deleteProfile($_SESSION['user'])) {
+            session_destroy();
+            header('Location: index.php');
+        } else {
+            echo "<h4 class=\"text-center\">Something went terribly wrong!</h4>";
+        }
     }
 }
 
