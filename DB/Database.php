@@ -45,6 +45,12 @@ class Database
         return $db->editProfile($name, $password, $userId);
     }
 
+    public static function deleteProfile($email, $password, $userId)
+    {
+        $db = DBConnect::getInstance();
+        return $db->deleteProfile($email, $password, $userId);
+    }
+
     public static function getCategories()
     {
         $db = DBConnect::getInstance();

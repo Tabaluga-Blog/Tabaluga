@@ -100,6 +100,11 @@ class DBConnect
          return $result;
     }
 
+    public function deleteProfile($email, $password, $userId)
+    {
+        //TODO: Add Functionality
+    }
+
     public function getPosts()
     {
         $sql = 'SELECT DISTINCT * FROM posts ORDER BY `date` DESC';
