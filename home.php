@@ -14,7 +14,7 @@ require_once "header.php" ?>
 <!-- ===================================================== -->
 
 <h1 class="text-center">
-    Newest posts
+    Recent Posts
 </h1>
 
 <div class="post-conatiner">

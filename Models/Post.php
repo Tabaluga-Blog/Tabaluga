@@ -100,15 +100,15 @@ class Post
         */
         $posts = [];
         
-        $query = Database::getPosts();
-        
-        while ($post = $query->fetch_assoc()) {
-            
-            $username = Database::getUserByID($post['user_id']);
-            
-            $posts[] = new Post($post['title'], $post['content'], $username, $post['category_id']);
+
+        if($query = Database::getPosts()) {
+            while ($post = $query->fetch_assoc()) {
+
+                $username = Database::getUserByID($post['user_id']);
+
+                $posts[] = new Post($post['title'], $post['content'], $username, $post['category_id']);
+            }
         }
-        
         return $posts;
     }
 }

@@ -1,5 +1,6 @@
 <?php
 use Models\User;
+
 ?>
 <center>
     <h3>Here you can change your profile details...</h3>
