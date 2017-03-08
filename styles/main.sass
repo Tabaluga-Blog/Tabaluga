@@ -7,9 +7,11 @@
     transition-delay:all 0s
     
 body
-    display: block
+    display: flex
+    flex-direction: column
+    justify-content: space-around
     padding: 100px 10px 0px 160px
-    min-height: 800px
+    min-height: 650px
     
     @media screen and (max-width: 800px)
         padding-left: 35px
@@ -26,7 +28,7 @@ form
     height: 30px
 
 a, a:hover
-    font-size: 17px
+    transition: all 0.5s
     text-decoration: none
 
 label
@@ -41,8 +43,6 @@ button span
     
 .mainFooter
     display: block
-    position: relative
-    bottom: 0px
     border-top: 1px solid green
 
 .post-conatiner
@@ -102,16 +102,16 @@ button span
     font-size: 10px
 
 .small
-    max-width: 300px
+    min-width: 300px
 
 .medium
-    max-width: 450px
+    min-width: 450px
 
 .large
-    max-width: 600px
-    
+    min-width: 600px
+
 .xlarge
-    max-width: 800px
+    min-width: 800px
     
 .fill
     min-width: 100%

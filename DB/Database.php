@@ -12,6 +12,7 @@ class Database
     {
         $db = DBConnect::getInstance();
         return $db->getEmail($user->getEmail());
+        
     }
 
     public static function addUser(User $user)
@@ -44,12 +45,6 @@ class Database
         return $db->editProfile($name, $password, $userId);
     }
 
-    public static function getPosts()
-    {
-        $db = DBConnect::getInstance();
-        return $db->getPosts();
-    }
-
     public static function getCategories()
     {
         $db = DBConnect::getInstance();
@@ -60,5 +55,17 @@ class Database
     {
         $db = DBConnect::getInstance();
         return $db->getCategoryName($cat_id);
+    }
+    
+    public static function getPosts()
+    {
+        $db = DBConnect::getInstance();
+        return $db->getPosts();
+    }
+    
+    public static function getPostById($id)
+    {
+        $db = DBConnect::getInstance();
+        return $db->getPostById($id);
     }
 }

@@ -9,6 +9,7 @@ if (isset($_SESSION['user'])) {
  
 require_once "header.php" ?>
         
+        <!-- Overriding the main.css to make the body scale to the whole page -->
         <style media="screen">
             body {padding: 100px 10px 0px 10px; min-height: auto}
         </style>
@@ -18,9 +19,7 @@ require_once "header.php" ?>
                 <p class="lead">This is a simple Blog. Here you can share your interests and see other people posts</p>
                 <hr class="my-4">
                 <p>If you are bored or you're free, share us the things you love ;)</p>
-                <p class="lead">
-                    <a class="btn btn-success btn-lg" href="register.php" role="button">Register</a>
-                </p>
+                <a class="btn btn-success btn-lg expand-lg" href="register.php" role="button">Register</a>
             </div>
         </center>
         <?php require_once "footer.php" ?>

@@ -1,24 +1,23 @@
-<form class="xlarge" action="post.php" method="post">
-    <div class="panel panel-default">
-        <!-- Title -->
-        <div class="panel-heading">
-            <h2 class="panel-title">Post title:</h2>
-        </div>
-        <input type="text" name="title" class="form-control" placeholder="Top 10 coolest cats!">
+<?php 
+use Models\Post;
 
-        <!-- Content -->
-        <div class="panel-heading">
-            <h3 class="panel-title">Content:</h3>
-        </div>
-        <textarea type="text" name="content" class="form-control textarea" rows="12" placeholder="1. Jimmy &#10;2. Roger &#10;3. Etc. . ."></textarea>
+$id = intval($_GET['id']);
+$post = Post::getPostById($id);
+?>
 
-        <div class="panel-heading inline">
-            <select class="custom-select mb-2 mr-sm-2 mb-sm-0 fill" name="category">
-                <option selected="">Categories</option>
-                <option value="1">Hardware</option>
-                <option value="2">Software</option>
-                <option value="3">Game Development</option>
-            </select>
-        </div>
+<div class="panel panel-default">
+    <div class="panel-heading bigText text-center">
+        <?= $post->getTitle() ?> <span class="pull-right"> <?php echo ucfirst($post->getCategoryName()) ?></span>
     </div>
-</form>
+    
+    <div class="panel-body mediumText">
+        <?= $post->getContent() ?>
+    </div>
+    
+    <div class="panel-heading">
+        <h4>
+            <a href="/profile?id=3"> <?= $post->getUser() ?> </a>
+            <p class="date pull-right"> <?= $post->getDate() ?> </p>
+        </h4>
+    </div>
+</div>

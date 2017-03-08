@@ -2,7 +2,6 @@
 
 namespace DB;
 use Models\User as User;
-use PDO;
 
 //implementing Singleton
 class DBConnect
@@ -137,5 +136,16 @@ class DBConnect
         $name = $query->fetch_assoc()['name'];
         
         return $name;
+    }
+    
+    public function getPostById($id)
+    {
+        $sql = "SELECT * from posts where id={$id} LIMIT 1";
+        
+        $query = $this->mysqli->query($sql);
+        
+        $post = $query->fetch_assoc();
+        
+        return $post;
     }
 }

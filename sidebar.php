@@ -11,7 +11,7 @@ if (isset($_SESSION['user'])) {
     
     <ul>
         <div class="dropDown">
-            <a href="post.php"><h3>Make Post</h3></a>
+            <a href="create.php"><h3>Make Post</h3></a>
         </div>
     </ul>
     

@@ -30,8 +30,8 @@
             
             <!-- If not logged -->
             <?php } else { ?>
-                <a href="profile.php"><?= $_SESSION['user']->getName(); ?></a>
-                <a href="logout.php">Log out</a>
+                <a class="mediumText" href="profile.php"><?= $_SESSION['user']->getName(); ?></a>
+                <a class="mediumText" href="logout.php">Log out</a>
             <?php } ?>
         </ul>
     </div>
