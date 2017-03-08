@@ -13,7 +13,8 @@ class Post
     private $user;
     private $category;
     private $date;
-
+    
+    //This constructor is used when creating a new post
     public function __construct($title, $content, $user, $category, $date)
     {
         $this->setTitle($title);
@@ -23,6 +24,7 @@ class Post
         $this->setDate($date);
     }
     
+    //This constructor is used for when we want to display a post
     public static function NewWithId($title, $content, $user, $category, $date, $id)
     {
         $instance = new self($title, $content, $user, $category, $date);
@@ -30,6 +32,10 @@ class Post
         
         return $instance;
     }
+    
+    //88888888888888888888
+    // GETTERS AND SETTERS
+    //88888888888888888888
     
     public function setId($id)
     {
@@ -48,7 +54,7 @@ class Post
 
     public function setTitle($title)
     {
-        if (strlen($title) < 2)
+        if (strlen($title) < 10)
         {
             throw new Exception("Title must be at least 2 characters long.");
         }
@@ -109,15 +115,18 @@ class Post
 
     public function deletePost(){}
         
-    //---------------------------------------------
-    //---------------------------------------------
-    //---------------------------------------------
+    //88888888888888888888
+    //Get posts from DB
+    //88888888888888888888
     
+    
+    /**
+    * Display all the posts in the database
+    *
+    * @return Post[]
+    */
     public static function getAllPosts()
     {
-        /**
-        *@var Post[]
-        */
         $posts = [];
         
         if($query = Database::getPosts()) {
@@ -130,12 +139,19 @@ class Post
         return $posts;
     }
     
+    
+    /**
+    * Get a post from the databas by its ID
+    *
+    * @param int $id
+    *
+    * @return Post[] 
+    */
     public static function getPostById($id)
     {
         $post = Database::getPostById($id);
-
-        $username = Database::getUserByID($post['user_id']);
         
+        $username = Database::getUserByID($post['user_id']);
         $postObj = Post::NewWithId($post['title'], $post['content'], $username, $post['category_id'], $post['date'], $post['id']);
         
         return $postObj;
