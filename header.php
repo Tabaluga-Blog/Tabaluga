@@ -32,17 +32,6 @@
             <?php }  ?>
 
 
-            <textarea class="searchbar" maxlength="40" placeholder="Find"></textarea>
-            <!-- If logged -->
-            <?php if(!isset($_SESSION['user'])) { ?>
-                <a href="login.php">Log in</a>
-                <a href="register.php">Register</a>
-            
-            <!-- If not logged -->
-            <?php } else { ?>
-                <a href="profile.php"><?= $_SESSION['user']->getName(); ?></a>
-                <a href="logout.php">Log out</a>
-            <?php } ?>
         </ul>
     </div>
 </header>
