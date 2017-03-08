@@ -8,7 +8,15 @@ if (isset($_SESSION['user'])) {
             <a href="home.php"><h3>Home</h3></a>
         </div>
     </ul>
-    
+    <ul>
+        <div class="dropDown">
+            <h3>My Profile<span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
+            <div class="container">
+                <a href="editProfile.php"><li>Edit Profile</li></a>
+                <a href="deleteProfile.php"><li>Delete Profile</li></a>
+            </div>
+        </div>
+    </ul>
     <ul>
         <div class="dropDown">
             <a href="post.php"><h3>Make Post</h3></a>
@@ -46,14 +54,7 @@ if (isset($_SESSION['user'])) {
             </div>
         </div>
     </ul>
-
-    <ul>
-        <div class="dropDown">
-            <a href="editProfile.php"><h3>Edit Profile</h3></a>
-        </div>
-    </ul>        
 </aside>
-
 <?php
 }
 ?>
