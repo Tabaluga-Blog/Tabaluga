@@ -31,11 +31,14 @@ use Models\User;
         .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
             display: none;
         }
+        h2 {
+            color: red;
+        }
     </style>
 </head>
 <body>
 <div style="text-align: center;">
-    <h3>Before deleting your account, please type your email and password</h3>
+    <h2>Before deleting your account, please confirm your email and password</h2>
     <form class="large" action='deleteProfile.php' method="POST">
         <p style="color:red">
             <?php echo $message . "<br>" ?>
@@ -56,7 +59,7 @@ use Models\User;
                     <span> </span>
                 </label>
                 <label for="fancy-checkbox-danger" class="[ btn btn-default active ]">
-                    I Want To DeleteMy Profile
+                    I Want To Delete My Profile
                 </label>
             </div>
         </div>
