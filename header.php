@@ -22,6 +22,16 @@
 
     <div class="right">
         <ul>
+
+            <!-- If logged -->
+            <?php if(isset($_SESSION['user'])) { ?>
+                <textarea class="searchbar" maxlength="40" placeholder="Find"></textarea>
+                <a href="profile.php"><?= $_SESSION['user']->getName(); ?></a>
+                <a href="logout.php">Log out</a>
+
+            <?php }  ?>
+
+
             <textarea class="searchbar" maxlength="40" placeholder="Find"></textarea>
             <!-- If logged -->
             <?php if(!isset($_SESSION['user'])) { ?>

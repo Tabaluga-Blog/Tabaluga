@@ -19,6 +19,7 @@ require_once "header.php" ?>
                 <hr class="my-4">
                 <p>If you are bored or you're free, share us the things you love ;)</p>
                 <p class="lead">
+                    <a class="btn btn-success btn-lg" href="login.php" role="button">Log in</a>
                     <a class="btn btn-success btn-lg" href="register.php" role="button">Register</a>
                 </p>
             </div>
