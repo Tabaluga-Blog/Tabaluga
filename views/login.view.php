@@ -2,6 +2,10 @@
     body {padding: 100px 10px 0px 10px; min-height: auto}
 </style>
 
+<a class="btn btn-success btn-lg" href="register.php" role="button">Register</a>
+
+<h2>Login</h2>
+
 <form class="medium" action="login.php" method="post">
     <div class="panel panel-default">
         <div class="panel-body">
