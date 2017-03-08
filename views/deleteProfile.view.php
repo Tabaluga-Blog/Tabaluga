@@ -48,7 +48,7 @@ use Models\User;
             <label for="email">Email: </label>
             <input autocomplete="off" required class="form-control" type="email" name="email" placeholder="Email">
 
-            <label for="newPassword">New Password:</label>
+            <label for="newPassword">Password: </label>
             <input autocomplete="off" required class="form-control" type="password" name="password" placeholder="Password">
         </div>
         <div class="[ form-group ]">

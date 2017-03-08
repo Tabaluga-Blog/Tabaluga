@@ -13,7 +13,10 @@ if (isset($_POST['delete'])) {
    $email = $_POST['email'];
    $password = $_POST['password'];
 
-
+    if (Database::deleteProfile($email, $password, $_SESSION['user']->getId())) {
+        session_destroy();
+        header('Location: index.php');
+    }
 }
 
 include_once 'header.php';
