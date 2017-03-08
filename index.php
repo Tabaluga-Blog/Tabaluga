@@ -19,7 +19,10 @@ require_once "header.php" ?>
                 <p class="lead">This is a simple Blog. Here you can share your interests and see other people posts</p>
                 <hr class="my-4">
                 <p>If you are bored or you're free, share us the things you love ;)</p>
-                <a class="btn btn-success btn-lg expand-lg" href="register.php" role="button">Register</a>
+                <p class="lead">
+                    <a class="btn btn-success btn-lg" href="login.php" role="button">Log in</a>
+                    <a class="btn btn-success btn-lg" href="register.php" role="button">Register</a>
+                </p>
             </div>
         </center>
         <?php require_once "footer.php" ?>

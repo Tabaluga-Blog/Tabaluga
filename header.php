@@ -22,7 +22,7 @@
 
     <div class="right">
         <ul>
-            <textarea class="searchbar" maxlength="40" placeholder="Find"></textarea>
+
             <!-- If logged -->
             <?php if(!isset($_SESSION['user'])) { ?>
                 <a href="login.php">Log in</a>
