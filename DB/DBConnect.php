@@ -103,7 +103,11 @@ class DBConnect
 
     public function deleteProfile($email, $password, $userId)
     {
-        //TODO: Add Functionality
+        if ($this->getUser($email, $password)) {
+            $sql = ("DELETE FROM users WHERE id = '$userId'");
+            $result = $this->mysqli->query($sql);
+            return $result;
+        }
     }
 
     public function getPosts()
