@@ -31,7 +31,8 @@
             <!-- If not logged -->
             <?php } else { ?>
                 <textarea class="searchbar" maxlength="40" placeholder="Find"></textarea>
-                <a class="mediumText" href="profile.php"><?= $_SESSION['user']->getName(); ?></a>
+                <a class="mediumText" href="profile.php"><?= substr($_SESSION['user']->getName(), 0, 7);
+                if(strlen($_SESSION['user']->getName())>7){ echo "...";}; ?></a>
                 <a class="mediumText" href="logout.php">Log out</a>
             <?php } ?>
         </ul>

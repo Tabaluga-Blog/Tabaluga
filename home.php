@@ -35,7 +35,7 @@ require_once "header.php" ?>
             </a>
             <div class="panel-body">
                 <p class="mediumText">
-                    <?= substr($POST->getContent(), 0 , 50) . "..." ?>
+                    <?= substr($POST->getContent(), 0 , 50);if(strlen($POST->getContent())>50){ echo "...";}; ?>
                 </p>
             </div>
             <div class="panel-footer">
