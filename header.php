@@ -33,7 +33,7 @@
               <form action="search.php" method="post">
                   <!--<textarea class="searchbar" maxlength="40" placeholder="Find" ></textarea> -->
                   <input name="search" type="text" class="searchbar" maxlength="40" placeholder="Find">
-                  <input type="submit">
+                  <input type="submit" value="Search">
               </form>
 
                 <a class="mediumText" href="profile.php"><?= substr($_SESSION['user']->getName(), 0, 7);
