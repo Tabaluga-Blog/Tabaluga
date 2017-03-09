@@ -32,6 +32,7 @@ if (isset($_POST['email'], $_POST['password'])) {
             $message = $e->getMessage();
         }
 
+        header('Location: Home.php'); exit;
     } else {
         $message = "Incorrect email or password";
     }
@@ -39,7 +40,7 @@ if (isset($_POST['email'], $_POST['password'])) {
 
 
 
-require_once "Header.php";
+//require_once "Header.php";
 require_once 'views/login.view.php';
 
 ?>
