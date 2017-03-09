@@ -37,7 +37,7 @@ class DBConnect
         }
         return self::$instance;
     }
-    
+
     //88888888888888888888888888
     // USER FUNCTIONS
     //88888888888888888888888888
@@ -71,10 +71,10 @@ class DBConnect
         }
         return false;
     }
-    
+
     public function getUser($email, $password)
     {
-        $sql = 'SELECT * FROM users where email = "' . $email . '" and password = "' . md5($password) . '"';
+        $sql = 'SELECT * FROM users where email = "' . $email . '" and password = "' . $password . '"';
 
         $result = $this->mysqli->query($sql);
 
@@ -95,37 +95,37 @@ class DBConnect
     public function deleteProfile($user)
     {
         $now = date("Y-m-d H:i:s");
-        
+
         $result = $this->mysqli->query("UPDATE users SET deleted_at = '$now' WHERE id='{$user->getId()}'");
-        
+
         return $result;
     }
 
     public function getUserNameByID($id)
     {
         $sql = "SELECT name FROM users WHERE id={$id} LIMIT 1";
-        
+
         $query = $this->mysqli->query($sql);
         $name = $query->fetch_assoc()['name'];
-        
+
         return $name;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
     //88888888888888888888888888
     // POST FUNCTIONS
     //88888888888888888888888888
-    
+
     public function makePost(User $user, string $title, string $content, int $category)
     {
         $stmt = $this->mysqli->prepare('INSERT INTO posts (user_id, title, content, category_id)  VALUES (?, ?, ?, ?)');
@@ -139,48 +139,45 @@ class DBConnect
         }
         return false;
     }
-    
-    
+
+
     public function getCategoryName($cat_id)
     {
         $sql = "SELECT name from categories where id={$cat_id} LIMIT 1";
         $query = $this->mysqli->query($sql);
-        
+
         $name = $query->fetch_assoc()['name'];
-        
+
         return $name;
     }
-    
-    
+
+
     public function getPosts()
     {
         $sql = 'SELECT DISTINCT * FROM posts ORDER BY `date` DESC';
-        
+
         $posts = $this->mysqli->query($sql);
 
         return $posts;
     }
-    
+
     public function getPostById($id)
     {
         $sql = "SELECT * from posts where id={$id} LIMIT 1";
-        
+
         $query = $this->mysqli->query($sql);
-        
+
         $post = $query->fetch_assoc();
-        
+
         return $post;
     }
 
     public function getCategories()
     {
         $sql = 'SELECT * FROM categories';
-        
+
         $categories = $this->mysqli->query($sql);
-        
+
         return $categories;
     }
 }
-
-
-
