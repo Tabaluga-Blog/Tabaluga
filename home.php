@@ -23,7 +23,7 @@ require_once "header.php" ?>
     
     foreach(Post::getAllPosts() as $POST) { ?>
         <div class="panel post panel-default">
-            <a href="/post.php?id=<?= $POST->getId() ?>" class="panel-heading fill">
+            <a href="/project/trunk//post.php?id=<?= $POST->getId() ?>" class="panel-heading fill">
                 <h4>
                     <?= $POST->getTitle() ?>
                     
@@ -35,7 +35,7 @@ require_once "header.php" ?>
             </a>
             <div class="panel-body">
                 <p class="mediumText">
-                    <?= $POST->getContent() ?>
+                    <?= substr($POST->getContent(), 0 , 50) . "..." ?>
                 </p>
             </div>
             <div class="panel-footer">
