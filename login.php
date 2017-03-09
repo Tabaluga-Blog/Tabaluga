@@ -40,7 +40,7 @@ if (isset($_POST['email'], $_POST['password'])) {
 
 
 
-//require_once "Header.php";
+require_once "Header.php";
 require_once 'views/login.view.php';
 
 ?>
