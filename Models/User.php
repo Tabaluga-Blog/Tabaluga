@@ -60,7 +60,7 @@ class User
         if (strlen($password) < 5){
             throw new Exception("Your password must be at least 5 characters long.");
         }
-        $this->password = $password;
+        $this->password = md5($password);
     }
 
     public function getRegisterDate()

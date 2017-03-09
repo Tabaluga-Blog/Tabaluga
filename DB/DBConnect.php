@@ -60,9 +60,9 @@ class DBConnect
         $stmt = $this->mysqli->prepare("INSERT INTO users (email, name, password)
                                         VALUES (?, ?, ?)");
 
-        $pwd = md5($password);
 
-        $stmt->bind_param("sss", $email, $name, $pwd);
+
+        $stmt->bind_param("sss", $email, $name, $password);
 
         $stmt->execute();
 
@@ -86,8 +86,8 @@ class DBConnect
 
     public function editProfile($name, $password, $userId)
     {
-         $pwd = md5($password);
-         $sql = ("UPDATE users SET name = '$name', password = '$pwd' WHERE id = '$userId'");
+
+         $sql = ("UPDATE users SET name = '$name', password = '$password' WHERE id = '$userId'");
          $result = $this->mysqli->query($sql);
          return $result;
     }
