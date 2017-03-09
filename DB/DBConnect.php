@@ -2,6 +2,7 @@
 
 namespace DB;
 
+use Models\Post;
 use Models\User as User;
 
 //implementing Singleton
@@ -180,4 +181,28 @@ class DBConnect
 
         return $categories;
     }
+
+
+
+
+    public function getSearchedPosts($search)
+    {
+        $sql = "SELECT * FROM posts WHERE title LIKE " . "'%" . $search. "%'" ." OR content LIKE "  . "'%" . $search. "%'" ." ORDER BY `date` DESC ";
+
+        $posts = $this->mysqli->query($sql);
+
+        $selectedPosts = [];
+        while ($album = $posts->fetch_assoc()) {
+            $postObj = new Post($album['title'], $album['content'], $album['user_id'], $album['category_id'], $album['date']);
+
+            $selectedPosts[] = $postObj;
+        }
+
+        return $selectedPosts;
+    }
+
+
+
+
+
 }
