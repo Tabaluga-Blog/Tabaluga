@@ -10,7 +10,7 @@ require_once 'notLogged.php';
 $message = "";
 if (isset($_POST['delete'])) {
     $email = $_POST['email'];
-    $password =$_POST['password'];
+    $password =md5($_POST['password']);
     
     if ($email == $_SESSION['user']->getEmail() &&
         $password == $_SESSION['user']->getPassword()
