@@ -14,15 +14,13 @@ if (isset($_POST['email'], $_POST['password'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     
-    $userInfo = Database::getUser($email, $password);
+    $userInfo = Database::getUser($email, md5($password));
     
     //IF ACCOUNT IS DELETED SKIP TO THE 'skipLog' label
     if ($userInfo['deleted_at'] != NULL) {
         $message = 'Account is deleted';
-        goto skipLog;
-    }
-    
-    if ($userInfo) {
+
+    } else if ($userInfo) {
         try
         {
             $user = new User($email, $userInfo['name'], $password);
@@ -39,8 +37,7 @@ if (isset($_POST['email'], $_POST['password'])) {
     }
 }
 
-//SKIPlOG LABEL
-skipLog:
+
 
 require_once "Header.php";
 require_once 'views/login.view.php';
