@@ -14,7 +14,7 @@
 
 <body>
 <header>
-    
+
     <div class="left">
         <img class="logo" src="images/Logo.png">
         <a href="index.php"><h1 class="title">Tabaluga</h1></a>
@@ -27,11 +27,17 @@
             <?php if(!isset($_SESSION['user'])) { ?>
                 <a class="mediumText" href="login.php">Log in</a>
                 <a  class="mediumText" href="register.php">Register</a>
-            
+
             <!-- If not logged -->
             <?php } else { ?>
-                <textarea class="searchbar" maxlength="40" placeholder="Find"></textarea>
-                <a class="mediumText" href="profile.php"><?= $_SESSION['user']->getName(); ?></a>
+              <form action="search.php" method="post">
+                  <!--<textarea class="searchbar" maxlength="40" placeholder="Find" ></textarea> -->
+                  <input name="search" type="text" class="searchbar" maxlength="40" placeholder="Find">
+                  <input type="submit" value="Search">
+              </form>
+
+                <a class="mediumText" href="profile.php"><?= substr($_SESSION['user']->getName(), 0, 7);
+                if(strlen($_SESSION['user']->getName())>7){ echo "...";}; ?></a>
                 <a class="mediumText" href="logout.php">Log out</a>
             <?php } ?>
         </ul>

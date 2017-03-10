@@ -54,7 +54,7 @@ class Post
 
     public function setTitle($title)
     {
-        if (strlen($title) < 10)
+        if (strlen($title) < 2)
         {
             throw new Exception("Title must be at least 2 characters long.");
         }

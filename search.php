@@ -1,6 +1,7 @@
 <?php
 
 use Models\Post as Post;
+use DB\Database;
 
 require_once("Models/User.php");
 require_once('Models/Post.php');
@@ -9,38 +10,48 @@ require_once("DB/Database.php");
 
 require 'notLogged.php';
 
-require_once "header.php" ?>
+require_once "header.php"  ?>
 
 <!-- ===================================================== -->
 
 <h1 class="text-center">
-    Recent Posts
+    Searched Posts
 </h1>
 
 <div class="post-conatiner">
     <!-- $post should be changed to an object of type Post -->
-    <?php 
-    
-    foreach(Post::getAllPosts() as $POST) { ?>
+    <?php
+
+    if (!isset($_POST['search']) || empty(trim($_POST['search']))) {
+        header('Location: home.php');
+    }
+
+    $searchedText = $_POST['search'];
+
+    $postCollection = Database::getSearchedPosts($searchedText);
+
+
+
+    foreach($postCollection as $post) { ?>
         <div class="panel post panel-default">
-            <a href="/project/trunk//post.php?id=<?= $POST->getId() ?>" class="panel-heading fill">
+            <a href="/tabaluga/post.php?id=<?= $post->getId() ?>" class="panel-heading fill">
                 <h4>
-                    <?= $POST->getTitle() ?>
-                    
+                    <?= $post->getTitle() ?>
+
                     <span class="pull-right">
                         <!-- Change to the category of the post -->
-                        <?=  ucfirst($POST->getCategoryName()) ?>
+                        <?=  ucfirst($post->getCategoryName()) ?>
                     </span>
                 </h4>
             </a>
             <div class="panel-body">
                 <p class="mediumText">
-                    <?= substr($POST->getContent(), 0 , 50);if(strlen($POST->getContent())>50){ echo "...";}; ?>
+                    <?= substr($post->getContent(), 0 , 50);if(strlen($post->getContent())>50){ echo "...";}; ?>
                 </p>
             </div>
             <div class="panel-footer">
                 <a href="#" class="user">
-                    <?= $POST->getUser() ?>
+                    <?= Database::getUserNameByID($post->getUser()) ?>
                 </a>
             </div>
         </div>

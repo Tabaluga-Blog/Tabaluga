@@ -18,7 +18,8 @@ if (isset($_POST['submit'])) {
     if ($newPassword != $confirmNewPassword) {
         $message = "Passwords does not match!";
     } else {
-        $result = Database::editProfile($changeFullName, $newPassword, $_SESSION['user']->getId());
+        $result = Database::editProfile($changeFullName, md5($newPassword), $_SESSION['user']->getId());
+        header("Location: logout.php");
     }
 }
 

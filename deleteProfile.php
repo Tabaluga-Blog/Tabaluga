@@ -10,10 +10,10 @@ require_once 'notLogged.php';
 $message = "";
 if (isset($_POST['delete'])) {
     $email = $_POST['email'];
-    $password = md5($_POST['password']);
+    $password =md5($_POST['password']);
     
     if ($email == $_SESSION['user']->getEmail() &&
-        $password == md5($_SESSION['user']->getPassword())
+        $password == $_SESSION['user']->getPassword()
     ) { 
         if (Database::deleteProfile($_SESSION['user'])) {
             session_destroy();
