@@ -17,7 +17,7 @@ require_once "header.php" ?>
     Recent Posts
 </h1>
 
-<div class="post-conatiner">
+<div class="post-container">
     <!-- $post should be changed to an object of type Post -->
     <?php 
     
@@ -34,9 +34,9 @@ require_once "header.php" ?>
                 </h4>
             </a>
             <div class="panel-body">
-                <p class="mediumText">
-                    <?= substr($POST->getContent(), 0 , 50);if(strlen($POST->getContent())>50){ echo "...";}; ?>
-                </p>
+                <div class="post-content">
+                    <?= substr($POST->getContent(), 0 , 300);if(strlen($POST->getContent())>300){ echo "...";}; ?>
+                </div>
             </div>
             <div class="panel-footer">
                 <a href="#" class="user">
