@@ -22,7 +22,7 @@ if (isset($_SESSION['user'])) {
             <a href="create.php"><h3>Make Post</h3></a>
         </div>
     </ul>
-    
+
     <ul>
         <div class="dropDown">
             <h3>Dashboard <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
@@ -38,7 +38,7 @@ if (isset($_SESSION['user'])) {
         <div class="dropDown">
             <h3>Mailbox <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
             <div class="container">
-                <a href="#"><li>Inbox</li></a>
+                <a href="inbox.php"><li>Inbox</li></a>
                 <a href="#"><li>Outbox</li></a>
                 <a href="#"><li>Send Message</li></a>
             </div>
