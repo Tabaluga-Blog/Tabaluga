@@ -3,7 +3,7 @@
 *
     margin: 0
     padding: 0
-    font-family: Block
+    font-family: GlobalFont
     transition-delay:all 0s
     
 body
@@ -12,6 +12,14 @@ body
     justify-content: space-around
     padding: 100px 10px 0px 160px
     min-height: 650px
+    &::-webkit-scrollbar
+        width: 12px
+        
+    &::-webkit-scrollbar-track
+        background: #BFBFBF
+        
+    &::-webkit-scrollbar-thumb
+        background: rgb(77, 195, 0)
     
     @media screen and (max-width: 800px)
         padding-left: 35px
@@ -52,7 +60,9 @@ button span
     align-items: center
 
 .post 
+    transition: all 0.5s
     min-width: 48%
+    max-height: 300px
     
     @media screen and (max-width: 800px)
         min-width: 100%
@@ -72,16 +82,63 @@ button span
         border-left: 1px solid darkgreen
         border-top: 1px solid darkgreen
         border-right: 1px solid darkgreen
+        min-width: 49%
         .panel-heading
             background-color: $mainColor
         
-        .panel-body
-            p
-                font-size: 23px
-        
         .panel-footer
             background-color: $hoverColor
+       
+
+.post-content
+    max-width: 550px
+    max-height: 150px
+    overflow-y: auto
+    transition-delay: all 0s
+    transition: all 0.5s
+    padding-right: 10px
+    //SCROLL styling
+    &::-webkit-scrollbar
+        width: 12px
+    &::-webkit-scrollbar-track
+        background: #BFBFBF
+        border-radius: 3px
+    &::-webkit-scrollbar-thumb
+        background: rgb(77, 195, 0)
+        
+    &:hover pre
+        font-size: 17px
     
+    pre
+        transition: all 0.5s
+        
+        &::-webkit-scrollbar
+            width: 12px
+        &::-webkit-scrollbar-track
+            background: #BFBFBF
+            border-radius: 3px
+        &::-webkit-scrollbar-thumb
+            background: rgb(77, 195, 0)
+    
+    ol, ul
+        margin-left: 15px
+    
+    ol
+        list-style-position: inside
+        
+    ul
+        list-style: disk
+        list-style-position: inside
+        
+        li
+            list-style: initial
+            display: block
+            max-height: 15px
+            margin-left: 40px
+            padding: 0px
+    &:hover
+        font-size: 20px
+
 //Helper Classes
 .noResize
     resize: none

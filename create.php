@@ -16,8 +16,14 @@ $message = "";
 if (isset($_POST['submit'])) {
     $user = $_SESSION['user'];
     $title = strip_tags($_POST['title']);
-    $content = strip_tags($_POST['content'], '<b><i><li><ul><ol><pre>');
-    $content = trim(str_replace("\n", "<br>", $content));
+    
+    $content = $_POST['content'];
+    $content = str_replace("\n", "<br>", $content);
+    $content = str_replace("<?php", "&lt;?php", $content);
+    $content = str_replace("?>", "?&gt;", $content);
+    $content = strip_tags($content, '<b><i><li><ul><ol><pre><code>');
+    
+    
     $category = $_POST['category'];
 
     $post = "";

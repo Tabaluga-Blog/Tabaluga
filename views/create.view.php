@@ -2,7 +2,7 @@
 use DB\Database;
 ?>
 
-<form class="xlarge" action="create.php" method="post">
+<form autocomplete="off" class="xlarge" action="create.php" method="post">
     <div class="panel panel-default">
         <!-- Title -->
         <div class="panel-heading">

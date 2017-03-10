@@ -34,9 +34,9 @@ require_once "header.php" ?>
                 </h4>
             </a>
             <div class="panel-body">
-                <p class="mediumText">
+                <div class="post-content">
                     <?= $POST->getContent() ?>
-                </p>
+                </div>
             </div>
             <div class="panel-footer">
                 <a href="#" class="user">

@@ -27,7 +27,8 @@ if (isset($_POST['email'], $_POST['password'])) {
         {
             $user = new User($email, $userInfo['name'], $password);
             $_SESSION['user'] = $user;
-
+            header("location: Home.php");
+            exit();
         }
         catch(Exception $e)
         {
