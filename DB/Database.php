@@ -78,7 +78,23 @@ class Database
         return $db->deleteProfile($user);
     }
 
+    public static function getChatUsers($user_id)
+     {
+         $db = DBConnect::getInstance();
+         return $db->getChatUsers($user_id);
+     }
 
+     public static function getUserMessages($receiver_id, $loggedUser_id)
+     {
+         $db = DBConnect::getInstance();
+         return $db->getUserMessages($receiver_id, $loggedUser_id);
+     }
+
+     public static function sendMessage($sender_id, $receiver_id, $content)
+     {
+         $db = DBConnect::getInstance();
+         return $db->sendMessage($sender_id, $receiver_id, $content);
+     }
 
 
 

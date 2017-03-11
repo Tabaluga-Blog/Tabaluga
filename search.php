@@ -21,11 +21,11 @@ require_once "header.php"  ?>
     <!-- $post should be changed to an object of type Post -->
     <?php
 
-    if (!isset($_POST['search']) || empty(trim($_POST['search']))) {
+    if (!isset($_POST['searchButton']) || empty(trim($_POST['searchField']))) {
         header('Location: home.php');
     }
 
-    $searchedText = $_POST['search'];
+    $searchedText = $_POST['searchField'];
 
     $postCollection = Database::getSearchedPosts($searchedText);
 
