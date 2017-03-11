@@ -10,7 +10,6 @@ use DB\Database;
             <h2 class="panel-title">
                 Post title:
                 <span class="error"><?php echo $message; ?><span>
-
             </h2>
         </div>
 

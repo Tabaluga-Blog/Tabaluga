@@ -27,19 +27,15 @@ header
             max-height: 60px
             max-width: 60px
             @include centerBlock(auto, 10px)
-                
-            @media screen and (max-width: 700px)
-                width: 40px
-                height: 40px
             
         .title
             text-transform: uppercase
-            font-size: 4.5vw
+            font-size: 4.3vw
             letter-spacing: 8px
             color: $titleColor
             
-            @media screen and (max-width: 700px)
-                font-size: 3.5vw
+            @media screen and (max-width: 800px)
+                visibility: hidden
             
     .right
         float: right
@@ -54,32 +50,53 @@ header
             align-items: center
             padding-right: 15px
             
-            .searchbar
-                resize: none
-                height: 30px
-                width: 225px
-                line-height: 30px
-                font-size: 20px
-                color: #4A4A4A
-                outline: none
-                padding: 0 5px
-                background: white
-                z-index: 10
-                overflow: hidden
-                word-wrap: normal
-                transition: all 0.5s
+            .searchForm
+                display: flex
+                flex-direction: row
+                padding: 0
+                margin: 0
                 
-                @media screen and (max-width: 700px)
-                    min-width: 25px
-                    overflow: hidden
+                .searchSubmit
+                    border: 0
+                    border-radius: 0px 3px 3px 0px
+                    background: $headerHover
+                    padding: 0px 5px
+                    color: white
                     
-                    &:focus
-                        min-width: 100px
+                    @media screen and (max-width: 700px)
+                        width: 30px
+                    
+                    span
+                        @media screen and (max-width: 700px)
+                            display: none
+                            
+                
+                .searchbar
+                    resize: none
+                    height: 30px
+                    width: 225px
+                    line-height: 30px
+                    font-size: 20px
+                    color: #4A4A4A
+                    outline: none
+                    margin: 0
+                    background: white
+                    z-index: 10
+                    overflow: hidden
+                    word-wrap: normal
+                    transition: all 0.5s
+                    
+                    @media screen and (max-width: 700px)
+                        width: 60px
+                        overflow: hidden
+                        
+                        &:focus
+                            width: 100px
             
             a, a:visited
                 display: block
-                min-width: 60px
-                width: 125px
+                min-width: 100px
+                width: auto
                 height: 40px
                 border-radius: 10px
                 text-align: center
@@ -90,9 +107,11 @@ header
                 color: white
                 transition: all 0.5s
                 
-                li
-                    padding: 0
-                    margin: 0
+                span
+                    display: inline-block
+                    vertical-align: middle
+                    line-height: normal
+                    margin: 0 10px
                 
                 &:hover
                     background: $headerHover

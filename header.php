@@ -23,22 +23,21 @@
     <div class="right">
         <ul>
 
-            <!-- If logged -->
-            <?php if(!isset($_SESSION['user'])) { ?>
-                <a class="mediumText" href="login.php">Log in</a>
-                <a  class="mediumText" href="register.php">Register</a>
-
             <!-- If not logged -->
+            <?php if(!isset($_SESSION['user'])) { ?>
+                <a class="mediumText" href="login.php"><span>Log in</span></a>
+                <a  class="mediumText" href="register.php"><span>Register</span></a>
+
+            <!-- If logged -->
             <?php } else { ?>
-              <form action="search.php" method="post">
-                  <!--<textarea class="searchbar" maxlength="40" placeholder="Find" ></textarea> -->
+              <form action="search.php" method="post" class="searchForm">
                   <input name="search" type="text" class="searchbar" maxlength="40" placeholder="Find">
-                  <input type="submit" value="Search">
+                  <button type="submit" class="searchSubmit"><span>Search</span></button>
               </form>
 
-                <a class="mediumText" href="profile.php"><?= substr($_SESSION['user']->getName(), 0, 7);
-                if(strlen($_SESSION['user']->getName())>7){ echo "...";}; ?></a>
-                <a class="mediumText" href="logout.php">Log out</a>
+                <a class="mediumText" href="profile.php"><span><?= substr($_SESSION['user']->getName(), 0, 7);
+                if(strlen($_SESSION['user']->getName())>7){ echo "...";}; ?> </span></a>
+                <a class="mediumText" href="logout.php"><span>Log out</span></a>
             <?php } ?>
         </ul>
     </div>

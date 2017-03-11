@@ -34,8 +34,11 @@ class Comment
 
     public function setContent($content)
     {
-        if (strlen($content) < 10){
-            throw new Exception("Content length must be at least 10 characters long.");
+        if (strlen($content) < 2){
+            throw new Exception("Content length must be at least 2 characters long.");
+        }
+        if (strlen($content > 300)) {
+            throw new Exception("Content exceeds limit ot 300");
         }
         $this->content = $content;
     }

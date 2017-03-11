@@ -1,6 +1,5 @@
 <?php
 
-use Models\Post as Post;
 use DB\Database;
 
 require_once("Models/User.php");

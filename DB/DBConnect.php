@@ -84,11 +84,16 @@ class DBConnect
         return $userInfo;
     }
 
-
-    public function editProfile($name, $password, $userId)
+    public function changeName($newName, $userId)
     {
+        $sql = "UPDATE users SET name = '$newName' WHERE id = '$userId'";
+        $result = $this->mysqli->query($sql);
+        return $result;
+    }
 
-         $sql = ("UPDATE users SET name = '$name', password = '$password' WHERE id = '$userId'");
+    public function changePassword($password, $userId)
+    {
+         $sql = ("UPDATE users SET password = '$password' WHERE id = '$userId'");
          $result = $this->mysqli->query($sql);
          return $result;
     }

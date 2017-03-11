@@ -44,13 +44,29 @@ class Database
         $db = DBConnect::getInstance();
         return $db->getUserNameByID($id);
     }
-
-    public static function editProfile($name, $password, $userId)
+    
+    /**
+    * Change the name of a user by his ID
+    * @param string $newName The new name we want to give the user
+    * @return bool
+    */
+    public static function changeName($newName, $userId)
     {
         $db = DBConnect::getInstance();
-        return $db->editProfile($name, $password, $userId);
+        return $db->changeName($newName, $userId);
     }
-
+    
+    /**
+    * Change the password of a user
+    * @param string $password password passed as md5()
+    * @return bool 
+    */
+    public static function changePassword($password, $userId)
+    {
+        $db = DBConnect::getInstance();
+        return $db->changePassword($password, $userId);
+    }
+    
     /**
     * Deletes the account of passed user
     * @param User $user User that will be deleted

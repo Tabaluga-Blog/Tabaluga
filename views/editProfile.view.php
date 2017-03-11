@@ -1,21 +1,39 @@
-<form class="large" action='editProfile.php' method="POST">
-    <p style="color:red">
-        <?php echo $message . "<br>" ?>
-    </p>
-
-    <div class="form-group">
-        <label for="email">Email: </label>
-        <input autocomplete="off" required class="form-control" type="email" name="email" placeholder="You cannot change your email address" disabled>
-
-        <label for="changeFullName">Change Full Name:</label>
-        <input autocomplete="off" required class="form-control" type="text" name="changeFullName" placeholder="John Smith">
-
-        <label for="newPassword">New Password:</label>
-        <input autocomplete="off" required class="form-control" type="password" name="newPassword" placeholder="More than 6 symbols">
-
-        <label for="confirmNewPassword">Confirm New Password:</label>
-        <input autocomplete="off" required class="form-control" type="password" name="confirmNewPassword" placeholder="Confirm password">
-    </div>
-
-    <button class="btn btn-success" type="submit" name="submit"><span>Edit</span></button>
-</form>
+<div class="editContainer">
+    <form class="medium" action="editProfile.php" method="POST">
+        <h2 class="fill text-center">Change Name</h2>
+        <hr>
+        <?php 
+        if (isset($changeNameError)) 
+        echo "<h4 class=\"fill text-center\">{$changeNameError}</h4>";
+        ?>
+        
+        <div class="form-group">
+            <label for="newName" class="fill text-center">New Name:</label>
+            <input class="form-control text-center" type="text" name="newName" placeholder="Jack Smith">
+        </div>
+        <button class="btn btn-success" type="submit" name="changeName"><span>Change Name</span></button>
+    </form>
+    <hr>
+    <form autocomplete="off" class="medium" action='editProfile.php' method="POST">
+        <h2 class="fill text-center">Change Password</h2>
+        <hr>
+        
+        <div class="form-group">
+            <?php 
+            if (isset($changePasswordError))
+            echo "<h2 class=\"fill text-center\">{$changePasswordError}</h2>";
+            ?>
+            <label for="oldPassword" class="text-center fill">Old Password:</label>
+            <input class="form-control text-center" type="password" name="oldPassword" placeholder="Old Password">
+            
+            <label for="newPassword" class="text-center fill">New Password:</label>
+            <input class="form-control text-center" type="password" name="newPassword" placeholder="At least 5 symbols">
+            
+            <label for="confirmNewPassword" class="text-center fill">Confirm New Password:</label>
+            <input class="form-control text-center" type="password" name="confirmNewPassword" placeholder="Confirm password">
+        </div>
+        
+        <button class="btn btn-success" type="submit" name="changePassword"><span>Change Password</span></button>
+    </form>
+</div>
+    

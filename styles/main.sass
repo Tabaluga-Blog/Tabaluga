@@ -64,9 +64,6 @@ button span
     min-width: 48%
     max-height: 300px
     
-    @media screen and (max-width: 800px)
-        min-width: 100%
-    
     a
         display: block
     
@@ -89,6 +86,11 @@ button span
         .panel-footer
             background-color: $hoverColor
        
+    @media screen and (max-width: 800px)
+        min-width: 100%
+        
+        &:hover
+            min-width: 100%
 
 .post-content
     max-width: 550px
@@ -97,7 +99,6 @@ button span
     transition-delay: all 0s
     transition: all 0.5s
     padding-right: 10px
-    //SCROLL styling
     &::-webkit-scrollbar
         width: 12px
     &::-webkit-scrollbar-track
@@ -121,24 +122,31 @@ button span
             background: rgb(77, 195, 0)
     
     ol, ul
-        margin-left: 15px
+        padding-left: 50px
     
     ol
         list-style-position: inside
         
     ul
-        list-style: disk
         list-style-position: inside
-        
-        li
-            list-style: initial
-            display: block
-            max-height: 15px
-            margin-left: 40px
-            padding: 0px
+            
     &:hover
         font-size: 20px
 
+
+.post-display
+    ul, ol
+        padding-left: 50px
+
+
+.editContainer
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+    flex-wrap: wrap
+    
+    margin-bottom: 30px
+    
 //Helper Classes
 .noResize
     resize: none
@@ -148,12 +156,16 @@ button span
 
 .bigText
     font-size: 28px
+    @media screen and (max-width: 800px)
+        font-size: 23px
     
 .mediumText
     font-size: 18px
+    @media screen and (max-width: 800px)
+        font-size: 15px
     
 .smallText
-    font-size: 10px
+    font-size: 14px
 
 .small
     min-width: 300px
