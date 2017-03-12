@@ -1,9 +1,10 @@
 <?php 
+
 use Models\Post;
 
 $id = intval($_GET['id']);
 $post = Post::getPostById($id);
-// $comments = Post::getCommentsOfPost($id);
+$post->addViewToPost($id);
 ?>
 
 <div class="panel panel-default">
@@ -17,14 +18,28 @@ $post = Post::getPostById($id);
         </div>
     </div>
     
-    <div class="panel-heading">
+    <div class="panel-heading post-footer">
         <h4>
-            <a href="/profile?id=3" class="mediumText"> <?= $post->getUser() ?> </a>
+            <p><a href="/profile.php?id=3" class="mediumText"> <?= $post->getUser() ?> </a></p>
+            <p>Views: <?= $post->getViews() ?> </p>
             <p class="date pull-right mediumText"> <?= $post->getDate() ?> </p>
         </h4>
     </div>
 </div>
 
-<div class="comments">
-    
+<div class="panel panel-default comment-form">
+    <input type="hidden" id="sender" value="<?= $_SESSION['user']->getId() ?>"/>
+    <h4 class="panel-body user fill" id="name"><?= $_SESSION['user']->getName() . " (" . $_SESSION['user']->getEmail() ?>)</h4>
+    <div class="comment-content">
+        <textarea id="content" class="comment-form-content" placeholder="Comment . . ." maxlength="400"></textarea>
+        <button type="button" class="btn btn-default" id="addComment" onclick="addComment(<?= $id ?>)">Comment</button>
+    </div>
 </div>
+
+<hr>
+
+<div id="comments" class="comments">
+</div>
+<script type="text/javascript">
+    getComments(<?= $id ?>);
+</script>

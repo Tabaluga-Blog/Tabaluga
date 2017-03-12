@@ -4,6 +4,8 @@ namespace DB;
 
 use Models\User as User;
 use Models\Post as Post;
+use Models\Comment as Comment;
+use DB\DBConnect;
 
 class Database
 {
@@ -149,10 +151,43 @@ class Database
         $db = DBConnect::getInstance();
         return $db->getPostById($id);
     }
-
+    
+    /**
+    * Add view to a post by its ID
+    * @param int $id The id of the post
+    * @return bool
+    */
+    public static function addViewToPost($id)
+    {
+        $db = DBConnect::getInstance();
+        return $db->addViewToPost($id);
+    }
+    
     public static function getSearchedPosts($search)
     {
         $db = DBConnect::getInstance();
         return $db->getSearchedPosts($search);
+    }
+    
+    /**
+    * Get all the comments of a post with given ID
+    * @param int $id ID of the post we want the commetns of
+    * @return Comment[]
+    */
+    public static function getCommentsOfPostWithId($id)
+    {
+        $db = DBConnect::getInstance();
+        return $db->getCommentsOfPostWithId($id);
+    }
+    
+    /**
+    * Add comment to a post by the post's ID
+    * @param Comment $comment The comment we want to add
+    * @return bool
+    */
+    public static function addComment(Comment $comment)
+    {
+        $db = DBConnect::getInstance();
+        return $db->addComment($comment);
     }
 }

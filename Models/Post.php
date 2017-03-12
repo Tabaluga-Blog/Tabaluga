@@ -13,21 +13,23 @@ class Post
     private $user;
     private $category;
     private $date;
+    private $views;
     
     //This constructor is used when creating a new post
-    public function __construct($title, $content, $user, $category, $date)
+    public function __construct($title, $content, $user, $category, $date, $views)
     {
         $this->setTitle($title);
         $this->setContent($content);
         $this->setUser($user);
         $this->setCategory($category);
         $this->setDate($date);
+        $this->setViews($views);
     }
     
     //This constructor is used for when we want to display a post
-    public static function NewWithId($title, $content, $user, $category, $date, $id)
+    public static function NewWithId($title, $content, $user, $category, $date, $views, $id)
     {
-        $instance = new self($title, $content, $user, $category, $date);
+        $instance = new self($title, $content, $user, $category, $date, $views);
         $instance->setId($id);
         
         return $instance;
@@ -110,6 +112,16 @@ class Post
     {
         $this->category = $category;
     }
+    
+    public function getViews()
+    {
+        return $this->views;
+    }
+    
+    public function setViews($views)
+    {
+        $this->views = $views;
+    }
 
     public function editPost(){}
 
@@ -133,7 +145,7 @@ class Post
         while ($post = $query->fetch_assoc()) {
             $username = Database::getUserNameByID($post['user_id']);
             
-            $posts[] = Post::NewWithId($post['title'], $post['content'], $username, $post['category_id'], $post['date'], $post['id']);
+            $posts[] = Post::NewWithId($post['title'], $post['content'], $username, $post['category_id'], $post['date'], $post['views'], $post['id']);
             }
         }
         return $posts;
@@ -144,16 +156,30 @@ class Post
     * Get a post from the database by its ID
     *
     * @param int $id
-    *
-    * @return Post[] 
+    * @return Post
     */
     public static function getPostById($id)
     {
         $post = Database::getPostById($id);
         
         $username = Database::getUserNameByID($post['user_id']);
-        $postObj = Post::NewWithId($post['title'], $post['content'], $username, $post['category_id'], $post['date'], $post['id']);
+        $postObj = Post::NewWithId($post['title'], $post['content'], $username, $post['category_id'], $post['date'], $post['views'], $post['id']);
         
         return $postObj;
+    }
+    
+    /**
+    * Add a view to a post by its ID
+    * @param int $id The id of the post
+    * @return bool 
+    */
+    public function addViewToPost($id)
+    {
+        try {
+            Database::addViewToPost($id);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+        return true;
     }
 }

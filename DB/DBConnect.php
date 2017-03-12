@@ -4,6 +4,7 @@ namespace DB;
 
 use Models\Post;
 use Models\User as User;
+use Models\Comment as Comment;
 
 //implementing Singleton
 class DBConnect
@@ -248,9 +249,6 @@ class DBConnect
         return $categories;
     }
 
-
-
-
     public function getSearchedPosts($search)
     {
         $sql = "SELECT * FROM posts WHERE title LIKE " . "'%" . $search. "%'" ." OR content LIKE "  . "'%" . $search. "%'" ." ORDER BY `date` DESC ";
@@ -267,8 +265,35 @@ class DBConnect
         return $selectedPosts;
     }
 
+    public function addViewToPost($id)
+    {
+        $sql = "UPDATE posts SET views = views + 1 WHERE id = '$id'";
+        
+        $result = $this->mysqli->query($sql);
+        
+        return $result;
+    }
 
-
-
-
+    public function getCommentsOfPostWithId($id)
+    {
+        $sql = "SELECT * FROM comments WHERE post_id=$id ORDER BY id DESC";
+        
+        $result = $this->mysqli->query($sql);
+        
+        return $result;
+    }
+    
+    public function addComment(Comment $comment)
+    {
+        $user_id = $comment->getUser();
+        $post_id = $comment->getPost();
+        $content = $comment->getContent();
+        
+        $sql = "INSERT INTO comments (user_id, post_id, content) 
+                VALUES ('$user_id', '$post_id', '$content')";
+                
+        $result = $this->mysqli->query($sql);
+        
+        return $result;
+    }
 }

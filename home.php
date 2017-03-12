@@ -23,7 +23,7 @@ require_once "header.php" ?>
     
     foreach(Post::getAllPosts() as $POST) { ?>
         <div class="panel post panel-default">
-            <a href="/project/trunk//post.php?id=<?= $POST->getId() ?>" class="panel-heading fill">
+            <a href="/post.php?id=<?= $POST->getId() ?>" class="panel-heading fill">
                 <h4>
                     <?= $POST->getTitle() ?>
                     
@@ -41,6 +41,8 @@ require_once "header.php" ?>
             <div class="panel-footer">
                 <a href="#" class="user">
                     <?= $POST->getUser() ?>
+                    
+                    <?= $POST->getViews() ?>
                 </a>
             </div>
         </div>
