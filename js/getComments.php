@@ -10,6 +10,8 @@ require_once '../Models/Comment.php';
 $id = $_GET['id'];
 $wholeText = '';
 
+$comments = [];
+
 $results = Database::getCommentsOfPostWithId($id);
 
 while($comment = $results->fetch_assoc()) {

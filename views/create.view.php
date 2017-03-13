@@ -6,7 +6,6 @@ use DB\Database;
     <div class="panel panel-default">
         <!-- Title -->
         <div class="panel-heading">
-
             <h2 class="panel-title">
                 Post title:
                 <span class="error"><?php echo $message; ?><span>
