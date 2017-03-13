@@ -20,22 +20,64 @@ header
         margin: 0
         padding: 0
         
+        &:hover
+            .logo
+                background: white
+        
         a, a:hover, a:active
+            max-height: 100%
             text-decoration: none
+            display: inline-flex
+            flex-direction: row
         
         .logo
+            padding: 3px
+            transition: all 0.5s
             max-height: 60px
             max-width: 60px
+            border-radius: 50%
             @include centerBlock(auto, 10px)
+            @media screen and (max-width: 800px)
+                display: none
             
         .title
+            display: inline
+            transition: all 0.5s
+            position: relative
+            top: 0px
             text-transform: uppercase
             font-size: 4.3vw
+            font-family: HeaderTitle
+            color: white
             letter-spacing: 8px
-            color: $titleColor
+            line-height: normal
+            margin: 0px
+            
+            &::after
+                content: ':'
+                position: relative
+                right: -5px
+                font-size: 80px
+                display: inline-block
+                width: 0px
+                text-decoration: none
+                animation: Beep 1s linear 0s infinite alternate
+                
             
             @media screen and (max-width: 800px)
-                visibility: hidden
+                margin-left: 5px
+                letter-spacing: 1px
+                font-size: 4.5vw
+                    
+        &:hover
+            .title
+                top: -5px
+                text-shadow: $buttonColor 0px 5px 0px 
+                
+            @media screen and (max-width: 800px)
+                &:hover .title
+                    padding-bottom: 0
+                    text-shadow: none
             
     .right
         float: right
@@ -57,11 +99,19 @@ header
                 margin: 0
                 
                 .searchSubmit
+                    position: relative
+                    top: 0px
+                    transition: all 0.5s
                     border: 0
-                    border-radius: 0px 3px 3px 0px
-                    background: $headerHover
+                    border-radius: 0px 6px 6px 0px
+                    background: $buttonColor
                     padding: 0px 5px
                     color: white
+                    
+                    &:hover
+                        background: $headerHover
+                        top: -5px
+                        box-shadow: $buttonColor 0px 5px 0px
                     
                     @media screen and (max-width: 700px)
                         width: 30px
@@ -73,7 +123,8 @@ header
                 
                 .searchbar
                     resize: none
-                    height: 30px
+                    height: 40px
+                    padding: 5px
                     width: 225px
                     line-height: 30px
                     font-size: 20px
@@ -98,14 +149,22 @@ header
                 min-width: 100px
                 width: auto
                 height: 40px
-                border-radius: 10px
                 text-align: center
-                line-height: 40px
-                margin: 0 10px
+                line-height: 35px
+                margin: 0
                 background: $buttonColor
                 text-decoration: none
                 color: white
                 transition: all 0.5s
+                
+                &:first-of-type
+                    border-radius: 6px 0px 0px 6px
+                    border-right: 1px solid white
+                    margin-left: 10px
+                
+                &:last-of-type
+                    margin-right: 10px
+                    border-radius: 0px 6px 6px 0px
                 
                 span
                     display: inline-block

@@ -13,7 +13,7 @@ require_once "header.php" ?>
 
 <!-- ===================================================== -->
 
-<h1 class="text-center">
+<h1 class="text-center titleFont large centerBlock underline">
     Recent Posts
 </h1>
 
@@ -41,8 +41,6 @@ require_once "header.php" ?>
             <div class="panel-footer">
                 <a href="#" class="user">
                     <?= $POST->getUser() ?>
-                    
-                    <?= $POST->getViews() ?>
                 </a>
             </div>
         </div>

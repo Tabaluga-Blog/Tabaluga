@@ -17,13 +17,14 @@
 <header>
 
     <div class="left">
-        <img class="logo" src="images/Logo.png">
-        <a href="index.php"><h1 class="title">Tabaluga</h1></a>
+        <a href="index.php">
+            <img class="logo" src="images/Logo.png">
+            <h1 class="title titleFont">Tabaluga</h1>
+        </a>
     </div>
 
     <div class="right">
         <ul>
-
             <!-- If not logged -->
             <?php if(!isset($_SESSION['user'])) { ?>
                 <a class="mediumText" href="login.php"><span>Log in</span></a>

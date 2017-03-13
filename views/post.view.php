@@ -8,7 +8,7 @@ $post->addViewToPost($id);
 ?>
 
 <div class="panel panel-default">
-    <div class="panel-heading mediumText text-center">
+    <div class="panel-heading mediumText text-center post-header">
         <?= $post->getTitle() ?> <span class="pull-right"> <?php echo ucfirst($post->getCategoryName()) ?></span>
     </div>
     
