@@ -114,6 +114,12 @@ class Database
         return $db->makePost($post->getUser(), $post->getTitle(), $post->getContent(), $post->getCategory());
     }
 
+    public static function getCurrentUserAllPosts($id)
+    {
+        $db = DBConnect::getInstance();
+        return $db->getCurrentUserPosts($id);
+    }
+
     public static function getCategories()
     {
         $db = DBConnect::getInstance();

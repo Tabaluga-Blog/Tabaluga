@@ -150,6 +150,19 @@ class Post
         }
         return $posts;
     }
+    public static function getAllPostsFromCurrentUser($id)
+    {
+        $posts = [];
+
+        if ($query = Database::getCurrentUserAllPosts($id)) {
+            while ($post = $query->fetch_assoc()) {
+                $username = Database::getUserNameByID($post['user_id']);
+
+                $posts[] = Post::NewWithId($post['title'], $post['content'], $username, $post['category_id'], $post['date'], $post['views'], $post['id']);
+            }
+        }
+        return $posts;
+    }
     
     
     /**

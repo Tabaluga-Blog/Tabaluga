@@ -131,13 +131,12 @@ class DBConnect
 	              JOIN users as u on u.id = m.sender_id
 	              WHERE receiver_id = " . $user_id;
 
-        $query = $this->mysqli->query($sql);
-
         $users = [];
-
-        while ($result = $query->fetch_assoc())
-        {
-            $users[] = $result;
+        if ( $query = $this->mysqli->query($sql)) {
+            while ($result = $query->fetch_assoc())
+            {
+                $users[] = $result;
+            }
         }
 
         return $users;
@@ -219,6 +218,14 @@ class DBConnect
         return $name;
     }
 
+    public function getCurrentUserPosts($id)
+    {
+        $sql = "SELECT * FROM posts WHERE user_id = '$id'";
+
+        $posts = $this->mysqli->query($sql);
+
+        return $posts;
+    }
 
     public function getPosts()
     {
