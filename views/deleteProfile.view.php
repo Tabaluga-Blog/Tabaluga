@@ -1,29 +1,3 @@
-<style>
-    .form-group input[type="checkbox"] {
-        display: none;
-    }
-
-    .form-group input[type="checkbox"] + .btn-group > label span {
-        width: 20px;
-    }
-
-    .form-group input[type="checkbox"] + .btn-group > label span:first-child {
-        display: none;
-    }
-    .form-group input[type="checkbox"] + .btn-group > label span:last-child {
-        display: inline-block;
-    }
-
-    .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
-        display: inline-block;
-    }
-    .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
-        display: none;
-    }
-    h2 {
-        color: red;
-    }
-</style>
 <h2 class="text-center">Before deleting your account, please confirm your email and password</h2>
 <form class="large" action='deleteProfile.php' method="POST">
     <p>
