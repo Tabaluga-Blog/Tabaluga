@@ -1,7 +1,3 @@
-<?php  
-use DB\Database;
-?>
-
 <form autocomplete="off" class="xlarge" action="create.php" method="post">
     <div class="panel panel-default">
         <!-- Title -->
@@ -25,7 +21,7 @@ use DB\Database;
             <select required class="custom-select fill bigText" name="category">
             <option disabled selected>Categories:</option>
                 <?php
-                    $category = Database::getCategories();
+                    $category = $ps->getCategories();
 
                     foreach ($category as $cat){
                         ?> <option value="<?php echo $cat['id']?>"> <?php echo ucfirst($cat['name'])?></option> <?php

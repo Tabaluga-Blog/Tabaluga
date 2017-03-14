@@ -2,13 +2,15 @@
 
 namespace Services;
 
-use Data\Comment;
-
 use DB\DBConnect;
 
-require_once __DIR__ . '/../DB/DBConnect.php';
+use Data\Comment;
+use Services\CommentServiceInterface;
 
-class CommentService
+require_once __DIR__ . '/../DB/DBConnect.php';
+require_once 'CommentServiceInterface.php';
+ 
+class CommentService implements CommentServiceInterface
 {
     public function getCommentsOfPostWithId($id)
     {

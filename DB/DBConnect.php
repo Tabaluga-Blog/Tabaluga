@@ -2,7 +2,11 @@
 
 namespace DB;
 
-class DBConnect
+use DB\DBConnectInterface;
+
+require 'DBConnectInterface.php';
+
+class DBConnect implements DBConnectInterface
 {
     private $db_hostname = "localhost";
     private $db_username = "root";

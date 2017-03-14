@@ -5,8 +5,9 @@ namespace Services;
 use DB\DBConnect;
 
 require_once ("../DB/DBConnect.php");
+require_once 'MessageServiceInterface.php';
 
-class MessageService
+class MessageService implements MessageServiceInterface
 {
     public function getChatUsers($user_id)
     {
