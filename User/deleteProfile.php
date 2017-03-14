@@ -16,5 +16,5 @@ if (isset($_POST['delete'])) {
     $deleteService->deleteProfile($email, $password);
 }
 
-require_once '../views/deleteProfile.view.php';
+require_once '../Views/deleteProfile.view.php';
 require_once "../footer.php";

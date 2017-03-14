@@ -14,11 +14,10 @@ if (isset($_POST['email'], $_POST['password'])) {
     $loginService = new LoginService();
 
     $message = $loginService->login($email, $password);
-
 }
 
 require_once "../header.php";
-require_once '../views/login.view.php';
+require_once '../Views/login.view.php';
 require_once "../footer.php" ?>
 
 </body>

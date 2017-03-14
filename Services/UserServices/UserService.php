@@ -2,19 +2,20 @@
 
 namespace Services\UserServices;
 
-
-use DB\DBConnect;
+use Adapter\DatabaseConnection;
 use Data\User;
+use Services\UserServices\UserServicesInterfaces\UserServiceInterface;
 
-require_once (__DIR__ . "/../../DB/DBConnect.php");
+require_once (__DIR__ . "/../../Adapter/DatabaseConnection.php");
+require_once (__DIR__ . "/../UserServices/UserServicesInterfaces/UserServiceInterface.php");
 
-class UserService
+class UserService implements UserServiceInterface
 {
     public function getEmail($email)
     {
         $sql = 'SELECT * FROM users where email = "'.  $email . '"';
 
-        $result = DBConnect::db()->query($sql);
+        $result = DatabaseConnection::db()->query($sql);
 
         if ($result->num_rows > 0) {
             return true;
@@ -29,9 +30,8 @@ class UserService
         $email = $user->getEmail();
         $password = $user->getPassword();
 
-        $stmt = DBConnect::db()->prepare("INSERT INTO users (email, name, password)
+        $stmt = DatabaseConnection::db()->prepare("INSERT INTO users (email, name, password)
                                         VALUES (?, ?, ?)");
-
 
 
         $stmt->bind_param("sss", $email, $name, $password);
@@ -48,7 +48,7 @@ class UserService
     {
         $sql = 'SELECT * FROM users where email = "' . $email . '" and password = "' . $password . '"';
 
-        $result = DBConnect::db()->query($sql);
+        $result = DatabaseConnection::db()->query($sql);
 
         $userInfo = $result->fetch_assoc();
 
@@ -58,14 +58,14 @@ class UserService
     public function changeName($newName, $userId)
     {
         $sql = "UPDATE users SET name = '$newName' WHERE id = '$userId'";
-        $result = DBConnect::db()->query($sql);
+        $result = DatabaseConnection::db()->query($sql);
         return $result;
     }
 
     public function changePassword($password, $userId)
     {
         $sql = ("UPDATE users SET password = '$password' WHERE id = '$userId'");
-        $result = DBConnect::db()->query($sql);
+        $result = DatabaseConnection::db()->query($sql);
         return $result;
     }
 
@@ -73,7 +73,7 @@ class UserService
     {
         $now = date("Y-m-d H:i:s");
 
-        $result = DBConnect::db()->query("UPDATE users SET deleted_at = '$now' WHERE id='{$userId}'");
+        $result = DatabaseConnection::db()->query("UPDATE users SET deleted_at = '$now' WHERE id='{$userId}'");
 
         return $result;
     }
@@ -82,11 +82,9 @@ class UserService
     {
         $sql = "SELECT name FROM users WHERE id={$id} LIMIT 1";
 
-        $query = DBConnect::db()->query($sql);
+        $query = DatabaseConnection::db()->query($sql);
         $name = $query->fetch_assoc()['name'];
 
         return $name;
     }
-
-
 }

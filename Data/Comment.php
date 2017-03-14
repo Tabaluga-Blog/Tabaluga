@@ -6,8 +6,11 @@ use Exception;
 class Comment
 {
     private $id;
+
     private $content;
+
     private $post;
+
     private $user;
 
     public function __construct($content, $post, $user)
@@ -16,17 +19,6 @@ class Comment
         $this->setUser($user);
         $this->setPost($post);
     }
-    
-    public function __toString()
-    {
-        $comment = "<div class=\"comment panel panel-default large\">
-            <h5 class=\"panel-body user mediumText\">$this->user</h5>
-            <p class=\"panel-body content\">$this->content</p>
-        </div>";
-        
-        return $comment;
-    }
- 
 
     public function getId()
     {

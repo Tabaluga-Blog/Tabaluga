@@ -6,22 +6,19 @@ require_once("Data/User.php");
 require_once('Data/Post.php');
 require_once "Services/PostServices/PostService.php";
 require_once 'Access/notLogged.php';
-
 require_once ("header.php");
 ?>
-
 <!DOCTYPE html>
 <html >
 <head>
     <meta charset="UTF-8">
     <title></title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="Styles/main.css">
+    <link rel="stylesheet" href="Styles/header.css">
+    <link rel="stylesheet" href="Styles/sidebar.css">
 </head>
 <body>
-
 <!-- ===================================================== -->
 
 <h1 class="text-center">
@@ -44,7 +41,7 @@ require_once ("header.php");
                     
                     <span class="pull-right">
                         <!-- Change to the category of the post -->
-                        <?=  ucfirst($post->getCategory()) ?>
+                        <?=  ucfirst($post->getCategoryName()) ?>
                     </span>
                 </h4>
             </a>
@@ -56,7 +53,6 @@ require_once ("header.php");
             <div class="panel-footer">
                 <a href="#" class="user">
                     <?= $post->getUser() ?>
-                    <p class="pull-right"> Views: <?= $post->getViews() ?> </p>
                 </a>
             </div>
         </div>

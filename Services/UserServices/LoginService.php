@@ -4,12 +4,15 @@ namespace Services\UserServices;
 
 use Data\User;
 use Exception;
+use Services\UserServices\UserServicesInterfaces\LoginServiceInterface;
+
 
 require_once("../Access/isLogged.php");
 require_once("../Data/User.php");
 require_once("UserService.php");
+require_once (__DIR__ . "/../UserServices/UserServicesInterfaces/LoginServiceInterface.php");
 
-class LoginService
+class LoginService implements LoginServiceInterface
 {
     public function login($email, $password)
     {

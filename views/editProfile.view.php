@@ -6,7 +6,6 @@
         if (isset($changeNameError)) 
         echo "<h4 class=\"fill text-center\">{$changeNameError}</h4>";
         ?>
-        
         <div class="form-group">
             <label for="newName" class="fill text-center">New Name:</label>
             <input class="form-control text-center" type="text" name="newName" placeholder="Jack Smith">
@@ -36,4 +35,3 @@
         <button class="btn btn-success" type="submit" name="changePassword"><span>Change Password</span></button>
     </form>
 </div>
-    

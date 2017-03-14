@@ -7,9 +7,13 @@ use Exception;
 class User
 {
     private $id;
+
     private $email;
+
     private $name;
+
     private $password;
+
     private $registerDate;
 
     public function __construct($email, $name, $password)

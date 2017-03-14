@@ -49,7 +49,6 @@
             </label>
         </div>
     </div>
-
     <button class="btn btn-danger" type="submit" name="delete"><span>Delete</span></button>
 </form>
 <br>

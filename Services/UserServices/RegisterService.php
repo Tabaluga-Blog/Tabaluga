@@ -4,12 +4,14 @@ namespace Services\UserServices;
 
 use Data\User;
 use Exception;
+use Services\UserServices\UserServicesInterfaces\RegisterServiceInterface;
 
 require_once("../Access/isLogged.php");
 require_once("../Data/User.php");
 require_once("UserService.php");
+require_once (__DIR__ . "/../UserServices/UserServicesInterfaces/RegisterServiceInterface.php");
 
-class RegisterService
+class RegisterService implements RegisterServiceInterface
 {
     public function register($email, $name, $password, $confirmPassword)
     {
@@ -64,10 +66,5 @@ class RegisterService
 
 
         return $message;
-    }
-
-    private function passwordMatch($password, $confirmPassword)
-    {
-        return $password != $confirmPassword;
     }
 }

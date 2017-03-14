@@ -2,11 +2,10 @@
 
 namespace Services;
 
+require_once (__DIR__ . "/../Services/MessageServiceInterface.php");
 
-class MessageService
+class MessageService implements MessageServiceInterface
 {
-
-
     public function getChatUsers($user_id)
     {
         $sql = "SELECT DISTINCT u.id, u.name
@@ -67,9 +66,4 @@ class MessageService
         }
         return false;
     }
-
-
-
 }
-
-// ../ &class . 'Services/' . $class . 'se'

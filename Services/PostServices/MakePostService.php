@@ -4,10 +4,12 @@ namespace Services\PostServices;
 
 use Data\Post;
 use Exception;
+use Services\PostServices\PostServicesInterfaces\MakePostServiceInterface;
 
 require_once ( __DIR__ . "/../../Data/Post.php");
+require_once (__DIR__ . "/../PostServices/PostServicesInterfaces/MakePostServiceInterface.php");
 
-class MakePostService
+class MakePostService implements MakePostServiceInterface
 {
     public function makePost($title, $content, $userId, $category)
     {

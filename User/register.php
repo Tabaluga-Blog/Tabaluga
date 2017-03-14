@@ -9,7 +9,6 @@ require_once "../header.php";
 
 $message = "";
 
-
 if(isset($_POST['submit']))
 {
     $email = $_POST['email'];
@@ -22,8 +21,7 @@ if(isset($_POST['submit']))
     $message = $registerService->register($email, $name, $password, $confirmPassword);
 }
 
-
-require_once '../views/register.view.php';
+require_once '../Views/register.view.php';
 require_once "../footer.php" ?>
 
 </body>

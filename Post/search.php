@@ -56,5 +56,4 @@ require_once "Layout/header.php" ?>
     <?php } ?>
 </div>
 
-
 <?php require_once "Layout/footer.php" ?>

@@ -1,14 +1,10 @@
 <?php
-
-
 require 'Access/isLogged.php';
 if (isset($_SESSION['user'])) {
     header("Location: Home.php");
     exit;
 }
-
 require_once "header.php" ?>
-        
         <!-- Overriding the main.css to make the body scale to the whole page -->
         <style media="screen">
             body {padding: 100px 10px 0px 10px; min-height: auto}

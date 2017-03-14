@@ -2,7 +2,6 @@
 
 namespace Data;
 
-
 class Message
 {
 

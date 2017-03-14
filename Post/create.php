@@ -2,8 +2,8 @@
 
 use Services\PostServices\MakePostService;
 
+require '../Access/notLogged.php';
 require_once '../Services/PostServices/PostService.php';
-require_once '../Access/notLogged.php';
 require_once '../header.php';
     
 $message = "";
@@ -20,10 +20,11 @@ if (isset($_POST['submit'])) {
 
     $category = $_POST['category'];
 
+
     $makePostService = new MakePostService();
     $message = $makePostService->makePost($title, $content, $user->getId(), $category);
 
 }
 
-require_once '../views/create.view.php';
+require_once '../Views/create.view.php';
 require '../footer.php';

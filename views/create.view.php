@@ -1,7 +1,3 @@
-<?php  
-use DB\Database;
-?>
-
 <form autocomplete="off" class="xlarge" action="create.php" method="post">
     <div class="panel panel-default">
         <!-- Title -->
@@ -25,7 +21,7 @@ use DB\Database;
             <select required class="custom-select fill bigText" name="category">
             <option disabled selected>Categories:</option>
                 <?php
-                    $category = Database::getCategories();
+                    $category = DatabaseConnection::getCategories();
 
                     foreach ($category as $cat){
                         ?> <option value="<?php echo $cat['id']?>"> <?php echo ucfirst($cat['name'])?></option> <?php
@@ -34,7 +30,6 @@ use DB\Database;
                 ?>
             </select>
         </div>
-
         <input class="quarterMissing bigText btn btn-success" type="submit" name="submit" value="Make post">
     </div>
 </form>
