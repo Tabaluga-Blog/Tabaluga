@@ -2,16 +2,19 @@
 
 namespace Services\PostServices;
 
-use DB\DBConnect;
-use Services\UserServices\UserService;
 use Data\Post;
 
+use DB\DBConnect;
+use Services\UserServices\UserService;
+use Services\PostServices\PostServiceInterface;
+
+require_once 'PostServicesInterfaces/PostServiceInterface.php';
 require_once (__DIR__ . '/../UserServices/UserService.php');
 require_once (__DIR__ . '/../../Data/Post.php');
 require_once( __DIR__ . "/../../DB/DBConnect.php");
 
 
-class PostService
+class PostService implements PostServiceInterface
 {
     public function makePost($userId, string $title, string $content, int $category)
     {

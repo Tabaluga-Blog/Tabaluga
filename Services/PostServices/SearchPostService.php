@@ -2,8 +2,11 @@
 
 namespace Services\PostServices;
 
+use PostServicesInterfaces\SearchPostServiceInterface;
 
-class SearchPostService
+require 'PostServiceInterfaces/SearchPostServiceInterface.php';
+
+class SearchPostService implements SearchPostServiceInterface
 {
 
 }
