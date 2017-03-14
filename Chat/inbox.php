@@ -1,17 +1,11 @@
 <?php
-
-use Adapter\DatabaseConnection;
-
-//require_once("DB/DBConnect.php");
-//require_once("DB/Database.php");
-//require_once("Data/User.php");
 require_once ("../Access/notLogged.php");
 require_once ("../Adapter/DatabaseConnection.php");
 
-require 'notLogged.php';
-require_once "header.php";
+require '../Access/notLogged.php';
+require_once "../header.php";
 
-$chatUsers = DatabaseConnection::getChatUsers($_SESSION['user']->getId());
+$chatUsers = Database::getChatUsers($_SESSION['user']->getId());
 
 foreach ($chatUsers as $chatUser) {
     ?>
@@ -22,4 +16,4 @@ foreach ($chatUsers as $chatUser) {
 <?php
 }
 
-require_once "footer.php";
+require_once "../footer.php";

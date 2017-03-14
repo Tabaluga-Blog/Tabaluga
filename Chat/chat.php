@@ -3,12 +3,11 @@
 use Models\Post as Post;
 use DB\Database;
 
-require_once("Data/User.php");
-require_once('Data/Post.php');
-require_once("DB/DBConnect.php");
-require_once("DB/Database.php");
+require_once("../Data/User.php");
+require_once('../Data/Post.php');
+require_once("../Adapter/DatabaseConnection.php");
 
-require 'notLogged.php';
+require '../Access/notLogged.php';
 require_once "../header.php";
 
     $receiver_id = intval($_GET['id']);

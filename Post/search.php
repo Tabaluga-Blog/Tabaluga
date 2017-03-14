@@ -2,10 +2,10 @@
 
 use Services\PostServices\PostService;
 
-require_once "Services/PostServices/PostService.php";
-require_once('Data/Post.php');
+require_once "../Services/PostServices/PostService.php";
+require_once('../Data/Post.php');
 
-require 'Access/notLogged.php';
+require '../Access/notLogged.php';
 
 require_once "Layout/header.php" ?>
 

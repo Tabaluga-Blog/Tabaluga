@@ -1,6 +1,6 @@
 <?php
 namespace Data;
-use DB\DBConnect;
+use Adapter\DatabaseConnection;
 use Exception;
 
 

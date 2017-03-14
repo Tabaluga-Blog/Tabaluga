@@ -3,7 +3,7 @@ namespace Data;
 
 use Exception;
 
-use DB\DBConnect;
+use Adapter\DatabaseConnection;
 
 require_once (__DIR__  . "/../Adapter/DatabaseConnection.php");
 
