@@ -35,8 +35,14 @@
                   <button type="submit" class="searchSubmit"><span>Search</span></button>
               </form>
 
-                <a class="mediumText" href=""><span><?= substr($_SESSION['user']->getName(), 0, 7);
-                if(strlen($_SESSION['user']->getName())>7){ echo "...";}; ?> </span></a>
+                <a class="mediumText" href="/User/profile.php">
+                    <span>  
+                            <?= 
+                                htmlentities(substr($_SESSION['user']->getName(), 0, 7));
+                                if(strlen($_SESSION['user']->getName())>7)
+                                { echo "...";}; 
+                            ?> 
+                    </span></a>
                 <a class="mediumText" href="/User/logout.php"><span>Log out</span></a>
             <?php } ?>
         </ul>

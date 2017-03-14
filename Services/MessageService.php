@@ -2,11 +2,12 @@
 
 namespace Services;
 
+use DB\DBConnect;
+
+require_once ("../DB/DBConnect.php");
 
 class MessageService
 {
-
-
     public function getChatUsers($user_id)
     {
         $sql = "SELECT DISTINCT u.id, u.name
@@ -19,13 +20,14 @@ class MessageService
 	              JOIN users as u on u.id = m.sender_id
 	              WHERE receiver_id = " . $user_id;
 
-        $query = $this->mysqli->query($sql);
+        $query = DBConnect::db()->query($sql);
 
         $users = [];
-
-        while ($result = $query->fetch_assoc())
-        {
-            $users[] = $result;
+        if ($query) {   
+            while ($result = $query->fetch_assoc())
+            {
+                $users[] = $result;
+            }
         }
 
         return $users;
@@ -44,13 +46,15 @@ class MessageService
                     WHERE sender_id = ". $loggedUser_id ." AND receiver_id = ". $receiver_id ."
                 ORDER BY date";
 
-        $query = $this->mysqli->query($sql);
+        $query = DBConnect::db()->query($sql);
 
         $messages = [];
-
-        while ($result = $query->fetch_assoc())
-        {
-            $messages[] = $result;
+        
+        if ($query) {
+            while ($result = $query->fetch_assoc())
+            {
+                $messages[] = $result;
+            }
         }
 
         return $messages;
@@ -58,7 +62,7 @@ class MessageService
 
     public function sendMessage($sender_id, $receiver_id, $content)
     {
-        $stmt = $this->mysqli->prepare('INSERT INTO messages (sender_id, receiver_id, content) VALUES (?, ?, ?)');
+        $stmt = DBConnect::db()->prepare('INSERT INTO messages (sender_id, receiver_id, content) VALUES (?, ?, ?)');
 
         $stmt->bind_param("iis", $sender_id, $receiver_id, $content);
 
@@ -67,9 +71,4 @@ class MessageService
         }
         return false;
     }
-
-
-
 }
-
-// ../ &class . 'Services/' . $class . 'se'

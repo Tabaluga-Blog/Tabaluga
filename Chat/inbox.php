@@ -1,15 +1,17 @@
 <?php
 
-use DB\Database;
-use Models\User;
-require_once("DB/DBConnect.php");
-require_once("DB/Database.php");
-require_once("Data/User.php");
+use Services\MessageService;
 
-require 'notLogged.php';
-require_once "header.php";
+require_once("../DB/DBConnect.php");
+require_once("../Data/User.php");
+require_once("../Services/MessageService.php");
 
-$chatUsers = Database::getChatUsers($_SESSION['user']->getId());
+require_once __DIR__ . '/../Access/notLogged.php';
+require_once __DIR__ . "/../header.php";
+
+$ms = new MessageService();
+
+$chatUsers = $ms->getChatUsers($_SESSION['user']->getId());
 
 foreach ($chatUsers as $chatUser) {
     ?>
@@ -20,4 +22,4 @@ foreach ($chatUsers as $chatUser) {
 <?php
 }
 
-require_once "footer.php";
+require_once "../footer.php";

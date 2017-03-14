@@ -80,11 +80,12 @@ class Post
         return $this->content;
     }
 
+    // TODO: SET A HIGHER LIMIT
     public function setContent($content)
     {
         if (strlen($content) < 10)
         {
-            throw new Exception("Content must be at least 10 characters long.");
+            throw new Exception("Content must be at least 300 characters long.");
         }
 
         $this->content = $content;
