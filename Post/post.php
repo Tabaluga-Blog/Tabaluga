@@ -8,6 +8,9 @@ require_once(__DIR__ . '/../Services/PostServices/PostService.php');
 require_once __DIR__ . '/../Access/notLogged.php';
 
 require_once "../header.php";
+?>
+<script type="text/javascript" src="http://localhost:3000/Services/AJAX/commentSystem.js"></script>
+<?php
 //require_once __DIR__ . '/../views/post.view.php';
 
 

@@ -25,8 +25,8 @@
 
             <!-- If not logged -->
             <?php if(!isset($_SESSION['user'])) { ?>
-                <a class="mediumText" href="User/login.php"><span>Log in</span></a>
-                <a  class="mediumText" href="User/register.php"><span>Register</span></a>
+                <a class="mediumText" href="/User/login.php"><span>Log in</span></a>
+                <a  class="mediumText" href="/User/register.php"><span>Register</span></a>
 
             <!-- If logged -->
             <?php } else { ?>
@@ -37,7 +37,7 @@
 
                 <a class="mediumText" href=""><span><?= substr($_SESSION['user']->getName(), 0, 7);
                 if(strlen($_SESSION['user']->getName())>7){ echo "...";}; ?> </span></a>
-                <a class="mediumText" href="User/logout.php"><span>Log out</span></a>
+                <a class="mediumText" href="/User/logout.php"><span>Log out</span></a>
             <?php } ?>
         </ul>
     </div>
