@@ -11,12 +11,9 @@ require_once("DB/Database.php");
 require 'notLogged.php';
 require_once "../header.php";
 
-
     $receiver_id = intval($_GET['id']);
 
     $loggedUser_id = $_SESSION['user']->getId();
-
-
 
 if (isset($_POST['chat']) && !empty(trim($_POST['content'])))
 {
@@ -46,8 +43,6 @@ foreach ($messages as $msg)
 }
 
 ?>
-
-
 
 <form action="chat.php?id=<?=$receiver_id?>" method="post">
     <input type="text" name="content" placeholder="content:">

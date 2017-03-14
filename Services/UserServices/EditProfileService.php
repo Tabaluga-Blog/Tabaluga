@@ -6,7 +6,7 @@ use Services\UserServices\UserServicesInterfaces\EditProfileInterface;
 
 require_once( __DIR__ . "/../../Data/User.php");
 require_once( __DIR__ . "/../UserServices/UserService.php");
-require_once( __DIR__ . "/../../DB/DBConnect.php");
+require_once( __DIR__ . "/../../Adapter/DatabaseConnection.php");
 require_once  __DIR__ . '/../../Access/notLogged.php';
 require_once (__DIR__ . "/../UserServices/UserServicesInterfaces/EditProfileInterface.php");
 

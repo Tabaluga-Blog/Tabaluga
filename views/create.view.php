@@ -5,7 +5,9 @@
 
             <h2 class="panel-title">
                 Post title:
-                <span class="error"><?php echo $message; ?><span>
+                <span class="error"><?php use Adapter\DatabaseConnection;
+
+                    echo $message; ?><span>
             </h2>
         </div>
 
@@ -26,7 +28,6 @@
                     foreach ($category as $cat){
                         ?> <option value="<?php echo $cat['id']?>"> <?php echo ucfirst($cat['name'])?></option> <?php
                     }
-
                 ?>
             </select>
         </div>

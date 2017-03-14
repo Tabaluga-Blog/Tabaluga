@@ -1,6 +1,5 @@
 <?php
 
-use DB\Database;
 use Services\PostServices\PostService;
 
 require_once "Services/PostServices/PostService.php";
@@ -49,7 +48,7 @@ require_once "Layout/header.php" ?>
             </div>
             <div class="panel-footer">
                 <a href="#" class="user">
-                    <?= Database::getUserNameByID($post->getUser()) ?>
+                    <?= \Adapter\DatabaseConnection::getUserNameByID($post->getUser()) ?>
                 </a>
             </div>
         </div>
