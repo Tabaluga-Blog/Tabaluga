@@ -2,7 +2,6 @@
 
 namespace Services\UserServices;
 
-
 use DB\DBConnect;
 use Data\User;
 
@@ -87,6 +86,18 @@ class UserService
 
         return $name;
     }
-
+    
+    /**
+     * Get the Name and Email of people that beggin with certain letters
+     * @param string $suggestion string with which the names begin with
+     * @return array mysqli_result
+     */
+    public function getPeopleWithNames($suggestion)
+    {
+        $sql = "SELECT id, name, email FROM users WHERE name LIKE '{$suggestion}%' LIMIT 10";
+        $results = DBConnect::db()->query($sql);
+        
+        return $results;
+    }
 
 }

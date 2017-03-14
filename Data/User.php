@@ -1,8 +1,7 @@
 <?php
 namespace Data;
-use DB\DBConnect;
-use Exception;
 
+use Exception;
 
 class User
 {
