@@ -3,8 +3,6 @@ namespace Data;
 
 use Exception;
 
-use DB\DBConnect;
-
 require_once (__DIR__  . "/../DB/DBConnect.php");
 
 class Post
@@ -12,25 +10,29 @@ class Post
     private $id;
     private $title;
     private $content;
-    private $user;
+    private $username;
+    private $userId;
     private $category;
     private $date;
+    private $views;
     
     //This constructor is used when creating a new post
-    public function __construct($title, $content, $user, $category, $date)
+    public function __construct($title, $content, $username, $category, $date)
     {
         $this->setTitle($title);
         $this->setContent($content);
-        $this->setUser($user);
+        $this->setUser($username);
         $this->setCategory($category);
         $this->setDate($date);
     }
     
     //This constructor is used for when we want to display a post
-    public static function NewWithId($title, $content, $user, $category, $date, $id)
+    public static function NewWithId($title, $content, $username, $category, $date, $id, $views, $userId)
     {
-        $instance = new self($title, $content, $user, $category, $date);
+        $instance = new self($title, $content, $username, $category, $date);
         $instance->setId($id);
+        $instance->setViews($views);
+        $instance->setUserId($userId);
         
         return $instance;
     }
@@ -52,6 +54,16 @@ class Post
     public function getTitle()
     {
         return $this->title;
+    }
+    
+    public function setUserId($userId)
+    {
+        $this->userId = $userId;
+    }
+    
+    public function getUserId()
+    {
+        return $this->userId;
     }
 
     public function setTitle($title)
@@ -93,9 +105,9 @@ class Post
         return $this->user;
     }
 
-    public function setUser($user)
+    public function setUser($username)
     {
-        $this->user = $user;
+        $this->user = $username;
     }
 
     public function getCategory()
@@ -103,16 +115,20 @@ class Post
         return $this->category;
     }
     
-    public function getCategoryName()
-    {
-        return $this->category;
-    }
-
     public function setCategory($category)
     {
         $this->category = $category;
     }
 
+    public function getViews()
+    {
+        return $this->views;
+    }
+
+    public function setViews($views)
+    {
+        $this->views = $views;
+    }
 
 
 }

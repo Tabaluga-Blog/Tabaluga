@@ -8,12 +8,7 @@ require_once "Services/PostServices/PostService.php";
 require_once 'Access/notLogged.php';
 
 require_once ("header.php");
-
-
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html >
@@ -66,6 +61,7 @@ require_once ("header.php");
             <div class="panel-footer">
                 <a href="#" class="user">
                     <?= $post->getUser() ?>
+                    <p class="pull-right"> Views: <?= $post->getViews() ?> </p>
                 </a>
             </div>
         </div>
