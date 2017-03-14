@@ -8,12 +8,7 @@ require_once "Services/PostServices/PostService.php";
 require_once 'Access/notLogged.php';
 
 require_once ("header.php");
-
-
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html >
@@ -26,11 +21,6 @@ require_once ("header.php");
     <link rel="stylesheet" href="styles/sidebar.css">
 </head>
 <body>
-
-
-
-
-
 
 <!-- ===================================================== -->
 
@@ -54,7 +44,7 @@ require_once ("header.php");
                     
                     <span class="pull-right">
                         <!-- Change to the category of the post -->
-                        <?=  ucfirst($post->getCategoryName()) ?>
+                        <?=  ucfirst($post->getCategory()) ?>
                     </span>
                 </h4>
             </a>
@@ -66,6 +56,7 @@ require_once ("header.php");
             <div class="panel-footer">
                 <a href="#" class="user">
                     <?= $post->getUser() ?>
+                    <p class="pull-right"> Views: <?= $post->getViews() ?> </p>
                 </a>
             </div>
         </div>

@@ -43,6 +43,8 @@ class PostService
                         p.date as postDate, 
                         p.content as postContent, 
                         p.title as postTitle, 
+                        p.views as postViews,
+                        p.user_id as userId,
                         u.name as userName, 
                         c.name as categoryName
                 FROM posts as p
@@ -62,21 +64,29 @@ class PostService
                                             $post['userName'],
                                             $post['categoryName'],
                                             $post['postDate'],
-                                            $post['postId']);
+                                            $post['postId'],
+                                            $post['postViews'],
+                                            $post['userId']);
             }
         }
         return $posts;
 
     }
-
+    
+    /**
+     * 
+     * @param int $id ID of the post we want
+     * @return Post 
+     */
     public function getPostById($id)
     {
         $sql = "SELECT 	p.id as postId, 
                         p.date as postDate, 
                         p.content as postContent, 
                         p.title as postTitle, 
-                        u.name as userName,
+                        p.views as postViews,
                         p.user_id as userId,
+                        u.name as userName,
                         c.name as categoryName
                 FROM posts as p
                 JOIN users as u ON u.id = p.user_id
@@ -85,8 +95,19 @@ class PostService
 
         $query = DBConnect::db()->query($sql);
 
-        $post = $query->fetch_assoc();
-
+        $result = $query->fetch_assoc();
+        
+        if($result) {
+            $post = Post::NewWithId( $result['postTitle'],
+                                        $result['postContent'],
+                                        $result['userName'],
+                                        $result['categoryName'],
+                                        $result['postDate'],
+                                        $result['postId'],
+                                        $result['postViews'],
+                                        $result['userId']);
+        }
+        
         return $post;
     }
 
