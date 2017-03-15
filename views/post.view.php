@@ -13,7 +13,20 @@
 
     <div class="panel-heading post-footer fill">
         <h4>
-            <p><a href="/User/profile.php?id=<?= $post->getUserId() ?>" class="mediumText"> <?= $post->getUser() ?> </a></p>
+            <p>
+                <a href="/User/profile.php?id=<?= $post->getUserId() ?>" class="mediumText"> 
+                    <?= $post->getUser() ?> 
+                </a>
+                
+                <?php 
+                    if ($_SESSION['user']->getId() == $post->getUserId()) {
+                        echo "|
+                        <a href=\"/Post/editPost.php?id={$post->getId()}\"><i class=\"fa fa-pencil mediumText\" aria-hidden=\"true\"></i></a>
+                        |
+                        <a href=\"/Post/edit.php?id={$post->getId()}\"><i class=\"fa fa-trash mediumText\" aria-hidden=\"true\"></i></a>";
+                    }
+                 ?>
+            </p>
             <p> Views: <?= $post->getViews() ?> </p>
             <p class="date pull-right mediumText"> <?= $post->getDate() ?> </p>
         </h4>

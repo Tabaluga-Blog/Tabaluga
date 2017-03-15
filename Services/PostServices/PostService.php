@@ -16,11 +16,11 @@ require_once( __DIR__ . "/../../DB/DBConnect.php");
 
 class PostService implements PostServiceInterface
 {
-    public function makePost($userId, string $title, string $content, int $category)
+    public function makePost($userId, string $title, string $content, int $category, $isDraft)
     {
-        $stmt = DBConnect::db()->prepare('INSERT INTO posts (user_id, title, content, category_id)  VALUES (?, ?, ?, ?)');
+        $stmt = DBConnect::db()->prepare('INSERT INTO posts (user_id, title, content, category_id, isDraft)  VALUES (?, ?, ?, ?, ?)');
 
-        $stmt->bind_param("issi", $userId, $title, $content, $category);
+        $stmt->bind_param("issii", $userId, $title, $content, $category, $isDraft);
 
         if ($stmt->execute()) {
             return true;
@@ -48,12 +48,14 @@ class PostService implements PostServiceInterface
                         p.title as postTitle, 
                         p.views as postViews,
                         p.user_id as userId,
+                        p.isDraft as draft,
                         u.name as userName, 
                         c.name as categoryName
                 FROM posts as p
                 JOIN users as u ON u.id = p.user_id
                 JOIN categories as c ON c.id = p.category_id
-                ORDER BY `date` DESC';
+                WHERE p.isDraft = 0
+                ORDER BY postDate DESC';
 
         $postsDbResult = DBConnect::db()->query($sql);
 
@@ -209,9 +211,20 @@ class PostService implements PostServiceInterface
                 SET p.views = p.views+1
                 WHERE p.id = {$postId}";
         $query = DBConnect::db()->query($sql);
-
-
     }
-
+    
+    public function editPost($postId, $title, $content, $isDraft)
+    {
+        $sql = "UPDATE posts
+                SET 	title = '{$title}',
+                		content = '{$content}',
+                		isDraft = {$isDraft}
+                WHERE
+                		id = $postId";
+                        
+        $result = DBConnect::db()->query($sql);
+        
+        return $result;
+    }
 
 }

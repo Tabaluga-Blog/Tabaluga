@@ -12,7 +12,7 @@ require_once ( __DIR__ . "/../../Data/Post.php");
 
 class MakePostService implements MakePostServiceInterface
 {
-    public function makePost($title, $content, $userId, $category)
+    public function makePost($title, $content, $userId, $category, $isDraft)
     {
         $postService = new PostService();
 
@@ -29,7 +29,7 @@ class MakePostService implements MakePostServiceInterface
         //check if post is created -> if not redirect to post form again
         if ($post != "")
         {
-            $result = $postService->makePost($userId, $title, $content, $category);
+            $result = $postService->makePost($userId, $title, $content, $category, $isDraft);
 
             if ($result) {
                 header("location: /../Home.php");

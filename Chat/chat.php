@@ -12,8 +12,6 @@ require_once '../Services/MessageService.php';
 require_once '../Access/notLogged.php';
 require_once "../header.php";
 
-
-
 $receiver_id = intval($_GET['id']);
 $loggedUser_id = $_SESSION['user']->getId();
 

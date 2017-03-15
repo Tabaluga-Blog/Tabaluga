@@ -4,7 +4,7 @@ namespace Services\PostServices;
 
 interface PostServiceInterface
 {
-    public function makePost($userId, string $title, string $content, int $category);
+    public function makePost($userId, string $title, string $content, int $category, $isDraft);
 
     public function getCategoryName($cat_id);
 

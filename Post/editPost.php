@@ -1,18 +1,24 @@
-<?php
+<?php 
 
-// use Services\PostServices\PostService;
-use Services\PostServices\MakePostService;
+use Services\PostServices\PostService;
+use Services\PostServices\EditPostService;
 
 require_once '../Data/User.php';
-require_once __DIR__ . '/../Services/PostServices/MakePostService.php';
+require_once __DIR__ . '/../Services/PostServices/EditPostService.php';
 require_once '../Services/PostServices/PostService.php';
 require_once '../Access/notLogged.php';
 require_once '../header.php';
 
-//$ps = new PostService();
+
+$post_id = $_GET['id'];
+
+
+$ps = new PostService();
+$post = $ps->getPostById($post_id);
 $message = "";
 
 if (isset($_POST['submit'])) {
+    $eps = new EditPostService();
     $user = $_SESSION['user'];
     $title = htmlentities($_POST['title']);
 
@@ -22,7 +28,6 @@ if (isset($_POST['submit'])) {
     $content = str_replace("?>", "?&gt;", $content);
     $content = strip_tags($content, '<b><i><li><ul><ol><pre><code>');
 
-    $category = $_POST['category'];
     $isDraft = '';
     
     if (isset($_POST['fancy-checkbox-success'])) {
@@ -30,11 +35,9 @@ if (isset($_POST['submit'])) {
     } else {
         $isDraft = 0;
     }
-
-    $makePostService = new MakePostService();
-    $message = $makePostService->makePost($title, $content, $user->getId(), $category, $isDraft);
-
+    
+    $eps->editPost($post_id, $title, $content, $isDraft);
 }
 
-require_once '../views/create.view.php';
+require_once '../views/editPost.view.php';
 require '../footer.php';
