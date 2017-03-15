@@ -40,7 +40,7 @@ require_once ("header.php");
         <div class="panel post panel-default">
             <a href="/Post/post.php?id=<?= $post->getId() ?>" class="panel-heading fill">
                 <h4>
-                    <?= $post->getTitle() ?>
+                    <?= substr($post->getTitle(), 0 , 20);if(strlen($post->getTitle())>20){ echo "...";}; ?>
                     
                     <span class="pull-right">
                         <!-- Change to the category of the post -->
