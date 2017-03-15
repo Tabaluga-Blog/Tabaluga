@@ -24,21 +24,8 @@ if (isset($_POST['chat']) && !empty(trim($_POST['content'])))
 
 $messages = $ms->getUserMessages($receiver_id, $loggedUser_id);
 
-foreach ($messages as $msg)
-{
-    ?>
-    <div>
-        <span class="mediumText"> <?= $msg['name'] . " : " ?>
-        </span> <span class="smallText"> <?=  $msg['content'] ?></span>
-    </div>
 
-    <?php
-}
-
+require_once './../views/chat.view.php';
 ?>
 
-<form action="chat.php?id=<?=$receiver_id?>" method="post">
-    <input type="text" name="content" placeholder="content:">
 
-    <input type="submit" name="chat" value="Send" >
-</form>

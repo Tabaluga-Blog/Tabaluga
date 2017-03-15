@@ -13,13 +13,11 @@ $ms = new MessageService();
 
 $chatUsers = $ms->getChatUsers($_SESSION['user']->getId());
 
+echo "<div class=\"panel panel-default medium inbox\">";
 foreach ($chatUsers as $chatUser) {
     ?>
-    <div class="bigText">
-        <a href="/Chat/chat.php?id=<?= $chatUser['id'] ?>" class="panel-heading fill"> <?= $chatUser['name'] ?> </a>
-    </div>
-
+        <a href="/Chat/chat.php?id=<?= $chatUser['id'] ?>" class="oldChat bigText"> <?= $chatUser['name'] ?> </a>
 <?php
 }
-
+echo "</div>";
 require_once "../footer.php";

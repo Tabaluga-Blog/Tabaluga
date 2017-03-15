@@ -1,6 +1,5 @@
 <?php
 
-use DB\DBConnect;
 use Services\PostServices\PostService;
 
 require_once(__DIR__ . "/../Data/User.php");
@@ -17,7 +16,7 @@ require_once "../header.php" ?>
     Searched Posts
 </h1>
 
-<div class="post-conatiner">
+<div class="post-container">
 
     <?php
 //var_dump($_POST);exit;

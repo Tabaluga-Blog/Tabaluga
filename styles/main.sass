@@ -256,8 +256,58 @@ button span
         width: 100%
         margin: 0px
         padding: 0
-        
+
+.chat
+    height: 500px
+    overflow-y: hidden
     
+.chatContainer
+    display: inline-flex
+    flex-direction: column
+    overflow: auto
+    height: 300px
+    width: 100%
+    
+    .message
+        display: block
+        width: 100%
+        
+        p
+            position: relative
+            width: auto
+            max-width: 200px
+            padding: 5px
+            margin: 2px
+    
+    .received
+        p
+            border-radius: 0px 5px 5px 0px
+            float: left
+            background-color: $hoverColor
+            text-align: left
+        span
+            display: block
+            border-bottom: 1px solid black
+            &::after
+                content: ':'
+    .sent
+        p
+            border-radius: 5px 0px 0px 5px
+            float: right
+            background-color: rgb(207, 207, 207)
+            text-align: right
+        span
+            display: block
+            border-bottom: 1px solid black
+            &::after
+                content: ':'
+    
+.inbox
+    display: flex
+    flex-direction: column
+    .oldChat
+        padding-left: 15px
+        border-bottom: 1px solid black
 //Helper Classes
 .underline
     border-bottom: 1px solid $border
