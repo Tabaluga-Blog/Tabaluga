@@ -22,7 +22,7 @@ require_once "../header.php" ?>
     <?php
 //var_dump($_POST);exit;
     if (!isset($_POST['searchButton']) || empty(trim($_POST['searchField']))) {
-        //header('Location: /../home.php');
+        header('Location: /../home.php');
     }
 
     $searchedText = $_POST['searchField'];
@@ -33,7 +33,7 @@ require_once "../header.php" ?>
 
     foreach($postCollection as $post) { ?>
         <div class="panel post panel-default">
-            <a href="Post/post.php?id=<?= $post->getId() ?>" class="panel-heading fill">
+            <a href="post.php?id=<?= $post->getId() ?>" class="panel-heading fill">
                 <h4>
                     <?= $post->getTitle() ?>
 
