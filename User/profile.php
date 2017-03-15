@@ -41,7 +41,7 @@ require_once("../header.php");
     //var_dump($allPosts); exit;
     foreach ($allPosts as $post) { ?>
         <div class="panel post panel-default">
-            <a href="/Post//post.php?id=<?= $post->getId() ?>" class="panel-heading fill">
+            <a href="/Post/post.php?id=<?= $post->getId() ?>" class="panel-heading fill">
                 <h4>
                     <?= $post->getTitle() ?>
 
