@@ -24,7 +24,7 @@ $receiver_name = $us->getUserNameByID($receiver_id);
 
 if (isset($_POST['chat']) && !empty(trim($_POST['content'])))
 {
-    $content = $_POST['content'];
+    $content = htmlentities($_POST['content']);
     $result = $ms->sendMessage($loggedUser_id, $receiver_id, $content);
 }
 
