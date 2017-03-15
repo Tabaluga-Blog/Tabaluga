@@ -30,9 +30,9 @@
 
             <!-- If logged -->
             <?php } else { ?>
-              <form action="Post/search.php" method="post" class="searchForm">
-                  <input name="search" type="text" class="searchbar" maxlength="40" placeholder="Find">
-                  <button type="submit" class="searchSubmit"><span>Search</span></button>
+              <form action="/../Post/search.php" method="post" class="searchForm">
+                  <input name="searchField" type="text" class="searchbar" maxlength="40" placeholder="Find">
+                  <input name="searchButton" type="submit" class="searchSubmit" value="Search">
               </form>
 
                 <a class="mediumText" href="/User/profile.php">
