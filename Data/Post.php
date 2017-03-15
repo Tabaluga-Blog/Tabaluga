@@ -10,7 +10,7 @@ class Post
     private $id;
     private $title;
     private $content;
-    private $username;
+    private $user;
     private $userId;
     private $category;
     private $date;
