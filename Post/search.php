@@ -33,7 +33,7 @@ require_once "../header.php" ?>
 
     foreach($postCollection as $post) { ?>
         <div class="panel post panel-default">
-            <a href="Post/post.php?id=<?= $post->getId() ?>" class="panel-heading fill">
+            <a href="post.php?id=<?= $post->getId() ?>" class="panel-heading fill">
                 <h4>
                     <?= $post->getTitle() ?>
 
