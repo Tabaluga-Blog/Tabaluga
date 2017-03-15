@@ -15,7 +15,7 @@ $message = "";
 if (isset($_POST['submit'])) {
     $user = $_SESSION['user'];
     $title = strip_tags($_POST['title']);
-    
+
     $content = $_POST['content'];
     $content = str_replace("\n", "<br>", $content);
     $content = str_replace("<?php", "&lt;?php", $content);

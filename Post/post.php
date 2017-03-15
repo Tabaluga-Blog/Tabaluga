@@ -13,6 +13,7 @@ $id = intval($_GET['id']);
 
 $postService = new PostService();
 
+$postService->addPostView($id);
 $post = $postService->getPostById($id);
 
 require_once '../views/post.view.php';
