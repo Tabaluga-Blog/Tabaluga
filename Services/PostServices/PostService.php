@@ -96,12 +96,14 @@ class PostService implements PostServiceInterface
                 FROM posts as p
                 JOIN users as u ON u.id = p.user_id
                 JOIN categories as c ON c.id = p.category_id
-                WHERE p.id = {$id}";
+                WHERE p.id = {$id} and p.isDraft = 0";
 
         $query = DBConnect::db()->query($sql);
 
         $result = $query->fetch_assoc();
-        
+
+        $post=[];
+
         if($result) {
             $post = Post::NewWithId( $result['postTitle'],
                                         $result['postContent'],
@@ -131,7 +133,7 @@ class PostService implements PostServiceInterface
                 FROM posts as p
                 JOIN users as u ON u.id = p.user_id
                 JOIN categories as c ON c.id = p.category_id
-                WHERE u.id = {$userId}
+                WHERE u.id = {$userId} AND p.isDraft = 0
                 ORDER BY p.date DESC";
 
         $postsDbResult = DBConnect::db()->query($sql);
@@ -180,9 +182,10 @@ class PostService implements PostServiceInterface
 					ON p.user_id = u.id
 				JOIN categories as c
 					ON p.category_id = c.id
-                WHERE p.title LIKE " . "'%" . $search. "%'" ." 
-                  OR p.content LIKE "  . "'%" . $search. "%'" ." 
-                ORDER BY `date` DESC ";
+                WHERE (p.title LIKE " . "'%" . $search. "%'" ." 
+                  OR p.content LIKE "  . "'%" . $search. "%'" .")
+                  AND p.isDraft = 0
+                ORDER BY p.date DESC ";
 
         $postsDbResult = DBConnect::db()->query($sql);
 

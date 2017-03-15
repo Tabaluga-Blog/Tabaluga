@@ -4,8 +4,10 @@ namespace Services\UserServices;
 
 use Data\User;
 use Exception;
+use MailService;
 
 require_once("../Access/isLogged.php");
+require_once (__DIR__ . "/../../Mail/Mail.php");
 require_once("../Data/User.php");
 require_once("UserService.php");
 
@@ -53,6 +55,9 @@ class RegisterService
 
                     if($result)
                     {
+                        $mail = new MailService();
+                        $mail->send($user->getEmail(), "register", "Вие се регистрирахте успешно в Tabaluga WebBlog");
+
                         header('Location: login.php');
                     }
                     else {
