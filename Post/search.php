@@ -22,7 +22,7 @@ require_once "../header.php" ?>
     <?php
 //var_dump($_POST);exit;
     if (!isset($_POST['searchButton']) || empty(trim($_POST['searchField']))) {
-        //header('Location: /../home.php');
+        header('Location: /../home.php');
     }
 
     $searchedText = $_POST['searchField'];
