@@ -163,18 +163,43 @@ class PostService implements PostServiceInterface
 
     public function getSearchedPosts($search)
     {
-        $sql = "SELECT * FROM posts WHERE title LIKE " . "'%" . $search. "%'" ." OR content LIKE "  . "'%" . $search. "%'" ." ORDER BY `date` DESC ";
+        $sql = "SELECT 
+					p.id as postId, 
+                    p.date as postDate, 
+                    p.content as postContent, 
+                    p.title as postTitle, 
+                    p.views as postViews,
+                    p.user_id as userId,
+                    u.name as userName, 
+                    c.name as categoryName
+				FROM posts as p
+				JOIN users as u
+					ON p.user_id = u.id
+				JOIN categories as c
+					ON p.category_id = c.id
+                WHERE p.title LIKE " . "'%" . $search. "%'" ." 
+                  OR p.content LIKE "  . "'%" . $search. "%'" ." 
+                ORDER BY `date` DESC ";
 
-        $posts = $this->mysqli->query($sql);
+        $postsDbResult = DBConnect::db()->query($sql);
 
-        $selectedPosts = [];
-        while ($album = $posts->fetch_assoc()) {
-            $postObj = new Post($album['title'], $album['content'], $album['user_id'], $album['category_id'], $album['date']);
+        $postCollection = [];
 
-            $selectedPosts[] = $postObj;
+        if($postsDbResult) {
+            while ($post = $postsDbResult->fetch_assoc()) {
+
+                $postCollection[] = Post::NewWithId( $post['postTitle'],
+                    $post['postContent'],
+                    $post['userName'],
+                    $post['categoryName'],
+                    $post['postDate'],
+                    $post['postId'],
+                    $post['postViews'],
+                    $post['userId']);
+            }
         }
 
-        return $selectedPosts;
+        return $postCollection;
     }
 
 

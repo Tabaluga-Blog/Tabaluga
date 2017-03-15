@@ -1,14 +1,15 @@
 <?php
 
-use DB\Database;
+use DB\DBConnect;
 use Services\PostServices\PostService;
 
-require_once "Services/PostServices/PostService.php";
-require_once('Data/Post.php');
+require_once(__DIR__ . "/../Data/User.php");
+require_once(__DIR__ . '/../Data/Post.php');
+require_once(__DIR__ . '/../Services/PostServices/PostService.php');
+require_once __DIR__ . '/../Access/notLogged.php';
 
-require 'Access/notLogged.php';
 
-require_once "Layout/header.php" ?>
+require_once "../header.php" ?>
 
 <!-- ===================================================== -->
 
@@ -17,11 +18,11 @@ require_once "Layout/header.php" ?>
 </h1>
 
 <div class="post-conatiner">
-    <!-- $post should be changed to an object of type Post -->
-    <?php
 
+    <?php
+//var_dump($_POST);exit;
     if (!isset($_POST['searchButton']) || empty(trim($_POST['searchField']))) {
-        header('Location: home.php');
+        //header('Location: /../home.php');
     }
 
     $searchedText = $_POST['searchField'];
@@ -32,13 +33,13 @@ require_once "Layout/header.php" ?>
 
     foreach($postCollection as $post) { ?>
         <div class="panel post panel-default">
-            <a href="/tabaluga/post.php?id=<?= $post->getId() ?>" class="panel-heading fill">
+            <a href="Post/post.php?id=<?= $post->getId() ?>" class="panel-heading fill">
                 <h4>
                     <?= $post->getTitle() ?>
 
                     <span class="pull-right">
                         <!-- Change to the category of the post -->
-                        <?=  ucfirst($post->getCategoryName()) ?>
+                        <?=  ucfirst($post->getCategory()) ?>
                     </span>
                 </h4>
             </a>
@@ -49,7 +50,8 @@ require_once "Layout/header.php" ?>
             </div>
             <div class="panel-footer">
                 <a href="#" class="user">
-                    <?= Database::getUserNameByID($post->getUser()) ?>
+                    <?= $post->getUser() ?>
+                    <p class="pull-right"> Views: <?= $post->getViews() ?> </p>
                 </a>
             </div>
         </div>
@@ -57,4 +59,4 @@ require_once "Layout/header.php" ?>
 </div>
 
 
-<?php require_once "Layout/footer.php" ?>
+<?php require_once "../footer.php" ?>

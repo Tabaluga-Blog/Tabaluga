@@ -6,7 +6,7 @@ use Data\Post;
 use Exception;
 use Services\PostServices\MakePostServiceInterface;
 
-require_once 'PostServiceInterfaces/MakePostServiceInterface.php';
+require_once 'PostServicesInterfaces/MakePostServiceInterface.php';
 
 require_once ( __DIR__ . "/../../Data/Post.php");
 
@@ -32,7 +32,7 @@ class MakePostService implements MakePostServiceInterface
             $result = $postService->makePost($userId, $title, $content, $category);
 
             if ($result) {
-                header("location: Home.php");
+                header("location: /../Home.php");
             }
         }
 

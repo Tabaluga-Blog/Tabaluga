@@ -4,6 +4,7 @@ use Services\PostServices\PostService;
 use Services\PostServices\MakePostService;
 
 require_once '../Data/User.php';
+require_once __DIR__ . '/../Services/PostServices/MakePostService.php';
 require_once '../Services/PostServices/PostService.php';
 require_once '../Access/notLogged.php';
 require_once '../header.php';
