@@ -6,9 +6,9 @@ use Services\CommentService;
 
 use Services\UserServices\UserService;
 
-require_once '../../Data/Comment.php';
-require_once '../CommentService.php';
-require_once '../UserServices/UserService.php';
+require __DIR__ . './../../../Data/Comment.php';
+require_once './../../CommentService.php';
+require_once './../../UserServices/UserService.php';
 
 
 $id = $_GET['id'];

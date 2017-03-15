@@ -1,3 +1,4 @@
+<script type="text/javascript" src="../Services/AJAX/JS/commentSystem.js"></script>
 
 <div class="panel panel-default">
     <div class="panel-heading mediumText text-center">
@@ -33,5 +34,5 @@
 <div id="comments" class="comments"> 
 </div> 
 <script type="text/javascript"> 
-    getComments(<?= $id ?>); 
+    getComments(<?= $id ?>, <?= $_SESSION['user']->getId() ?>); 
 </script>
