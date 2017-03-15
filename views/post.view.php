@@ -23,7 +23,7 @@
                         echo "|
                         <a href=\"/Post/editPost.php?id={$post->getId()}\"><i class=\"fa fa-pencil mediumText\" aria-hidden=\"true\"></i></a>
                         |
-                        <a href=\"/Post/edit.php?id={$post->getId()}\"><i class=\"fa fa-trash mediumText\" aria-hidden=\"true\"></i></a>";
+                        <i class=\"fa fa-trash mediumText\" id=\"prompt\" aria-hidden=\"true\"></i>";
                     }
                  ?>
             </p>
@@ -47,5 +47,13 @@
 <div id="comments" class="comments"> 
 </div> 
 <script type="text/javascript"> 
-    getComments(<?= $id ?>, <?= $_SESSION['user']->getId() ?>); 
+    getComments(<?= $id ?>, <?= $_SESSION['user']->getId() ?>);
+    
+    $("#prompt").on("click", function () {
+        var opt = confirm("You're about to delete your post.");
+        
+        if (opt == true) {
+            window.location.replace("/Post/delete.php?post_id=<?= $post->getId() ?>&user_id=<?= $post->getUserId() ?>");
+        }
+    });
 </script>

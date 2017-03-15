@@ -229,5 +229,13 @@ class PostService implements PostServiceInterface
         
         return $result;
     }
+    
+    public function deletePost($postId)
+    {
+        $sql = "DELETE FROM posts
+                WHERE id={$postId}";
+        
+        $result = DBConnect::db()->query($sql);
+    }
 
 }

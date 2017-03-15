@@ -130,6 +130,4 @@ class Post
     {
         $this->views = $views;
     }
-
-
 }
