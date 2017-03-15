@@ -18,7 +18,7 @@ foreach($allPosts as $post) { ?>
             </div>
         </div>
         <div class="panel-footer">
-            <a href="#" class="user">
+            <a href="../User/profile.php?id=<?= $post->getUserId() ?>" class="user">
                 <?= $post->getUser() ?>
                 <p class="pull-right"> Views: <?= $post->getViews() ?> </p>
             </a>
