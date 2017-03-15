@@ -19,15 +19,7 @@ $ms = new MessageService();
 if (isset($_POST['chat']) && !empty(trim($_POST['content'])))
 {
     $content = $_POST['content'];
-    $result = $ms->sendMessage((int)$loggedUser_id, (int)$receiver_id, $content);
-
-    if (!$result){
-        ?>
-            <div>
-               this msg cannot be send.
-            </div>
-        <?php
-    }
+    $result = $ms->sendMessage($loggedUser_id, $receiver_id, $content);
 }
 
 $messages = $ms->getUserMessages($receiver_id, $loggedUser_id);
