@@ -202,7 +202,15 @@ class PostService implements PostServiceInterface
         return $postCollection;
     }
 
+    public function addPostView($postId)
+    {
+        $sql = "UPDATE posts AS p
+                SET p.views = p.views+1
+                WHERE p.id = {$postId}";
+        $query = DBConnect::db()->query($sql);
 
+
+    }
 
 
 }
