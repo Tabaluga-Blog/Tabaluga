@@ -13,7 +13,7 @@ require_once("../header.php");
 
 
 <h1 class="text-center">
-    Posts
+    Posts of <?= $_SESSION['user']->getName(); ?>
 </h1>
 
 <div class="post-container">
