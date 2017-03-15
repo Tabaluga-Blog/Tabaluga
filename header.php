@@ -35,7 +35,7 @@
                   <input name="searchButton" type="submit" class="searchSubmit" value="Search">
               </form>
 
-                <a class="mediumText" href="/User/profile.php">
+                <a class="mediumText" href="/../User/profile.php?id=<?= $_SESSION['user']->getId(); ?>">
                     <span>  
                             <?= 
                                 htmlentities(substr($_SESSION['user']->getName(), 0, 7));

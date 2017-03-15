@@ -27,7 +27,7 @@ if (isset($_SESSION['user'])) {
         <div class="dropDown">
             <h3>Dashboard <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
             <div class="container">
-                <a href="/User/profile.php"><li>My posts</li></a>
+                <a href="/../User/profile.php?id=<?= $_SESSION['user']->getId(); ?>"><li>My posts</li></a>
                 <a href="#"><li>Favorite posts</li></a>
                 <a href="#"><li>Drafts</li></a>
             </div>

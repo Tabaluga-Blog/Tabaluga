@@ -129,7 +129,8 @@ class PostService implements PostServiceInterface
                 FROM posts as p
                 JOIN users as u ON u.id = p.user_id
                 JOIN categories as c ON c.id = p.category_id
-                WHERE u.id = {$userId}";
+                WHERE u.id = {$userId}
+                ORDER BY p.date DESC";
 
         $postsDbResult = DBConnect::db()->query($sql);
 
