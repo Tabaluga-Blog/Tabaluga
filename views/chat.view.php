@@ -1,6 +1,6 @@
 <div class="panel panel-default large centerBlock">
     <div class="panel-heading">
-        <h2 class="text-center">Jesus</h1>
+        <h2 class="text-center"><?= $receiver_name ?></h1>
     </div>
     
     <div class="panel-body chat">
