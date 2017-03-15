@@ -4,7 +4,7 @@ foreach($allPosts as $post) { ?>
     <div class="panel post panel-default">
         <a href="/Post/post.php?id=<?= $post->getId() ?>" class="panel-heading fill">
             <h4>
-                <?= $post->getTitle() ?>
+                <?= substr($post->getTitle(), 0, 30);   if(strlen($post->getTitle())>30){ echo "...";};?>
 
                 <span class="pull-right">
                         <!-- Change to the category of the post -->
@@ -14,7 +14,7 @@ foreach($allPosts as $post) { ?>
         </a>
         <div class="panel-body">
             <div class="post-content">
-                <?= substr($post->getContent(), 0 , 300);if(strlen($post->getContent())>300){ echo "...";}; ?>
+                <?= substr($post->getContent(), 0 , 300); if(strlen($post->getContent())>300){ echo "...";}; ?>
             </div>
         </div>
         <div class="panel-footer">
