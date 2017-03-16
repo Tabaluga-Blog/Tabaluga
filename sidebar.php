@@ -1,4 +1,7 @@
 <?php
+
+use Services\PostServices\PostService;
+
 if (isset($_SESSION['user'])) {
     ?>
 
@@ -46,12 +49,18 @@ if (isset($_SESSION['user'])) {
 
     <ul>
         <div class="dropDown">
-            <h3>Follows <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
+            <h3>Category <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
             <div class="container">
-                <a href="#"><li>My follows</li></a>
-                <a href="#"><li>My followers</li></a>
+                <?php
+                    $postService = new PostService();
+                    $categories = $postService->getCategories();
+
+                    foreach ($categories as $category) {
+                        ?> <a href="#"><li><?php echo $category['name']?></li></a> <?php
+                    }
+
+             ?>
             </div>
-        </div>
     </ul>
 </aside>
 <?php
