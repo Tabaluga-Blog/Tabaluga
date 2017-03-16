@@ -1,6 +1,6 @@
 <?php
 
-// use Services\PostServices\PostService;
+use Services\PostServices\PostService;
 use Services\PostServices\MakePostService;
 
 require_once '../Data/User.php';
@@ -9,7 +9,7 @@ require_once '../Services/PostServices/PostService.php';
 require_once '../Access/notLogged.php';
 require_once '../header.php';
 
-//$ps = new PostService();
+$ps = new PostService();
 $message = "";
 
 if (isset($_POST['submit'])) {
