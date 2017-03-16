@@ -43,7 +43,7 @@
             <h3 class="panel-title">Content:</h3>
         </div>
         <textarea required type="text" name="content" class="form-control noResize noRound" rows="12" placeholder="1. Jimmy &#10;2. Roger &#10;3. Etc. . ."></textarea>
-        
+
         <div class="panel-body">
             <select required class="custom-select fill bigText" name="category">
             <option disabled selected>Categories:</option>
@@ -56,11 +56,11 @@
                 ?>
             </select>
         </div>
-        
-        
+
+
         <div class="form-group fill centerBlock draftBtn-holder">
             <input type="checkbox"  name="fancy-checkbox-success" id="fancy-checkbox-success" autocomplete="off" />
-            
+
             <div class="btn-group">
                 <label for="fancy-checkbox-success" class="btn btn-success">
                     <span class="glyphicon glyphicon-ok"></span>
