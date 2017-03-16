@@ -31,7 +31,8 @@ if (isset($_SESSION['user'])) {
             <h3>Dashboard <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
             <div class="container">
                 <a href="/../User/profile.php?id=<?= $_SESSION['user']->getId(); ?>"><li>My posts</li></a>
-                <a href="/../Post/drafts.php"><li>Drafts</li></a>
+                <a href="#"><li>Favorite posts</li></a>
+                <a href="#"><li>Drafts</li></a>
             </div>
         </div>
     </ul>
@@ -48,18 +49,8 @@ if (isset($_SESSION['user'])) {
 
     <ul>
         <div class="dropDown">
-            <h3>Category <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
-            <div class="container">
-                <?php
-                    $postService = new PostService();
-                    $categories = $postService->getCategories();
-
-                    foreach ($categories as $category) {
-                        ?> <a href="#"><li><?php echo $category['name']?></li></a> <?php
-                    }
-
-             ?>
-            </div>
+            <a href="views/categories.view.php"><h3>Categories</h3></a>
+        </div>
     </ul>
 </aside>
 <?php
