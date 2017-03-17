@@ -273,4 +273,41 @@ class PostService implements PostServiceInterface
         }
         return $posts;
     }
+    
+    public function getPostsByCategoryId($id)
+    {
+        $sql = "SELECT 	p.id as postId, 
+                        p.date as postDate, 
+                        p.content as postContent, 
+                        p.title as postTitle, 
+                        p.views as postViews,
+                        p.user_id as userId,
+                        p.isDraft as draft,
+                        u.name as userName, 
+                        c.name as categoryName
+                FROM posts as p
+                JOIN users as u ON u.id = p.user_id
+                JOIN categories as c ON c.id = p.category_id
+                WHERE p.isDraft = 0 AND p.category_id = {$id}
+                ORDER BY postDate DESC";
+        
+        $results = DBConnect::db()->query($sql);
+        
+        $posts = [];
+        
+        if ($results) {
+            while ($post = $results->fetch_assoc()) {
+                $posts[] = Post::NewWithId( $post['postTitle'],
+                                            $post['postContent'],
+                                            $post['userName'],
+                                            $post['categoryName'],
+                                            $post['postDate'],
+                                            $post['postId'],
+                                            $post['postViews'],
+                                            $post['userId']);
+            }
+        }
+        
+        return $posts;
+    }
 }

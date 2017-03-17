@@ -31,13 +31,21 @@ require_once ("../header.php");
 <div class="post-container">
     <!-- $post should be changed to an object of type Post -->
     <?php
-        $categories = new PostService();
-
-       $allCategories = $categories->getCategories();
-    foreach ($allCategories as $category) {
-         ?> <a href="<?php $category['id'] ?>" class="btn btn-success btn-lg btn-block"><?php echo $category['name'] ?></a> <?php
-    }
-    ?>
+        if (!isset($_GET['category'])) {
+            foreach ($allCategories as $category) {
+                ?> <a href="/Post/category.php?category=<?= $category['id'] ?>" class="btn btn-success btn-lg xlarge btn-block"><?= $category['name'] ?></a> <?php
+            }
+        } else if ($_GET['category'] >= 1 && $_GET['category'] <= 8) { ?>
+            
+            <div class="post-container">
+                <?php
+                $ps = new PostService();
+            
+                $allPosts = $ps->getPostsByCategoryId($_GET['category']);
+            
+                require_once "../views/showPosts.view.php";
+                ?>
+            </div>
+    <?php  } ?>
 </div>
 <br>
-<?php require_once "../footer.php" ?>

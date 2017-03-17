@@ -49,7 +49,7 @@ if (isset($_SESSION['user'])) {
 
     <ul>
         <div class="dropDown">
-            <a href="views/categories.view.php"><h3>Categories</h3></a>
+            <a href="/Post/category.php"><h3>Categories</h3></a>
         </div>
     </ul>
 </aside>
