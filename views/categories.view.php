@@ -36,8 +36,6 @@ require_once ("../header.php");
                 ?> <a href="/Post/category.php?category=<?= $category['id'] ?>" class="btn btn-success btn-lg xlarge btn-block"><?= $category['name'] ?></a> <?php
             }
         } else if ($_GET['category'] >= 1 && $_GET['category'] <= 8) { ?>
-            
-            <div class="post-container">
                 <?php
                 $ps = new PostService();
             
@@ -45,7 +43,6 @@ require_once ("../header.php");
             
                 require_once "../views/showPosts.view.php";
                 ?>
-            </div>
     <?php  } ?>
 </div>
 <br>

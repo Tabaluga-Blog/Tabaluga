@@ -13,7 +13,7 @@ if (!isset($_GET['category'])) {
     $allCategories = $categories->getCategories();
     require_once '../views/categories.view.php';
     
-} elseif ( is_numeric($_GET['category']) && $_GET['category'] >= 1 && $_GET['category'] <= 8) {
+} elseif (is_numeric($_GET['category']) && $_GET['category'] >= 1 && $_GET['category'] <= 8) {
 
     require_once '../views/categories.view.php';
 
