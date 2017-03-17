@@ -50,10 +50,9 @@
                 <?php
                     $category = $ps->getCategories();
 
-                    foreach ($category as $cat){
-                        ?> <option value="<?php echo $cat['id']?>"> <?php echo ucfirst($cat['name'])?></option> <?php
-                    }
-                ?>
+                    foreach ($category as $cat) { ?>
+                         <option value="<?php echo $cat['id']?>"> <?php echo ucfirst($cat['name'])?></option> 
+                    <?php } ?>
             </select>
         </div>
         

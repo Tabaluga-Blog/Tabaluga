@@ -20,9 +20,9 @@
                 
                 <?php 
                     if ($_SESSION['user']->getId() == $post->getUserId()) {
-                        echo "|
+                        echo "<span>|</span>
                         <a href=\"/Post/editPost.php?id={$post->getId()}\"><i class=\"fa fa-pencil mediumText\" aria-hidden=\"true\"></i></a>
-                        |
+                        <span>|</span>
                         <i class=\"fa fa-trash mediumText\" id=\"prompt\" aria-hidden=\"true\"></i>";
                     }
                  ?>

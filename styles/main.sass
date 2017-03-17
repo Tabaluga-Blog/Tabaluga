@@ -145,7 +145,6 @@ button span
         padding-left: 50px
 
 .post-footer
-    
     h4
         display: flex
         flex-direction: row
@@ -153,11 +152,31 @@ button span
         justify-content: space-around
         
         p
-            width: 33%
+                
+            display: flex
+            flex-direction: row
+            justify-content: space-around
+            width: 20%
+            border-radius: 5px
             text-align: center
             min-width: 150px
             margin: 0
             
+            &:first-child
+                a, i
+                    transition: all 0.5s
+                    flex-grow: 1
+                    cursor: pointer
+                    color: black
+                    border-radius: 5px
+                    line-height: 30px
+                    height: 30px
+                    background: $hoverColor
+                    
+                    &:hover
+                        background-color: $mainColor
+            span
+                font-size: 25px
 .comment-form
     width: 50%
     margin: 0
