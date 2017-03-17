@@ -49,18 +49,8 @@ if (isset($_SESSION['user'])) {
 
     <ul>
         <div class="dropDown">
-            <h3>Category <span class="fa fa-arrow-circle-down" aria-hidden="true"></span></h3>
-            <div class="container">
-                <?php
-                    $postService = new PostService();
-                    $categories = $postService->getCategories();
-
-                    foreach ($categories as $category) {
-                        ?> <a href="#"><li><?php echo $category['name']?></li></a> <?php
-                    }
-
-             ?>
-            </div>
+            <a href="views/categories.view.php"><h3>Categories</h3></a>
+        </div>
     </ul>
 </aside>
 <?php
