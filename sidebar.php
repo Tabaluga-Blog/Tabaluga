@@ -32,7 +32,7 @@ if (isset($_SESSION['user'])) {
             <div class="container">
                 <a href="/../User/profile.php?id=<?= $_SESSION['user']->getId(); ?>"><li>My posts</li></a>
                 <a href="#"><li>Favorite posts</li></a>
-                <a href="#"><li>Drafts</li></a>
+                <a href="/../Post/drafts.php"><li>Drafts</li></a>
             </div>
         </div>
     </ul>
