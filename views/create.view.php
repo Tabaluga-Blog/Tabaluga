@@ -46,7 +46,6 @@
 
         <div class="panel-body">
             <select required class="custom-select fill bigText" name="category">
-            <option disabled selected>Categories:</option>
                 <?php
                     $category = $ps->getCategories();
 

@@ -10,11 +10,17 @@ require_once '../Access/notLogged.php';
 require_once '../header.php';
 
 
+
 $post_id = $_GET['id'];
 
 
 $ps = new PostService();
 $post = $ps->getPostById($post_id);
+
+if ($_SESSION['user']->getId() != $post->getUserId()) {
+    header("Location: /Home.php");
+}
+
 $message = "";
 
 if (isset($_POST['submit'])) {
